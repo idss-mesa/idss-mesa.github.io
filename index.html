@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MESA — Multidisciplinary Environment for Scientific Advancement</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* Template scaffolding — page layout and web-scale sizing only; every color,
+   font, radius and shadow comes from ../../styles.css. The voice is the
+   deck's, re-derived for a scrolling page: the grid SHOWS — 2px
+   rules draw the structure — red is spent as a mark, and its one field
+   moment is the poster close (the deck's divider logic: the red page sets
+   nothing small).
+
+   THE RHYTHM: a 28px leading unit (17px Archivo body at ~1.65), 14px
+   half-step; line-heights and block margins in unit multiples, heads
+   cap-trimmed, ?baselines/B to review. The deck's seat-pinning relaxes to
+   per-block discipline on a fluid page. The system's own interface
+   components (nav, buttons, inputs) keep their styles.css leading — the
+   rhythm governs the page's text, not the controls.
+
+   THE LANDING LAWS (shared by all six systems' landing templates):
+   #1 display headers break per sentence (.line spans); #2 the landing
+   advertises an invented product played straight — modernist's is Takt,
+   timetables that run like Switzerland; #3 spacing is cluster-scoped
+   (display leading ratio-governed ≈1.06 for Archivo's tight caps — the
+   display-block lattice exemption — tight single-unit gaps inside a text
+   cluster, the air between sections); #4 no hero eyebrow — the nav brand
+   names the product.
+
+   Optical left alignment: the deck's measured Archivo 800 value carries
+   verbatim (-0.058em where caps lead a display line; em-scaled). */
+:root {
+  --leading: 28px;
+  --half: 14px;
+  --edge: clamp(20px, 5vw, 72px);
+  --measure: 58ch;
+}
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; text-wrap: pretty; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--edge); }
+/* the component demo pads the masthead with its own spacing; on the page the
+   masthead's contents take the page gutter and sit on the wrap's text axis
+   (padding-only — full-width paint such as a masthead rule is untouched) */
+.nav { padding-inline: max(var(--edge), calc((100% - 1200px) / 2 + var(--edge))); }
+.nav a { white-space: nowrap; }
+.nav a[aria-current='location'] { color: var(--color-accent); } /* in-page anchor, not
+   a page link — 'location' is the truthful value; carry the component's active ink */
+@media (max-width: 480px) { .nav a { display: none; } } /* phone width: the nav
+   keeps brand + the one action (layout-only — the component's look is
+   untouched); the full link row's min-content crosses narrow-phone widths */
+
+/* — drawn structure: the 2px rule is the section seam (the deck's header
+   band as page grammar; rules span the content column, solid — this system
+   does not fade its rules) — */
+.rule2 { height: 2px; border: 0; margin: 0; background: var(--color-divider); }
+
+/* — kicker (deck grammar: uppercase, tabular, accent; no hanging dash —
+   modernist marks are squares, and they belong to lists, not labels) — */
+.kicker {
+  display: block; font-size: 13px; line-height: var(--half);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-accent-700); /* accent-colored SMALL text takes the deep step —
+     6.4:1, where the base accent measures 3.8:1 (a large-text value; the
+     deck's kickers are 24px, this one is 13px) */
+  font-feature-settings: "tnum" 1;
+  margin: 0 0 calc(var(--leading) - var(--half));
+}
+
+/* — hero — */
+.hero { padding: calc(4 * var(--leading)) 0 calc(3 * var(--leading)); }
+.display {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: clamp(42px, 6.2vw, 84px);
+  line-height: clamp(44.5px, 6.57vw, 89px); /* law #3: ratio-governed ≈1.06 —
+     Archivo's 800 sits tight and all-cap-height; the display-block lattice
+     exemption (no 14px step is both tighter than the old look and clear) */
+  letter-spacing: -0.02em; margin: 0;
+  margin-left: -0.058em; /* optical left alignment — the deck's measured Archivo 800 value */
+  text-box: trim-both cap alphabetic;
+}
+.display .line { display: block; } /* law #1: one sentence per line */
+.hero .sub { font-size: 17px; line-height: var(--leading); max-width: var(--measure);
+  margin: calc(1.5 * var(--leading) - 1cap) 0 0;
+  text-box: trim-both cap alphabetic; } /* 1.5 units: clears the display's descenders with cluster-tight air (law #3) */
+.hero .row { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--leading); }
+
+/* — the five layers (the overview graphic re-set natively: ruled rows, the
+   deck's toc grammar — number, layer, its technologies) — */
+.layers { padding: calc(2.5 * var(--leading)) 0; }
+.layer { display: grid; grid-template-columns: minmax(48px, 96px) minmax(0, 300px) minmax(0, 1fr);
+  gap: var(--half) clamp(24px, 4vw, 72px); align-items: baseline;
+  padding: var(--leading) 0; }
+.layer + .layer { border-top: 2px solid var(--color-divider); }
+.l-num { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 15px; line-height: var(--leading); font-feature-settings: "tnum" 1;
+  margin: 0; text-box: trim-both cap alphabetic; }
+.l-title { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 20px; line-height: var(--leading); letter-spacing: -0.01em;
+  margin: 0; text-box: trim-both cap alphabetic; }
+.l-tech { font-size: 15px; line-height: var(--leading); margin: 0;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+  font-feature-settings: "tnum" 1; text-box: trim-both cap alphabetic; }
+@media (max-width: 720px) { .layer { grid-template-columns: 48px 1fr; } .l-tech { grid-column: 2; } }
+
+/* — stat row (in-grammar: red stays a MARK on the light ground — the stat
+   numerals take the accent at display size, ≥3:1 as large text per the
+   system's own accent rule; the red FIELD is reserved for the close) — */
+.stats { padding: calc(2.5 * var(--leading)) 0; }
+.stats .grid { display: grid; grid-template-columns: repeat(4, auto); justify-content: space-between; gap: calc(1.5 * var(--leading)) var(--leading); }
+.stat-num { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: clamp(34px, 3.4vw, 48px); line-height: calc(2 * var(--leading));
+  color: var(--color-accent); /* display figures stay proportional — the deck's figure policy */
+  margin: 0; margin-left: -0.045em; /* digits lead — the deck's "0"-population value */
+  text-box: trim-both cap alphabetic; }
+.stat-label { font-size: 13px; line-height: var(--half); letter-spacing: 0.08em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent); /* small-text ink on the
+     light ground: 70% measures 5.8:1 (the deck's 55% furniture mix is a
+     24px large-text convention — at 13px the 4.5:1 bar applies, and 55%
+     measures only 3.7:1 here) */
+  margin: var(--half) 0 0; }
+
+/* — feature rows (the deck's ruled-toc grammar: 2px rules ON the seams,
+   red square marks hanging at the numbers — drawn structure, no cards) — */
+.features { padding: calc(3 * var(--leading)) 0 calc(2.5 * var(--leading)); }
+.feature { display: grid; grid-template-columns: minmax(64px, 160px) minmax(0, 420px) minmax(0, 1fr);
+  gap: var(--leading) clamp(24px, 4vw, 72px); align-items: baseline;
+  padding: calc(1.5 * var(--leading)) 0; }
+.feature + .feature { border-top: 2px solid var(--color-divider); } /* the ruled seam — solid, the system's weight */
+.f-num { position: relative; font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 15px; line-height: var(--leading); color: var(--color-text);
+  font-feature-settings: "tnum" 1; margin: 0; text-box: trim-both cap alphabetic; }
+.f-num::before { content: ""; position: absolute; left: -24px; top: calc(0.5cap - 5px);
+  width: 10px; height: 10px; background: var(--color-accent); } /* the deck's 10px red square,
+     hanging left of the number's axis — at narrow widths the gutter folds it away */
+@media (max-width: 1280px) { .f-num::before { display: none; } }
+.f-title { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 24px; line-height: var(--leading); letter-spacing: -0.01em;
+  margin: 0; text-box: trim-both cap alphabetic; }
+.f-copy { font-size: 15.5px; line-height: var(--leading); margin: 0;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+  max-width: 52ch; text-box: trim-both cap alphabetic; }
+
+/* — the stack today (install one-liner + the four servers; the code block
+   is drawn structure — a 2px-ruled box, mono, flush left, no fill drama) — */
+.stack { padding: calc(2.5 * var(--leading)) 0 calc(3 * var(--leading)); }
+.stack-title { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 32px; line-height: calc(1.5 * var(--leading)); letter-spacing: -0.015em;
+  margin: 0; text-box: trim-both cap alphabetic; }
+.stack .note { font-size: 15.5px; line-height: var(--leading);
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+  margin: calc(var(--leading) - 1cap) 0 0; max-width: var(--measure); text-box: trim-both cap alphabetic; }
+.code { border: 2px solid var(--color-divider); background: var(--color-neutral-100);
+  margin: calc(1.5 * var(--leading)) 0 0; padding: var(--leading) var(--space-4);
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 14.5px; line-height: var(--leading); overflow-x: auto; white-space: pre; }
+.code .prompt { color: var(--color-accent); user-select: none; }
+.stack .table { margin-top: calc(1.5 * var(--leading)); }
+.stack .table a { color: var(--color-text); }
+.stack .table a:hover { color: var(--color-accent-700); }
+
+/* — imagery split (grayscale photograph — the system prints in black and
+   white; the box pins the bundled asset's 951×665 ratio so swaps
+   cover-crop into the same frame) — */
+.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--leading) clamp(24px, 5vw, 96px); align-items: center;
+  padding: calc(2 * var(--leading)) 0 calc(3 * var(--leading)); }
+.split-title { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 32px; line-height: calc(1.5 * var(--leading)); letter-spacing: -0.015em;
+  margin: 0; text-box: trim-both cap alphabetic; }
+.split-copy .note { font-size: 15.5px; line-height: var(--leading);
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+  margin: calc(var(--leading) - 1cap) 0 0; max-width: 48ch; text-box: trim-both cap alphabetic; }
+.split-figure { margin: 0; }
+.split-figure image-slot { width: 100%; aspect-ratio: 951 / 665; }
+
+/* — team grid (photographs print black and white per the system; ruled top
+   seam, names in the heading weight, roles as small furniture ink) — */
+.team { padding: calc(2.5 * var(--leading)) 0 calc(3 * var(--leading)); }
+.team .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: calc(1.5 * var(--leading)) var(--leading); margin-top: var(--leading); }
+.person img, .person image-slot { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+.person image-slot { --is-radius: 0; }
+.p-name { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 16px; line-height: var(--half); letter-spacing: -0.01em;
+  margin: var(--leading) 0 0; text-box: trim-both cap alphabetic; }
+.p-role { font-size: 13px; line-height: 18px; letter-spacing: 0.04em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+  margin: var(--half) 0 0; }
+
+/* — kick-off callout (the announcement rides the quote's display slot —
+   type does the work, red stays a mark) — */
+.kickoff { padding: calc(2.5 * var(--leading)) 0 calc(3.5 * var(--leading)); }
+.kickoff h2 { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: clamp(24px, 2.6vw, 34px); line-height: calc(1.5 * var(--leading));
+  letter-spacing: -0.015em; max-width: 34ch; margin: 0; text-box: trim-both cap alphabetic; }
+.kickoff .note a { color: var(--color-accent-700); }
+.kickoff .note a:hover { color: var(--color-accent-600); }
+.kickoff .note { font-size: 15.5px; line-height: var(--leading);
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+  margin: calc(var(--leading) - 1cap) 0 0; max-width: var(--measure); text-box: trim-both cap alphabetic; }
+
+/* — quote (hanging punctuation, the deck's measured Archivo advances) — */
+.quote { padding: calc(2.5 * var(--leading)) 0 calc(3.5 * var(--leading)); }
+.quote blockquote {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: clamp(24px, 2.6vw, 34px); line-height: calc(1.5 * var(--leading));
+  letter-spacing: -0.015em; max-width: 32ch; margin: 0;
+  text-indent: -0.496em; /* hang the opening “ (the deck's measured advance in the 800) */
+  text-box: trim-both cap alphabetic;
+}
+.quote figcaption { font-size: 15.5px; line-height: var(--leading);
+  color: color-mix(in srgb, var(--color-text) 70%, transparent); /* 5.8:1 — see .stat-label */
+  margin: calc(2 * var(--leading) - 1cap) 0 0; /* two grid units below the quote's
+     last baseline — one reads as part of the quote block; the attribution needs air */
+  text-indent: -1.209em; /* hang the leading em-dash + space (measured in the Regular) */
+  text-box: trim-both cap alphabetic; }
+
+@media (max-width: 720px) {
+  /* the phone gutter (--edge bottoms out at 20px) is narrower than the hung
+     marks' measured advances, so a hung “ or em-dash would press into or past
+     the viewport edge — seat the quote flush below this width; the hang
+     returns with the wider gutter */
+  .quote blockquote, .quote figcaption { text-indent: 0; }
+}
+
+/* — the red poster close (the deck's divider logic: the accent's one field
+   moment, type reversed to the paper token). COPY on the red is
+   display-grade only — paper display type measures 3.8:1, the deck
+   dividers' own derivation. The one small element is the ghost button, a
+   CONTROL: paper-on-red measures the same 3.8:1, which meets the system's
+   documented interface-chrome bar (the readme tunes the accent pair to at
+   least 3:1 — "enough for icons, large text and interface chrome, not for
+   body copy") — the same bar the system's own accent-filled primary button
+   label rides everywhere. */
+.close { background: var(--color-accent); color: var(--color-bg); }
+.close .wrap { padding-top: calc(3 * var(--leading)); padding-bottom: calc(3 * var(--leading)); }
+.close h3 { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: clamp(34px, 4.2vw, 56px); line-height: clamp(36px, 4.45vw, 59.4px); /* ≈1.06 —
+     display-grade, so it carries the display-block lattice exemption (the
+     rhythm probe excludes .display and .close h3 alike) */
+  letter-spacing: -0.015em; margin: 0; margin-left: -0.058em;
+  text-box: trim-both cap alphabetic; }
+.close h3 .line { display: block; }
+.close .row { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: calc(1.5 * var(--leading)); }
+.close .btn-ghost { color: var(--color-bg); border-color: var(--color-bg); } /* paper outline on the red field */
+footer { padding: calc(2 * var(--leading)) 0; font-size: 13px; line-height: var(--leading);
+  color: color-mix(in srgb, var(--color-text) 70%, transparent); /* 5.8:1 — see .stat-label */ }
+
+/* — responsive collapse — */
+/* the feature grid's fixed-max columns (160 + 420 + gaps) crush the copy
+   column in the tablet band, so it collapses earlier than the page */
+@media (max-width: 880px) {
+  .feature { grid-template-columns: 1fr; gap: var(--half); }
+  .f-copy { max-width: var(--measure); }
+}
+@media (max-width: 720px) {
+  .hero { padding-top: calc(2.5 * var(--leading)); }
+  .stats .grid { grid-template-columns: repeat(2, 1fr); justify-content: start; }
+  .split { grid-template-columns: 1fr; }
+  .split-figure { order: -1; }
+}
+
+/* Review aid: the 28px rhythm drawn as hairlines — debug chrome, toggled by
+   ?baselines or the B key, never part of the look. */
+body[data-baselines] { position: relative; }
+body[data-baselines]::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    repeating-linear-gradient(to bottom,
+      color-mix(in srgb, var(--color-accent) 35%, transparent) 0 1px,
+      transparent 1px var(--leading)),
+    repeating-linear-gradient(to bottom,
+      transparent 0 var(--half),
+      color-mix(in srgb, var(--color-accent) 16%, transparent) var(--half) calc(var(--half) + 1px),
+      transparent calc(var(--half) + 1px) var(--leading));
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <span class="nav-brand">MESA</span>
+  <a href="#platform" aria-current="location">Platform</a>
+  <a href="#stack">Stack</a>
+  <a href="#team">Team</a>
+  <a href="#kickoff">Kick-off</a>
+  <a href="hiring.html">We’re hiring</a>
+  <a class="btn btn-primary" href="https://idss-mesa.github.io/mesa/">Read the docs</a>
+</nav>
+<div class="wrap">
+
+  <section class="hero">
+    <h1 class="display"><span class="line">Ask the question.</span> <span class="line">MESA finds the data.</span></h1>
+    <p class="sub">MESA — the Multidisciplinary Environment for Scientific Advancement — is an open-source, agentic AI platform that connects scientific data through curated, indexed metadata. A data lakehouse, a federated data mesh, and AI agents that speak both, running on national research infrastructure today.</p>
+    <div class="row">
+      <a class="btn btn-primary" href="https://idss-mesa.github.io/mesa/">Read the docs</a>
+      <a class="btn btn-ghost" href="https://github.com/idss-mesa">github.com/idss-mesa</a>
+    </div>
+  </section>
+
+  <hr class="rule2" />
+
+  <section class="layers" id="platform" aria-label="Five integrated layers">
+    <span class="kicker">Five integrated layers</span>
+    <div class="layer"><p class="l-num">01</p><h2 class="l-title">User interface</h2><p class="l-tech">Laptop · Desktop · K8s container</p></div>
+    <div class="layer"><p class="l-num">02</p><h2 class="l-title">Agentic AI</h2><p class="l-tech">MCP · RAG · Agents · Reasoning · Sandboxing</p></div>
+    <div class="layer"><p class="l-num">03</p><h2 class="l-title">Data management</h2><p class="l-tech">Data Lakehouse (DuckLake) · Data Mesh (iRODS)</p></div>
+    <div class="layer"><p class="l-num">04</p><h2 class="l-title">Compute</h2><p class="l-tech">CyVerse · TACC · ACCESS-CI · NAIRR</p></div>
+    <div class="layer"><p class="l-num">05</p><h2 class="l-title">Object storage</h2><p class="l-tech">S3 · OSN · VAST · Lustre</p></div>
+  </section>
+
+  <hr class="rule2" />
+
+  <section class="features" id="goals">
+    <span class="kicker">Three innovation goals</span>
+    <div class="feature">
+      <p class="f-num">01</p>
+      <h2 class="f-title">Open-source data lakehouse</h2>
+      <p class="f-copy">Analytical tables over open formats — DuckLake, Apache Iceberg, Parquet — with time-travel versioning built in. Query five petabytes like a database, and rewind any table to the state it held when the paper was submitted.</p>
+    </div>
+    <div class="feature">
+      <p class="f-num">02</p>
+      <h2 class="f-title">Federated iRODS data mesh</h2>
+      <p class="f-copy">One policy engine across the CyVerse Data Store and its federated peers, with CILogon, Globus Auth, and ORCID handling identity. The lakehouse and the mesh interoperate — your data stays where it lives, and still shows up where you work.</p>
+    </div>
+    <div class="feature">
+      <p class="f-num">03</p>
+      <h2 class="f-title">Agentic AI orchestration</h2>
+      <p class="f-copy">Self-hosted LLM serving on vLLM, RAG pipelines over curated metadata, and an MCP server framework with sandboxed, multi-agent orchestration. Agents that find, describe, and move scientific data — with the guardrails written first.</p>
+    </div>
+  </section>
+
+  <section class="stack" id="stack">
+    <span class="kicker">The stack, today</span>
+    <h2 class="stack-title">One line. Four servers. No credentials required.</h2>
+    <p class="note">MESA is not a promise — the MCP stack is public and installs now. One command clones, builds, and registers four CyVerse servers in Claude Code; anonymous public access to the Data Store works out of the box.</p>
+    <div class="code"><span class="prompt">$</span> curl -fsSL https://raw.githubusercontent.com/idss-mesa/mesa/main/install.sh | bash</div>
+    <table class="table">
+      <thead><tr><th>Server</th><th>Language</th><th>Role</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://github.com/idss-mesa/mesa-mcp">mesa-mcp</a></td><td>Python</td><td>iRODS Data Store + OBO/OLS ontology metadata, DataCite, DuckLake history</td></tr>
+        <tr><td><a href="https://github.com/idss-mesa/mesa-ducklake">mesa-ducklake</a></td><td>Python</td><td>AVU metadata-history library backing mesa-mcp</td></tr>
+        <tr><td><a href="https://github.com/idss-mesa/irods-mcp-server">irods-mcp-server</a></td><td>Go</td><td>Reference iRODS Data Store server</td></tr>
+        <tr><td><a href="https://github.com/idss-mesa/formation-mcp">formation-mcp</a></td><td>Go</td><td>CyVerse Discovery Environment — launch apps, manage analyses</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="team" id="team">
+    <span class="kicker">The team</span>
+    <div class="grid">
+      <div class="person"><div class="grayscale"><img src="assets/team/tyson_swetnam.png" alt="Portrait of Tyson L. Swetnam"></div><p class="p-name">Tyson L. Swetnam, Ph.D.</p><p class="p-role">Principal Investigator · UNM</p></div>
+      <div class="person"><div class="grayscale"><img src="assets/team/barney_maccabe.png" alt="Portrait of Arthur B. Maccabe"></div><p class="p-name">Arthur B. Maccabe, Ph.D.</p><p class="p-role">Co-PI · Arizona site lead</p></div>
+      <div class="person"><div class="grayscale"><img src="assets/team/david_ebert.jpg" alt="Portrait of David Ebert"></div><p class="p-name">David Ebert, Ph.D.</p><p class="p-role">Co-PI · Chief AI &amp; Data Science Officer · Arizona</p></div>
+      <div class="person"><div class="grayscale"><img src="assets/team/lei_cao.webp" alt="Portrait of Lei Cao"></div><p class="p-name">Lei Cao, Ph.D.</p><p class="p-role">Co-PI · Lakehouse lead · Arizona</p></div>
+      <div class="person"><div class="grayscale"><img src="assets/team/terrell_russell.avif" alt="Portrait of Terrell Russell"></div><p class="p-name">Terrell Russell, Ph.D.</p><p class="p-role">Co-PI · Data Mesh Lead · RENCI Site Lead</p></div>
+      <div class="person"><div class="grayscale"><img src="assets/team/illyoung_choi.jpeg" alt="Portrait of Illyoung Choi"></div><p class="p-name">Illyoung Choi, Ph.D.</p><p class="p-role">Research Software Engineer · Arizona</p></div>
+      <div class="person"><div class="grayscale"><img src="assets/team/kory_draughn.avif" alt="Portrait of Kory Draughn"></div><p class="p-name">Kory Draughn</p><p class="p-role">Chief Technologist · RENCI</p></div>
+      <div class="person"><div class="grayscale"><img src="assets/team/sarah_roberts.webp" alt="Portrait of Sarah Roberts"></div><p class="p-name">Sarah Roberts</p><p class="p-role">Research Software Engineer · Arizona</p></div>
+      <div class="person"><div class="grayscale"><img src="assets/team/tony_edgin.jpeg" alt="Portrait of Tony Edgin"></div><p class="p-name">Tony Edgin</p><p class="p-role">Data Curator · Arizona</p></div>
+      <div class="person"><div class="grayscale"><img src="assets/team/edwin_skidmore.webp" alt="Portrait of Edwin Skidmore"></div><p class="p-name">Edwin Skidmore</p><p class="p-role">Cloud Orchestration / Infrastructure · CyVerse</p></div>
+      <div class="person"><div class="grayscale"><img src="assets/team/greg_chism.png" alt="Portrait of Greg Chism"></div><p class="p-name">Greg Chism, Ph.D.</p><p class="p-role">EOT Lead · Senior Personnel · Arizona</p></div>
+      <div class="person"><div class="grayscale"><img src="assets/team/jingdi_chen.png" alt="Portrait of Jingdi Chen"></div><p class="p-name">Jingdi Chen, Ph.D.</p><p class="p-role">5G/6G Networking · Arizona</p></div>
+      <div class="person"><div class="grayscale"><img src="assets/team/ck_chan.png" alt="Portrait of CK Chan"></div><p class="p-name">CK Chan, Ph.D.</p><p class="p-role">Astronomer · Arizona</p></div>
+      <div class="person"><div class="grayscale"><img src="assets/team/wolfgang_jentner.png" alt="Portrait of Wolfgang Jentner"></div><p class="p-name">Wolfgang Jentner, Ph.D.</p><p class="p-role">Human-Computer Interaction · Arizona</p></div>
+      <div class="person"><div class="grayscale"><img src="assets/team/junjia_guo.png" alt="Portrait of Junjia Guo"></div><p class="p-name">Junjia Guo</p><p class="p-role">PhD Student · Arizona</p></div>
+      <div class="person"><div class="grayscale"><img src="assets/team/pengxin_wang.png" alt="Portrait of Pengxin Wang"></div><p class="p-name">Pengxin Wang</p><p class="p-role">PhD Student · Arizona</p></div>
+    </div>
+  </section>
+
+  <hr class="rule2" />
+
+  <section class="kickoff" id="kickoff">
+    <span class="kicker">News</span>
+    <h2>MESA kicks off with NSF IDSS, July 2026.</h2>
+    <p class="note">The project team convenes with the NSF Integrated Data Systems &amp; Services program for the MESA kick-off meeting — the University of New Mexico, the University of Arizona, and UNC-CH/RENCI, setting the two-year prototype baseline in motion.</p>
+    <p class="note">Also new: co-investigator CK Chan, Ph.D. worked with OpenAI on <a href="https://openai.com/index/using-codex-to-simulate-black-holes/">using Codex to simulate black holes</a> — a look at agentic coding against Event Horizon Telescope science.</p>
+  </section>
+
+</div>
+
+<section class="close" id="start">
+  <div class="wrap">
+    <h3><span class="line">Reducing time to discovery.</span></h3>
+    <div class="row">
+      <a class="btn btn-ghost" href="https://idss-mesa.github.io/mesa/quickstart/">Start with the quickstart</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>MESA is supported by the U.S. National Science Foundation under Award #2608717 (Integrated Data Systems &amp; Services, 2026–2029). Any opinions, findings, and conclusions are those of the authors and do not necessarily reflect the views of the NSF. · University of New Mexico · University of Arizona · UNC-Chapel Hill / RENCI</footer>
+</div>
+</body>
+</html>
