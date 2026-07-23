@@ -160,6 +160,14 @@ body { margin: 0; text-wrap: pretty; }
 .stack .table { margin-top: calc(1.5 * var(--leading)); }
 .stack .table a { color: var(--color-text); }
 .stack .table a:hover { color: var(--color-accent-700); }
+/* — featured-connectors sub-block: the sub-head rides the feature-title scale,
+   everything else reuses the section's drawn structure (ruled table, code box) — */
+.stack .sub { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 24px; line-height: var(--leading); letter-spacing: -0.01em;
+  margin: calc(2.5 * var(--leading)) 0 0; text-box: trim-both cap alphabetic; }
+.stack .note a { color: var(--color-accent-700); } /* small-text link ink — base accent
+   is a large-text value; see .kicker */
+.stack .note a:hover { color: var(--color-accent-600); }
 
 /* — imagery split (grayscale photograph — the system prints in black and
    white; the box pins the bundled asset's 951×665 ratio so swaps
@@ -287,7 +295,7 @@ body[data-baselines]::after {
   <a href="#team">Team</a>
   <a href="#kickoff">Kick-off</a>
   <a href="hiring.html">We’re hiring</a>
-  <a class="btn btn-primary" href="https://idss-mesa.github.io/mesa/">Read the docs</a>
+  <a class="btn btn-primary" href="https://idss-mesa.github.io/docs/">Read the docs</a>
 </nav>
 <div class="wrap">
 
@@ -295,7 +303,7 @@ body[data-baselines]::after {
     <h1 class="display"><span class="line">Ask the question.</span> <span class="line">MESA finds the data.</span></h1>
     <p class="sub">MESA — the Multidisciplinary Environment for Scientific Advancement — is an open-source, agentic AI platform that connects scientific data through curated, indexed metadata. A data lakehouse, a federated data mesh, and AI agents that speak both, running on national research infrastructure today.</p>
     <div class="row">
-      <a class="btn btn-primary" href="https://idss-mesa.github.io/mesa/">Read the docs</a>
+      <a class="btn btn-primary" href="https://idss-mesa.github.io/docs/">Read the docs</a>
       <a class="btn btn-ghost" href="https://github.com/idss-mesa">github.com/idss-mesa</a>
     </div>
   </section>
@@ -336,7 +344,7 @@ body[data-baselines]::after {
     <span class="kicker">The stack, today</span>
     <h2 class="stack-title">One line. Four servers. No credentials required.</h2>
     <p class="note">MESA is not a promise — the MCP stack is public and installs now. One command clones, builds, and registers four CyVerse servers in Claude Code; anonymous public access to the Data Store works out of the box.</p>
-    <div class="code"><span class="prompt">$</span> curl -fsSL https://raw.githubusercontent.com/idss-mesa/mesa/main/install.sh | bash</div>
+    <div class="code"><span class="prompt">$</span> curl -fsSL https://raw.githubusercontent.com/idss-mesa/docs/main/install.sh | bash</div>
     <table class="table">
       <thead><tr><th>Server</th><th>Language</th><th>Role</th></tr></thead>
       <tbody>
@@ -346,6 +354,19 @@ body[data-baselines]::after {
         <tr><td><a href="https://github.com/idss-mesa/formation-mcp">formation-mcp</a></td><td>Go</td><td>CyVerse Discovery Environment — launch apps, manage analyses</td></tr>
       </tbody>
     </table>
+    <h3 class="sub">Featured connectors. Nothing to install.</h3>
+    <p class="note">The Data Store and Discovery Environment servers also run hosted, as remote MCP connectors — no local build, no toolchain. In Claude Desktop or claude.ai, open Settings → Connectors → Add custom connector, name the connector, paste its endpoint URL, and authenticate when prompted. A connector added to your claude.ai organization follows you everywhere Claude runs: Claude Desktop, claude.ai, and Claude Code on the web.</p>
+    <table class="table">
+      <thead><tr><th>Connector</th><th>Server</th><th>What it opens</th></tr></thead>
+      <tbody>
+        <tr><td>cyverse-irods-shared</td><td><a href="https://github.com/idss-mesa/irods-mcp-server">irods-mcp-server</a></td><td>CyVerse Data Store — public collections under /iplant/home/shared, anonymous read</td></tr>
+        <tr><td>cyverse-formation</td><td><a href="https://github.com/idss-mesa/formation-mcp">formation-mcp</a></td><td>Discovery Environment — browse data, launch apps, track analyses</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Claude Code registers the same endpoints from the terminal:</p>
+    <div class="code"><span class="prompt">$</span> claude mcp add --transport http irods https://IRODS-ENDPOINT/mcp
+<span class="prompt">$</span> claude mcp add --transport http formation https://FORMATION-ENDPOINT/mcp</div>
+    <p class="note">Swap in the current endpoint URLs from the <a href="https://idss-mesa.github.io/docs/">docs</a>, which also cover credentialed access, running either server locally in Claude Desktop via claude_desktop_config.json, and self-hosting the endpoints.</p>
   </section>
 
   <section class="team" id="team">
@@ -389,7 +410,7 @@ body[data-baselines]::after {
   <div class="wrap">
     <h3><span class="line">Reducing time to discovery.</span></h3>
     <div class="row">
-      <a class="btn btn-ghost" href="https://idss-mesa.github.io/mesa/quickstart/">Start with the quickstart</a>
+      <a class="btn btn-ghost" href="https://idss-mesa.github.io/docs/quickstart/">Start with the quickstart</a>
     </div>
   </div>
 </section>
