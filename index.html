@@ -256,6 +256,8 @@ body { margin: 0; text-wrap: pretty; }
 .close .btn-ghost { color: var(--color-bg); border-color: var(--color-bg); } /* paper outline on the red field */
 footer { padding: calc(2 * var(--leading)) 0; font-size: 13px; line-height: var(--leading);
   color: color-mix(in srgb, var(--color-text) 70%, transparent); /* 5.8:1 — see .stat-label */ }
+footer a { color: var(--color-accent-700); } /* small-text link ink — see .kicker */
+footer a:hover { color: var(--color-accent-600); }
 
 /* — responsive collapse — */
 /* the feature grid's fixed-max columns (160 + 420 + gaps) crush the copy
@@ -416,7 +418,7 @@ body[data-baselines]::after {
 </section>
 
 <div class="wrap">
-  <footer>MESA is supported by the U.S. National Science Foundation under Award #2608717 (Integrated Data Systems &amp; Services, 2026–2029). Any opinions, findings, and conclusions are those of the authors and do not necessarily reflect the views of the NSF. · University of New Mexico · University of Arizona · UNC-Chapel Hill / RENCI</footer>
+  <footer>MESA is supported by the U.S. National Science Foundation under <a href="https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2632685">Award #2632685</a> (Integrated Data Systems &amp; Services, 2026–2029). Any opinions, findings, and conclusions are those of the authors and do not necessarily reflect the views of the NSF. · University of New Mexico · University of Arizona · UNC-Chapel Hill / RENCI</footer>
 </div>
 </body>
 </html>

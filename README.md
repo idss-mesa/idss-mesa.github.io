@@ -1,6 +1,6 @@
 # idss-mesa.github.io
 
-Landing site for **MESA — Multidisciplinary Environment for Scientific Advancement** (NSF Award #2608717, Integrated Data Systems & Services).
+Landing site for **MESA — Multidisciplinary Environment for Scientific Advancement** (NSF Award [#2632685](https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2632685), Integrated Data Systems & Services).
 
 Static HTML/CSS, no build step.
 
