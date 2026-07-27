@@ -227,6 +227,12 @@ body { margin: 0; text-wrap: pretty; }
 .kickoff .note { font-size: 15.5px; line-height: var(--leading);
   color: color-mix(in srgb, var(--color-text) 78%, transparent);
   margin: calc(var(--leading) - 1cap) 0 0; max-width: var(--measure); text-box: trim-both cap alphabetic; }
+.kickoff .item + .item { border-top: 2px solid var(--color-divider);
+  margin-top: calc(2 * var(--leading)); padding-top: calc(2 * var(--leading)); } /* the ruled
+   seam — news items take the page's repeated-unit grammar */
+.kickoff .shot { margin: calc(1.5 * var(--leading)) 0 0; max-width: 640px; }
+.kickoff .shot img { width: 100%; display: block; border: 2px solid var(--color-divider); } /* drawn
+   frame; the image prints black and white via .grayscale, per the system */
 
 /* — quote (hanging punctuation, the deck's measured Archivo advances) — */
 .quote { padding: calc(2.5 * var(--leading)) 0 calc(3.5 * var(--leading)); }
@@ -419,9 +425,22 @@ body[data-baselines]::after {
 
   <section class="kickoff" id="kickoff">
     <span class="kicker">News</span>
-    <h2>MESA kicks off with NSF IDSS, July 2026.</h2>
-    <p class="note">The project team convenes with the NSF Integrated Data Systems &amp; Services program for the MESA kick-off meeting — the University of New Mexico, the University of Arizona, and UNC-CH/RENCI, setting the two-year prototype baseline in motion.</p>
-    <p class="note">Also new: co-investigator CK Chan, Ph.D. worked with OpenAI on <a href="https://openai.com/index/using-codex-to-simulate-black-holes/">using Codex to simulate black holes</a> — a look at agentic coding against Event Horizon Telescope science.</p>
+    <div class="item">
+      <h2>MESA kicks off with NSF IDSS, July 2026.</h2>
+      <p class="note">The project team convenes with the NSF Integrated Data Systems &amp; Services program for the MESA kick-off meeting — the University of New Mexico, the University of Arizona, and UNC-CH/RENCI, setting the two-year prototype baseline in motion.</p>
+    </div>
+    <div class="item">
+      <h2>Creating new simulations of black holes, with OpenAI.</h2>
+      <p class="note">Co-investigator CK Chan, Ph.D. worked with OpenAI on <a href="https://openai.com/index/creating-new-simulations-black-holes/">creating new simulations of black holes</a> — a look at agentic coding against Event Horizon Telescope science.</p>
+      <!-- Screenshot slot: save a capture of the article page to
+           assets/news/openai-black-holes.png, then uncomment. (This remote
+           session's network policy blocks openai.com, so it could not be
+           captured here.)
+      <figure class="shot grayscale">
+        <img src="assets/news/openai-black-holes.png" alt="The OpenAI article page: Creating new simulations of black holes" loading="lazy" />
+      </figure>
+      -->
+    </div>
   </section>
 
 </div>
