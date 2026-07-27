@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MESA — Multidisciplinary Environment for Scientific Advancement</title>
 <link rel="stylesheet" href="styles.css" />
+<link rel="icon" type="image/svg+xml" href="assets/mesa-logo.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<meta name="description" content="MESA is an open-source, agentic AI platform that connects scientific data through curated, indexed metadata — a data lakehouse, a federated data mesh, and AI agents that speak both." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="MESA" />
+<meta property="og:title" content="MESA — Multidisciplinary Environment for Scientific Advancement" />
+<meta property="og:description" content="Ask the question. MESA finds the data. An open-source, agentic AI platform running on national research infrastructure." />
+<meta property="og:url" content="https://idss-mesa.github.io/" />
+<meta property="og:image" content="https://idss-mesa.github.io/assets/og-card.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="The MESA logo: five stacked layers in orange, plum, blue, teal, and green." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://idss-mesa.github.io/assets/og-card.png" />
 <style>
 /* Template scaffolding — page layout and web-scale sizing only; every color,
    font, radius and shadow comes from ../../styles.css. The voice is the
@@ -51,6 +66,9 @@ body { margin: 0; text-wrap: pretty; }
 @media (max-width: 480px) { .nav a { display: none; } } /* phone width: the nav
    keeps brand + the one action (layout-only — the component's look is
    untouched); the full link row's min-content crosses narrow-phone widths */
+.nav-brand { display: flex; align-items: center; gap: 10px; } /* the mark rides the
+   brand — text still carries the name */
+.nav-logo { width: 28px; height: 28px; display: block; } /* one leading unit square */
 
 /* — drawn structure: the 2px rule is the section seam (the deck's header
    band as page grammar; rules span the content column, solid — this system
@@ -209,6 +227,12 @@ body { margin: 0; text-wrap: pretty; }
 .kickoff .note { font-size: 15.5px; line-height: var(--leading);
   color: color-mix(in srgb, var(--color-text) 78%, transparent);
   margin: calc(var(--leading) - 1cap) 0 0; max-width: var(--measure); text-box: trim-both cap alphabetic; }
+.kickoff .item + .item { border-top: 2px solid var(--color-divider);
+  margin-top: calc(2 * var(--leading)); padding-top: calc(2 * var(--leading)); } /* the ruled
+   seam — news items take the page's repeated-unit grammar */
+.kickoff .shot { margin: calc(1.5 * var(--leading)) 0 0; max-width: 640px; }
+.kickoff .shot img { width: 100%; display: block; border: 2px solid var(--color-divider); } /* drawn
+   frame; the image prints black and white via .grayscale, per the system */
 
 /* — quote (hanging punctuation, the deck's measured Archivo advances) — */
 .quote { padding: calc(2.5 * var(--leading)) 0 calc(3.5 * var(--leading)); }
@@ -291,7 +315,7 @@ body[data-baselines]::after {
 </head>
 <body>
 <nav class="nav">
-  <span class="nav-brand">MESA</span>
+  <span class="nav-brand"><img class="nav-logo" src="assets/mesa-logo.svg" alt="" width="28" height="28" /> MESA</span>
   <a href="#platform" aria-current="location">Platform</a>
   <a href="#stack">Stack</a>
   <a href="#team">Team</a>
@@ -401,9 +425,22 @@ body[data-baselines]::after {
 
   <section class="kickoff" id="kickoff">
     <span class="kicker">News</span>
-    <h2>MESA kicks off with NSF IDSS, July 2026.</h2>
-    <p class="note">The project team convenes with the NSF Integrated Data Systems &amp; Services program for the MESA kick-off meeting — the University of New Mexico, the University of Arizona, and UNC-CH/RENCI, setting the two-year prototype baseline in motion.</p>
-    <p class="note">Also new: co-investigator CK Chan, Ph.D. worked with OpenAI on <a href="https://openai.com/index/using-codex-to-simulate-black-holes/">using Codex to simulate black holes</a> — a look at agentic coding against Event Horizon Telescope science.</p>
+    <div class="item">
+      <h2>MESA kicks off with NSF IDSS, July 2026.</h2>
+      <p class="note">The project team convenes with the NSF Integrated Data Systems &amp; Services program for the MESA kick-off meeting — the University of New Mexico, the University of Arizona, and UNC-CH/RENCI, setting the two-year prototype baseline in motion.</p>
+    </div>
+    <div class="item">
+      <h2>Creating new simulations of black holes, with OpenAI.</h2>
+      <p class="note">Co-investigator CK Chan, Ph.D. worked with OpenAI on <a href="https://openai.com/index/creating-new-simulations-black-holes/">creating new simulations of black holes</a> — a look at agentic coding against Event Horizon Telescope science.</p>
+      <!-- Screenshot slot: save a capture of the article page to
+           assets/news/openai-black-holes.png, then uncomment. (This remote
+           session's network policy blocks openai.com, so it could not be
+           captured here.)
+      <figure class="shot grayscale">
+        <img src="assets/news/openai-black-holes.png" alt="The OpenAI article page: Creating new simulations of black holes" loading="lazy" />
+      </figure>
+      -->
+    </div>
   </section>
 
 </div>
