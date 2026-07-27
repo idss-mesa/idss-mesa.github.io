@@ -100,6 +100,8 @@ body { margin: 0; text-wrap: pretty; }
 .close .btn-ghost { color: var(--color-bg); border-color: var(--color-bg); }
 footer { padding: calc(2 * var(--leading)) 0; font-size: 13px; line-height: var(--leading);
   color: color-mix(in srgb, var(--color-text) 70%, transparent); }
+footer a { color: var(--color-accent-700); } /* small-text link ink — base accent is a large-text value */
+footer a:hover { color: var(--color-accent-600); }
 
 @media (max-width: 880px) {
   .role { grid-template-columns: 1fr; gap: var(--half); }
@@ -188,7 +190,7 @@ footer { padding: calc(2 * var(--leading)) 0; font-size: 13px; line-height: var(
 </section>
 
 <div class="wrap">
-  <footer>MESA is supported by the U.S. National Science Foundation under Award #2608717 (Integrated Data Systems &amp; Services, 2026–2029). The University of New Mexico is an Equal Opportunity Employer.</footer>
+  <footer>MESA is supported by the U.S. National Science Foundation under <a href="https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2632685">Award #2632685</a> (Integrated Data Systems &amp; Services, 2026–2029). The University of New Mexico is an Equal Opportunity Employer.</footer>
 </div>
 </body>
 </html>
