@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MESA — We’re hiring at UNM</title>
 <link rel="stylesheet" href="styles.css" />
+<link rel="icon" type="image/svg+xml" href="assets/mesa-logo.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<meta name="description" content="MESA is hiring at the University of New Mexico — two full-time positions at the Center for Advanced Research Computing in Albuquerque." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="MESA" />
+<meta property="og:title" content="MESA — We’re hiring at UNM" />
+<meta property="og:description" content="Build the agentic layer of national science. Two full-time positions at UNM CARC, with partner teams at Arizona and UNC-CH/RENCI." />
+<meta property="og:url" content="https://idss-mesa.github.io/hiring.html" />
+<meta property="og:image" content="https://idss-mesa.github.io/assets/og-card.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="The MESA logo: five stacked layers in orange, plum, blue, teal, and green." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://idss-mesa.github.io/assets/og-card.png" />
 <style>
 /* Shares the landing's scaffolding: 28px rhythm, ruled seams, red as a mark,
    one red field at the close. */
@@ -22,6 +37,9 @@ body { margin: 0; text-wrap: pretty; }
 .nav a { white-space: nowrap; }
 .nav a[aria-current='page'] { color: var(--color-accent); }
 @media (max-width: 480px) { .nav a { display: none; } }
+.nav-brand { display: flex; align-items: center; gap: 10px; } /* the mark rides the
+   brand — text still carries the name */
+.nav-logo { width: 28px; height: 28px; display: block; } /* one leading unit square */
 .rule2 { height: 2px; border: 0; margin: 0; background: var(--color-divider); }
 .kicker {
   display: block; font-size: 13px; line-height: var(--half);
@@ -115,7 +133,7 @@ footer a:hover { color: var(--color-accent-600); }
 </head>
 <body>
 <nav class="nav">
-  <span class="nav-brand">MESA</span>
+  <span class="nav-brand"><img class="nav-logo" src="assets/mesa-logo.svg" alt="" width="28" height="28" /> MESA</span>
   <a href="index.html">Platform</a>
   <a href="index.html#stack">Stack</a>
   <a href="index.html#team">Team</a>
