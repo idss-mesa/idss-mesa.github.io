@@ -8,11 +8,11 @@
 <link rel="icon" type="image/svg+xml" href="assets/mesa-logo.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-<meta name="description" content="MESA is hiring at the University of New Mexico — two full-time positions at the Center for Advanced Research Computing in Albuquerque." />
+<meta name="description" content="MESA and CARC are hiring at the University of New Mexico — three full-time positions at the Center for Advanced Research Computing in Albuquerque." />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="MESA" />
 <meta property="og:title" content="MESA — We’re hiring at UNM" />
-<meta property="og:description" content="Build the agentic layer of national science. Two full-time positions at UNM CARC, with partner teams at Arizona and UNC-CH/RENCI." />
+<meta property="og:description" content="Build the agentic layer of national science. Three full-time positions at UNM CARC, with partner teams at Arizona and UNC-CH/RENCI." />
 <meta property="og:url" content="https://idss-mesa.github.io/hiring.html" />
 <meta property="og:image" content="https://idss-mesa.github.io/assets/og-card.png" />
 <meta property="og:image:width" content="1200" />
@@ -36,7 +36,11 @@ body { margin: 0; text-wrap: pretty; }
 .nav { padding-inline: max(var(--edge), calc((100% - 1200px) / 2 + var(--edge))); }
 .nav a { white-space: nowrap; }
 .nav a[aria-current='page'] { color: var(--color-accent); }
-@media (max-width: 480px) { .nav a { display: none; } }
+@media (max-width: 480px) { /* phone width: drop the cross-page section anchors;
+   the current page and the one action stay reachable */
+  .nav { flex-wrap: wrap; row-gap: var(--space-2); }
+  .nav a[href^="index.html#"] { display: none; }
+}
 .nav-brand { display: flex; align-items: center; gap: 10px; } /* the mark rides the
    brand — text still carries the name */
 .nav-logo { width: 28px; height: 28px; display: block; } /* one leading unit square */
@@ -144,7 +148,7 @@ footer a:hover { color: var(--color-accent-600); }
 
   <section class="hero">
     <h1 class="display"><span class="line">Build the agentic layer</span> <span class="line">of national science.</span></h1>
-    <p class="sub">MESA is hiring at the University of New Mexico. Two full-time positions anchor the project at the Center for Advanced Research Computing (CARC) in Albuquerque, working directly with the PI and partner teams at the University of Arizona and UNC-CH/RENCI.</p>
+    <p class="sub">MESA is hiring at the University of New Mexico. Two full-time positions anchor the project at the Center for Advanced Research Computing (CARC) in Albuquerque, working directly with the PI and partner teams at the University of Arizona and UNC-CH/RENCI. CARC is separately hiring a Research Computing Facilitator who will work alongside the team.</p>
     <div class="row">
       <a class="btn btn-primary" href="https://unmjobs.unm.edu">Apply via UNM Jobs</a>
       <a class="btn btn-ghost" href="index.html">About the project</a>
@@ -165,6 +169,9 @@ footer a:hover { color: var(--color-accent-600); }
         <p class="r-copy">Lead the agentic AI orchestration prototype: self-hosted LLM serving on vLLM, RAG pipelines over curated scientific metadata, and the MCP server framework — sandboxing, multi-agent orchestration, and evaluation against real science use cases from genomics to the Event Horizon Telescope.</p>
         <p class="r-copy"><strong>You bring</strong> a PhD in CS or a computational science, systems-level Python, and an interest in how LLM agents should handle petabytes responsibly. Structured mentoring plan, first-author publications, and TrustedCI security review participation are part of the role.</p>
       </div>
+      <div class="row">
+        <a class="btn btn-primary" href="https://unm.csod.com/ux/ats/careersite/18/home/requisition/37416">Apply for this position</a>
+      </div>
     </div>
     <div class="role">
       <p class="r-num">02</p>
@@ -178,6 +185,20 @@ footer a:hover { color: var(--color-accent-600); }
       </div>
       <div class="row">
         <a class="btn btn-primary" href="https://unm.csod.com/ux/ats/careersite/18/home/requisition/37424">Apply for this position</a>
+      </div>
+    </div>
+    <div class="role">
+      <p class="r-num">03</p>
+      <div class="r-head">
+        <h2 class="r-title">Research Computing Facilitator</h2>
+        <p class="r-meta">1.0 FTE · CARC · Research Facilitation Team</p>
+      </div>
+      <div>
+        <p class="r-copy">Sit between researchers and the machines. Consult with PIs and their labs to scope computing needs, build and maintain Linux servers, workstations, and VMs, install and troubleshoot scientific software across Python, R, MATLAB, and C/C++, and move groups onto CARC’s HPC systems or cloud platforms when local resources run out. You will also configure AI-assisted and agent-based tools for research computing — automation, troubleshooting, and documentation — inside real security and data-governance requirements.</p>
+        <p class="r-copy"><strong>You bring</strong> a bachelor’s degree and at least a year of directly related experience, Linux administration (Rocky, RHEL, Ubuntu, or similar), scripting in Bash or Python, and the presentation skills to make a complicated idea land with technical and non-technical researchers alike. HPC support, cloud provisioning, GitHub collaboration, AI-agent deployment, and sensitive-data practice (CUI, FERPA) are preferred. Posted as Systems/Network Analyst 2.</p>
+      </div>
+      <div class="row">
+        <a class="btn btn-primary" href="https://unm.csod.com/ux/ats/careersite/18/home/requisition/37492">Apply for this position</a>
       </div>
     </div>
   </section>

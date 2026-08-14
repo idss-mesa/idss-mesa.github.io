@@ -63,9 +63,12 @@ body { margin: 0; text-wrap: pretty; }
 .nav a { white-space: nowrap; }
 .nav a[aria-current='location'] { color: var(--color-accent); } /* in-page anchor, not
    a page link — 'location' is the truthful value; carry the component's active ink */
-@media (max-width: 480px) { .nav a { display: none; } } /* phone width: the nav
-   keeps brand + the one action (layout-only — the component's look is
-   untouched); the full link row's min-content crosses narrow-phone widths */
+@media (max-width: 480px) { /* phone width: drop the section anchors only — the
+   full link row's min-content crosses narrow-phone widths, but the hiring link
+   and the one action stay reachable; wrap catches the narrowest phones */
+  .nav { flex-wrap: wrap; row-gap: var(--space-2); }
+  .nav a[href^="#"] { display: none; }
+}
 .nav-brand { display: flex; align-items: center; gap: 10px; } /* the mark rides the
    brand — text still carries the name */
 .nav-logo { width: 28px; height: 28px; display: block; } /* one leading unit square */
