@@ -16,6 +16,7 @@ https://idss-mesa.github.io/robots.txt (fully permissive).
 
 - [MESA MCP stack docs](https://idss-mesa.github.io/docs/): one-line install of the CyVerse MESA MCP stack for Claude Code, Codex CLI, Antigravity, and OpenCode
 - [Docs page index](https://idss-mesa.github.io/docs/llms.txt): llms.txt for the documentation sub-site, with raw markdown for every page
+- [Docs full content](https://idss-mesa.github.io/docs/llms-full.txt): the entire documentation as one markdown file
 
 ## Software
 
