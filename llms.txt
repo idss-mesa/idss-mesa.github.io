@@ -1,0 +1,28 @@
+# MESA — Multidisciplinary Environment for Scientific Advancement
+
+> MESA is an open-source, agentic AI platform that connects scientific data through curated, indexed metadata — a data lakehouse, a federated data mesh, and AI agents that speak both. NSF IDSS Category II project at the University of New Mexico.
+
+A machine-readable index of this origin is also published as an Open
+Knowledge Format (OKF v0.2) bundle at
+https://idss-mesa.github.io/okf/index.md — crawling policy in
+https://idss-mesa.github.io/robots.txt (fully permissive).
+
+## Site
+
+- [Home](https://idss-mesa.github.io/): what MESA is, architecture, and project overview
+- [Hiring](https://idss-mesa.github.io/hiring.html): open positions with MESA and CARC at the University of New Mexico
+
+## Documentation
+
+- [MESA MCP stack docs](https://idss-mesa.github.io/docs/): one-line install of the CyVerse MESA MCP stack for Claude Code, Codex CLI, Antigravity, and OpenCode
+- [Docs page index](https://idss-mesa.github.io/docs/llms.txt): llms.txt for the documentation sub-site, with raw markdown for every page
+
+## Software
+
+- [mesa-mcp](https://github.com/idss-mesa/mesa-mcp): MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history
+- [mesa-ducklake](https://github.com/idss-mesa/mesa-ducklake): AVU metadata-history library (DuckLake: Postgres/DuckDB catalog plus Parquet in iRODS)
+- [irods-mcp-server](https://github.com/idss-mesa/irods-mcp-server): reference MCP server for the CyVerse Data Store (iRODS), in Go
+- [formation-mcp](https://github.com/idss-mesa/formation-mcp): MCP server for the CyVerse Discovery Environment (Formation API), in Go
+- [cli](https://github.com/idss-mesa/cli): CyVerse Cloud Shell CLI with MESA tools
+- [mesa-portal](https://github.com/idss-mesa/mesa-portal): portal based on the CyVerse Terrain API
+- [mesa-forge](https://github.com/idss-mesa/mesa-forge): metadata extraction tool generation and management library

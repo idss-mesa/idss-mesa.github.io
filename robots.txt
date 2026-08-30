@@ -5,8 +5,9 @@
 # Policy: fully permissive. All crawlers — including AI and agentic
 # crawlers — are welcome to read all content on this site.
 #
-# Agents: a machine-readable index of this site, its sub-sites, and the
-# MESA software repositories is published as an Open Knowledge Format
+# Agents: a plain-text index of this origin is at /llms.txt, and a
+# machine-readable index of this site, its sub-sites, and the MESA
+# software repositories is published as an Open Knowledge Format
 # (OKF v0.2) bundle at /okf/index.md
 # (spec: https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)
 
