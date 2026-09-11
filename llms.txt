@@ -1,29 +1,52 @@
 # MESA — Multidisciplinary Environment for Scientific Advancement
 
-> MESA is an open-source, agentic AI platform that connects scientific data through curated, indexed metadata — a data lakehouse, a federated data mesh, and AI agents that speak both. NSF IDSS Category II project at the University of New Mexico.
+> MESA is an open-source, agentic AI platform that connects scientific data through curated, indexed metadata — a data lakehouse, a federated data mesh, and AI agents that speak both. NSF IDSS Category II project at the University of New Mexico. This origin is published for people and for AI agents: its content is an Open Knowledge Format (OKF v0.2) bundle whose documents carry YAML frontmatter with type, provenance (generated/sources), trust (verified), and lifecycle (status/stale_after) fields.
 
-A machine-readable index of this origin is also published as an Open
-Knowledge Format (OKF v0.2) bundle at
-https://idss-mesa.github.io/okf/index.md — crawling policy in
-https://idss-mesa.github.io/robots.txt (fully permissive).
+Full corpus for ingestion: https://idss-mesa.github.io/llms-full.txt
+
+Links below point at each document's Markdown, OKF frontmatter included; every rendered page declares the same twin with <link rel="alternate" type="text/markdown"> in its <head>. OKF bundle root: https://idss-mesa.github.io/okf/index.md. Agent guide: https://idss-mesa.github.io/about/ai-agents/
+
+MESA's software is a set of MCP servers: for scientific data, connect to them (the agent guide explains how) rather than scraping these pages.
 
 ## Site
 
-- [Home](https://idss-mesa.github.io/): what MESA is, architecture, and project overview
-- [Hiring](https://idss-mesa.github.io/hiring.html): open positions with MESA and CARC at the University of New Mexico
+- [MESA — Multidisciplinary Environment for Scientific Advancement](https://idss-mesa.github.io/okf/concepts/home.md): MESA is an open-source, agentic AI platform that connects scientific data through curated, indexed metadata — a data lakehouse, a federated data mesh, and AI agents that speak both. NSF IDSS Category II project at the University of New Mexico. Canonical: https://idss-mesa.github.io/
+- [MESA Hiring](https://idss-mesa.github.io/okf/concepts/hiring.md): MESA and CARC are hiring at the University of New Mexico — full-time positions at the Center for Advanced Research Computing in Albuquerque. Canonical: https://idss-mesa.github.io/hiring.html
+- [For AI agents](https://idss-mesa.github.io/okf/concepts/ai-agents.md): How agents and harnesses should read idss-mesa.github.io — robots.txt, llms.txt, Markdown twins with OKF v0.2 frontmatter, and trust signals — and why to call the MESA MCP servers for data. Canonical: https://idss-mesa.github.io/about/ai-agents/
 
 ## Documentation
 
-- [MESA MCP stack docs](https://idss-mesa.github.io/docs/): one-line install of the CyVerse MESA MCP stack for Claude Code, Codex CLI, Antigravity, and OpenCode
-- [Docs page index](https://idss-mesa.github.io/docs/llms.txt): llms.txt for the documentation sub-site, with raw markdown for every page
-- [Docs full content](https://idss-mesa.github.io/docs/llms-full.txt): the entire documentation as one markdown file
+- [MESA MCP Stack Documentation](https://idss-mesa.github.io/okf/concepts/docs.md): One-line install of the CyVerse MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server, formation-mcp) for Claude Code, Codex CLI, Antigravity, and OpenCode. Canonical: https://idss-mesa.github.io/docs/
 
 ## Software
 
-- [mesa-mcp](https://github.com/idss-mesa/mesa-mcp): MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history
-- [mesa-ducklake](https://github.com/idss-mesa/mesa-ducklake): AVU metadata-history library (DuckLake: Postgres/DuckDB catalog plus Parquet in iRODS)
-- [irods-mcp-server](https://github.com/idss-mesa/irods-mcp-server): reference MCP server for the CyVerse Data Store (iRODS), in Go
-- [formation-mcp](https://github.com/idss-mesa/formation-mcp): MCP server for the CyVerse Discovery Environment (Formation API), in Go
-- [cli](https://github.com/idss-mesa/cli): CyVerse Cloud Shell CLI with MESA tools
-- [mesa-portal](https://github.com/idss-mesa/mesa-portal): portal based on the CyVerse Terrain API
-- [mesa-forge](https://github.com/idss-mesa/mesa-forge): metadata extraction tool generation and management library
+- [mesa-mcp](https://idss-mesa.github.io/okf/concepts/mesa-mcp.md): MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history. Canonical: https://github.com/idss-mesa/mesa-mcp
+- [mesa-ducklake](https://idss-mesa.github.io/okf/concepts/mesa-ducklake.md): AVU metadata-history library for MESA projects (DuckLake: Postgres/DuckDB catalog plus Parquet in iRODS). Canonical: https://github.com/idss-mesa/mesa-ducklake
+- [irods-mcp-server](https://idss-mesa.github.io/okf/concepts/irods-mcp-server.md): Reference MCP server for the CyVerse Data Store (iRODS), written in Go. Canonical: https://github.com/idss-mesa/irods-mcp-server
+- [formation-mcp](https://idss-mesa.github.io/okf/concepts/formation-mcp.md): MCP server for the CyVerse Discovery Environment (Formation API): launch apps and manage analyses, written in Go. Canonical: https://github.com/idss-mesa/formation-mcp
+- [neon-mcp](https://idss-mesa.github.io/okf/concepts/neon-mcp.md): MCP (2026-07-28) server for the NEON Data API: discover, check availability, list, download and cite NEON ecological data. Canonical: https://github.com/idss-mesa/neon-mcp
+- [mesa-sandbox](https://idss-mesa.github.io/okf/concepts/mesa-sandbox.md): AI sandboxes for CyVerse VICE: a sudo-free multi-arch image family, sandbox profiles P0–P4, an OpenBao credential broker and egress proxy, and agent-sandbox pods for autonomous agents. Canonical: https://github.com/idss-mesa/mesa-sandbox
+- [MESA CLI](https://idss-mesa.github.io/okf/concepts/cli.md): CyVerse Cloud Shell CLI with MESA tools. Canonical: https://github.com/idss-mesa/cli
+- [mesa-portal](https://idss-mesa.github.io/okf/concepts/mesa-portal.md): Portal based on the CyVerse Terrain API. Canonical: https://github.com/idss-mesa/mesa-portal (private repository; not publicly readable)
+- [mesa-forge](https://idss-mesa.github.io/okf/concepts/mesa-forge.md): A metadata extraction tool generation and management library. Canonical: https://github.com/idss-mesa/mesa-forge (private repository; not publicly readable)
+
+## Sub-site bundles
+
+- [MESA MCP stack docs: llms.txt](https://idss-mesa.github.io/docs/llms.txt): outline of one-line install of the CyVerse MESA MCP stack for Claude Code, Codex CLI, Antigravity, and OpenCode
+- [MESA MCP stack docs: llms-full.txt](https://idss-mesa.github.io/docs/llms-full.txt): every page's Markdown with OKF frontmatter in one file
+- [MESA MCP stack docs: agent guide](https://idss-mesa.github.io/docs/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
+- [neon-mcp docs: llms.txt](https://idss-mesa.github.io/neon-mcp/llms.txt): outline of the MCP server for the NEON Data API: install, API token, tool catalogue, and deployment
+- [neon-mcp docs: llms-full.txt](https://idss-mesa.github.io/neon-mcp/llms-full.txt): every page's Markdown with OKF frontmatter in one file
+- [neon-mcp docs: agent guide](https://idss-mesa.github.io/neon-mcp/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
+
+## Related bundles
+
+- [CARC documentation](https://carc.unm.edu/docs/llms.txt): UNM Center for Advanced Research Computing user documentation, an OKF v0.2 bundle with the same agent conventions; agent guide https://carc.unm.edu/docs/about/ai-agents/
+- [UNM CARC website](https://carc.unm.edu/llms.txt): the Center for Advanced Research Computing, MESA's home at UNM
+- [Tyson Swetnam knowledge bundle](https://tyson-swetnam.github.io/okf/index.md): OKF bundle of the MESA principal investigator
+
+## Meta
+
+- [OKF bundle index](https://idss-mesa.github.io/okf/index.md): the bundle root, every concept grouped by section
+- [Bundle update log](https://idss-mesa.github.io/okf/log.md): dated history of changes to this bundle
+- [robots.txt](https://idss-mesa.github.io/robots.txt): crawl policy for the whole origin, including /docs/ and /neon-mcp/
