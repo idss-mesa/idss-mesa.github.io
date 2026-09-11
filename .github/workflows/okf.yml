@@ -1,0 +1,29 @@
+name: OKF agent surface
+
+# The site deploys from the branch with no build step, so this workflow only
+# validates: the OKF v0.2 bundle must conform, and the generated agent surface
+# (llms.txt, llms-full.txt, sitemap.xml, about/ai-agents/index.md, and each
+# page's okf:* head block) must match what okf/ produces.
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  okf-conformance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: 3.x
+      - run: pip install pyyaml
+      - run: python scripts/okf_validate.py okf
+      - run: |
+          python scripts/gen_agent_surface.py
+          git diff --exit-code

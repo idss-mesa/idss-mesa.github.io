@@ -17,4 +17,5 @@ an NSF IDSS Category II project at the University of New Mexico. Canonical
 resource: <https://github.com/idss-mesa/cli>. Organization: <https://github.com/idss-mesa>.
 
 Agentic AI crawlers are welcome to read all content on this origin; see
-the site-wide permissive policy in [/robots.txt](/robots.txt).
+the site-wide permissive policy in <https://idss-mesa.github.io/robots.txt>
+and the agent guide at <https://idss-mesa.github.io/about/ai-agents/>.

@@ -1,22 +1,27 @@
-# robots.txt for idss-mesa.github.io
-# This file governs the entire origin, including all project sub-sites
-# (e.g. /docs/), which cannot serve their own robots.txt.
+# MESA — Multidisciplinary Environment for Scientific Advancement
+# https://idss-mesa.github.io/
+# This site is published for people AND for AI agents: crawling, indexing,
+# snippeting, and AI grounding of this content are all welcome.
 #
-# Policy: fully permissive. All crawlers — including AI and agentic
-# crawlers — are welcome to read all content on this site.
-#
-# Agents: a plain-text index of this origin is at /llms.txt, and a
-# machine-readable index of this site, its sub-sites, and the MESA
-# software repositories is published as an Open Knowledge Format
-# (OKF v0.2) bundle at /okf/index.md
-# (spec: https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)
+# Crawlers read robots.txt only at the origin root, so this file governs
+# every path on idss-mesa.github.io, including the project sub-sites /docs/
+# and /neon-mcp/ (their own robots.txt files are informational copies).
 
 User-agent: *
 Allow: /
 
-# --- Explicitly welcome AI / agentic crawlers ---
+User-agent: Googlebot
+Allow: /
 
-# OpenAI
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Google-CloudVertexBot
+Allow: /
+
 User-agent: GPTBot
 Allow: /
 
@@ -26,7 +31,6 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
-# Anthropic
 User-agent: ClaudeBot
 Allow: /
 
@@ -39,31 +43,45 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-# Google AI training (distinct from Googlebot search)
-User-agent: Google-Extended
-Allow: /
-
-# Apple AI training
-User-agent: Applebot-Extended
-Allow: /
-
-# Perplexity
 User-agent: PerplexityBot
 Allow: /
 
 User-agent: Perplexity-User
 Allow: /
 
-# Common Crawl (feeds many AI training corpora)
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 User-agent: CCBot
 Allow: /
 
-# Meta
-User-agent: Meta-ExternalAgent
+User-agent: meta-externalagent
 Allow: /
 
-# Mistral
+User-agent: Amazonbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
 User-agent: MistralAI-User
 Allow: /
 
 Sitemap: https://idss-mesa.github.io/sitemap.xml
+Sitemap: https://idss-mesa.github.io/docs/sitemap.xml
+Sitemap: https://idss-mesa.github.io/neon-mcp/sitemap.xml
+
+# AI agents and harnesses:
+#   Machine-readable outline:  https://idss-mesa.github.io/llms.txt
+#   Full corpus (one file):    https://idss-mesa.github.io/llms-full.txt
+#   OKF v0.2 bundle root:      https://idss-mesa.github.io/okf/index.md
+#   Markdown twin of any page (OKF v0.2 frontmatter: type, provenance,
+#   trust, lifecycle): the <link rel="alternate" type="text/markdown"> in
+#   the page's <head>.
+#   Agent guide:               https://idss-mesa.github.io/about/ai-agents/
+#   Sub-site bundles (there, page URL + index.md returns its Markdown):
+#     https://idss-mesa.github.io/docs/llms.txt
+#     https://idss-mesa.github.io/neon-mcp/llms.txt
