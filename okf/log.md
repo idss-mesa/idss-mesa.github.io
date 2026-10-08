@@ -1,5 +1,11 @@
 # Bundle Update Log
 
+## 2026-10-08
+* **Update**: [MESA](concepts/home.md) and its page gained an "In your browser" section for the MESA Portal at <https://mesa.cyverse.org> and its five featured apps, an **Open the MESA Portal** button, and a **Portal** anchor in the navigation.
+* **Update**: [mesa-portal](concepts/mesa-portal.md) now describes the live portal at <https://mesa.cyverse.org> (Data Browser, Applications, Analyses) and points to its end-user guides at <https://idss-mesa.github.io/docs/portal/>; the repository stays private.
+* **Creation**: Added the featured-app repositories [MESA JupyterLab](concepts/jupyterlab.md), [MESA RStudio Geospatial](concepts/rstudio.md), [MESA VS Code](concepts/vscode.md), and [MESA KASM Ubuntu Desktop](concepts/kasm.md), and expanded [MESA CLI](concepts/cli.md), each linking its user guide under <https://idss-mesa.github.io/docs/apps/>.
+* **Update**: Renamed [MESA Documentation](concepts/docs.md) (formerly MESA MCP Stack Documentation) now that the docs also cover the portal and the featured apps.
+
 ## 2026-09-10
 * **Update**: Rewrote [MESA](concepts/home.md) and [MESA Hiring](concepts/hiring.md) as full Markdown twins of their pages — layers, goals, stack, connectors, team, news, and every open position — with `sources` and `stale_after` (the hiring twin goes stale on 2026-12-10).
 * **Creation**: Added [For AI agents](concepts/ai-agents.md), the agent guide rendered at <https://idss-mesa.github.io/about/ai-agents/>, modelled on the CARC and neon-mcp guides.

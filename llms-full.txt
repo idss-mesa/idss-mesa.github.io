@@ -33,7 +33,7 @@ crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 * [For AI agents](concepts/ai-agents.md) - How agents and harnesses should read idss-mesa.github.io — robots.txt, llms.txt, Markdown twins with OKF v0.2 frontmatter, and trust signals — and why to call the MESA MCP servers for data
 
 # Documentation
-* [MESA MCP Stack Documentation](concepts/docs.md) - One-line install of the CyVerse MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server, formation-mcp) for Claude Code, Codex CLI, Antigravity, and OpenCode
+* [MESA Documentation](concepts/docs.md) - MESA documentation: the MESA Portal at mesa.cyverse.org and its featured CyVerse apps, and the one-line install of the MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server, formation-mcp) for Claude Code, Codex CLI, Antigravity, and OpenCode
 
 # Software
 * [mesa-mcp](concepts/mesa-mcp.md) - MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history
@@ -42,8 +42,12 @@ crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 * [formation-mcp](concepts/formation-mcp.md) - MCP server for the CyVerse Discovery Environment (Formation API): launch apps and manage analyses, written in Go
 * [neon-mcp](concepts/neon-mcp.md) - MCP (2026-07-28) server for the NEON Data API: discover, check availability, list, download and cite NEON ecological data
 * [mesa-sandbox](concepts/mesa-sandbox.md) - AI sandboxes for CyVerse VICE: a sudo-free multi-arch image family, sandbox profiles P0–P4, an OpenBao credential broker and egress proxy, and agent-sandbox pods for autonomous agents
+* [mesa-portal](concepts/mesa-portal.md) - The MESA Portal at mesa.cyverse.org: a web portal for the CyVerse Data Store, Discovery Environment apps, and analyses, built on the CyVerse Terrain API
 * [MESA CLI](concepts/cli.md) - CyVerse Cloud Shell CLI with MESA tools
-* [mesa-portal](concepts/mesa-portal.md) - Portal based on the CyVerse Terrain API
+* [MESA JupyterLab](concepts/jupyterlab.md) - JupyterLab data-science workbench (Python, R, Julia) for CyVerse VICE with RStudio, Shiny, VS Code, AI coding-agent CLIs, and the MESA MCP servers
+* [MESA RStudio Geospatial](concepts/rstudio.md) - RStudio Server on the Rocker geospatial stack for CyVerse VICE, with AI coding-agent CLIs and the MESA MCP servers
+* [MESA VS Code](concepts/vscode.md) - VS Code in the browser (code-server) for CyVerse VICE with Python, Jupyter, and Cline extensions, AI coding-agent CLIs, and the MESA MCP servers
+* [MESA KASM Ubuntu Desktop](concepts/kasm.md) - A full Ubuntu 24.04 XFCE desktop in the browser (KasmVNC) for CyVerse VICE, with AI coding-agent CLIs and the MESA MCP servers
 * [mesa-forge](concepts/mesa-forge.md) - A metadata extraction tool generation and management library
 
 ---8<--- https://idss-mesa.github.io/okf/concepts/home.md
@@ -55,7 +59,7 @@ description: "MESA is an open-source, agentic AI platform that connects scientif
 resource: https://idss-mesa.github.io/
 tags: [site, mesa, agentic-ai, data-lakehouse, data-mesh, mcp, cyverse]
 status: stable
-generated: { by: "claude/opus-5", at: "2026-09-10T00:00:00Z" }
+generated: { by: "claude-code/2.1.294", at: "2026-10-08T00:00:00Z" }
 stale_after: "2027-03-10T00:00:00Z"
 sources:
   - id: landing-src
@@ -66,6 +70,14 @@ sources:
     resource: https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2632685
     title: "NSF Award #2632685 — MESA"
     author: "team:nsf"
+  - id: portal
+    resource: https://mesa.cyverse.org/
+    title: "MESA Portal"
+    author: "team:idss-mesa"
+  - id: portal-docs
+    resource: https://idss-mesa.github.io/docs/portal/
+    title: "MESA Portal guides (MESA documentation)"
+    author: "team:idss-mesa"
   - id: install-sh
     resource: https://github.com/idss-mesa/docs/blob/main/install.sh
     title: "MESA MCP stack installer (install.sh)"
@@ -88,7 +100,8 @@ today.[^landing-src]
 
 This document is the Markdown twin of the landing page at
 <https://idss-mesa.github.io/>. Documentation lives at
-<https://idss-mesa.github.io/docs/>; code at <https://github.com/idss-mesa>.
+<https://idss-mesa.github.io/docs/>; code at <https://github.com/idss-mesa>; the
+MESA Portal at <https://mesa.cyverse.org>.
 
 ## Five integrated layers
 
@@ -114,6 +127,31 @@ This document is the Markdown twin of the landing page at
    pipelines over curated metadata, and an MCP server framework with
    sandboxed, multi-agent orchestration. Agents that find, describe, and move
    scientific data — with the guardrails written first.
+
+## In your browser: the MESA Portal
+
+The MESA Portal. Sign in and start.
+
+Sign in to <https://mesa.cyverse.org> with a free CyVerse account to browse,
+share, and describe your Data Store files, launch apps, and follow your
+analyses.[^portal] The featured apps start from the portal with your Data
+Store mounted and the MESA MCP servers already registered for Claude Code,
+Codex, OpenCode, and Antigravity.
+
+| Featured app | What it is | Source |
+|--------------|------------|--------|
+| [MESA Cloud Shell](https://idss-mesa.github.io/docs/apps/cli/) | A terminal in the browser with five AI coding-agent CLIs | [MESA CLI](cli.md) |
+| [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) | Python, R, and Julia notebooks, with RStudio and VS Code in the Launcher | [MESA JupyterLab](jupyterlab.md) |
+| [MESA RStudio Geospatial](https://idss-mesa.github.io/docs/apps/rstudio/) | RStudio on the Rocker geospatial stack | [MESA RStudio Geospatial](rstudio.md) |
+| [MESA VS Code](https://idss-mesa.github.io/docs/apps/vscode/) | VS Code in the browser, with Cline wired to the MESA MCP servers | [MESA VS Code](vscode.md) |
+| [MESA KASM Ubuntu Desktop](https://idss-mesa.github.io/docs/apps/kasm/) | A full Ubuntu desktop in the browser | [MESA KASM Ubuntu Desktop](kasm.md) |
+
+Each app also has a GPU build with CUDA PyTorch and a local Ollama server.
+Step-by-step guides with screenshots cover
+[managing data](https://idss-mesa.github.io/docs/portal/data/),
+[starting applications](https://idss-mesa.github.io/docs/portal/applications/),
+and [managing analyses](https://idss-mesa.github.io/docs/portal/analyses/).[^portal-docs]
+The portal's own concept is [mesa-portal](mesa-portal.md).
 
 ## The stack, today
 
@@ -210,6 +248,8 @@ origin, and connect to the MCP servers above for the data itself.
 
 [^landing-src]: MESA landing page source (index.html)
 [^nsf-award]: NSF Award #2632685 — MESA
+[^portal]: MESA Portal
+[^portal-docs]: MESA Portal guides (MESA documentation)
 [^install-sh]: MESA MCP stack installer (install.sh)
 [^openai-black-holes]: Creating new simulations of black holes (OpenAI)
 
@@ -522,12 +562,12 @@ repository under <https://github.com/idss-mesa>.
 
 ---
 type: Website
-title: "MESA MCP Stack Documentation"
-description: "One-line install of the CyVerse MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server, formation-mcp) for Claude Code, Codex CLI, Antigravity, and OpenCode"
+title: "MESA Documentation"
+description: "MESA documentation: the MESA Portal at mesa.cyverse.org and its featured CyVerse apps, and the one-line install of the MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server, formation-mcp) for Claude Code, Codex CLI, Antigravity, and OpenCode"
 resource: https://idss-mesa.github.io/docs/
-tags: [documentation, mcp, install, cyverse]
+tags: [documentation, mcp, install, cyverse, portal, vice]
 status: stable
-generated: { by: "claude/opus-5", at: "2026-09-10T00:00:00Z" }
+generated: { by: "claude-code/2.1.294", at: "2026-10-08T00:00:00Z" }
 sources:
   - id: docs-repo
     resource: https://github.com/idss-mesa/docs
@@ -535,9 +575,17 @@ sources:
     author: "team:idss-mesa"
 ---
 
-# MESA MCP Stack Documentation
+# MESA Documentation
 
-One-line install of the CyVerse MESA MCP stack — [mesa-mcp](mesa-mcp.md),
+User guides for the [MESA Portal](mesa-portal.md) at <https://mesa.cyverse.org>
+(managing data, starting applications, managing analyses, with screenshots)
+and for the MESA featured apps — [MESA CLI](cli.md),
+[MESA JupyterLab](jupyterlab.md), [MESA RStudio Geospatial](rstudio.md),
+[MESA VS Code](vscode.md), and [MESA KASM Ubuntu Desktop](kasm.md) — at
+<https://idss-mesa.github.io/docs/portal/> and
+<https://idss-mesa.github.io/docs/apps/>.
+
+It also documents the one-line install of the CyVerse MESA MCP stack — [mesa-mcp](mesa-mcp.md),
 [mesa-ducklake](mesa-ducklake.md),
 [irods-mcp-server](irods-mcp-server.md), and
 [formation-mcp](formation-mcp.md) — for Claude Code, Codex CLI,
@@ -757,6 +805,62 @@ an NSF IDSS Category II project at the University of New Mexico; see
 
 [^mesa-sandbox-readme]: mesa-sandbox README
 
+---8<--- https://idss-mesa.github.io/okf/concepts/mesa-portal.md
+
+---
+type: Software Repository
+title: "mesa-portal"
+description: "The MESA Portal at mesa.cyverse.org: a web portal for the CyVerse Data Store, Discovery Environment apps, and analyses, built on the CyVerse Terrain API"
+resource: https://github.com/idss-mesa/mesa-portal
+visibility: private
+tags: [software, portal, web, cyverse, terrain, vice]
+status: stable
+generated: { by: "claude-code/2.1.294", at: "2026-10-08T00:00:00Z" }
+stale_after: "2027-04-08T00:00:00Z"
+sources:
+  - id: portal
+    resource: https://mesa.cyverse.org/
+    title: "MESA Portal"
+    author: "team:idss-mesa"
+  - id: portal-docs
+    resource: https://idss-mesa.github.io/docs/portal/
+    title: "MESA Portal guides (MESA documentation)"
+    author: "team:idss-mesa"
+---
+
+# mesa-portal
+
+The source of the **MESA Portal**, live at <https://mesa.cyverse.org>: a web
+portal, built on the CyVerse Terrain API, where people sign in with their
+CyVerse account to work with the CyVerse Data Store and the Discovery
+Environment from a browser.[^portal]
+
+- **Data Browser** (`/data/`): browse My Files, Shared, User Shared, the MESA
+  Community folder, and public data; upload, move, trash, and share files;
+  read and edit AVU metadata.
+- **Applications** (`/applications/`): the MESA featured apps and the whole
+  Discovery Environment catalog, with Instant Launch, Launch with Options, and
+  CPU or GPU builds of the MESA apps.
+- **Analyses** (`/analyses/`): open running apps, extend their time limits,
+  watch logs, share, save and exit, terminate, and find results.
+
+End-user guides with screenshots are in the MESA documentation:
+<https://idss-mesa.github.io/docs/portal/>.[^portal-docs] The featured apps it
+launches are [MESA CLI](cli.md), [MESA JupyterLab](jupyterlab.md),
+[MESA RStudio Geospatial](rstudio.md), [MESA VS Code](vscode.md), and
+[MESA KASM Ubuntu Desktop](kasm.md).
+
+The repository is **private**: its `resource` URL returns 404 outside the
+idss-mesa organization, so do not send users there; send them to the portal
+and its guides instead.
+
+Part of MESA (Multidisciplinary Environment for Scientific Advancement),
+an NSF IDSS Category II project at the University of New Mexico; see
+[MESA](home.md). Organization: <https://github.com/idss-mesa>.
+
+[^portal]: MESA Portal
+[^portal-docs]: MESA Portal guides (MESA documentation)
+
 ---8<--- https://idss-mesa.github.io/okf/concepts/cli.md
 
 ---
@@ -764,14 +868,39 @@ type: Software Repository
 title: "MESA CLI"
 description: "CyVerse Cloud Shell CLI with MESA tools"
 resource: https://github.com/idss-mesa/cli
-tags: [software]
+tags: [software, vice, cli, cloud-shell, terminal, agents, gpu]
 status: stable
-generated: { by: "claude-code/claude-fable-5", at: "2026-08-30T00:00:00Z" }
+generated: { by: "claude-code/2.1.294", at: "2026-10-08T00:00:00Z" }
+stale_after: "2027-04-08T00:00:00Z"
+sources:
+  - id: cli-readme
+    resource: https://github.com/idss-mesa/cli/blob/main/README.md
+    title: "MESA CLI README"
+    author: "team:idss-mesa"
+  - id: app-docs
+    resource: https://idss-mesa.github.io/docs/apps/cli/
+    title: "MESA CLI (Cloud Shell) (MESA documentation)"
+    author: "team:idss-mesa"
 ---
 
 # MESA CLI
 
-CyVerse Cloud Shell CLI with MESA tools.
+CyVerse Cloud Shell CLI with MESA tools: a browser terminal (ttyd, with
+`bash` inside `tmux`) run as a CyVerse Discovery Environment (VICE) app,
+listed in the MESA Portal as **MESA Cloud Shell**. It bundles Claude Code,
+Codex, OpenCode, Goose, and Antigravity with the `irods`, `mesa`,
+`formation`, and `filesystem` MCP servers registered, GoCommands and other
+CyVerse Data Store tools, and a geospatial conda environment.[^cli-readme]
+
+- **Image:** `harbor.cyverse.org/vice/mesa-cli:latest` (`:arm64` for Apple
+  Silicon); GPU build `:gpu` adds CUDA PyTorch, transformers, and a local
+  Ollama server.
+- **Port and working directory:** 7681; `/home/jovyan/data-store`.
+
+Launch it from the [MESA Portal](mesa-portal.md) at
+<https://mesa.cyverse.org/applications/> (MESA Apps tab) or from the CyVerse
+Discovery Environment. User guide:
+<https://idss-mesa.github.io/docs/apps/cli/>.[^app-docs]
 
 Part of MESA (Multidisciplinary Environment for Scientific Advancement),
 an NSF IDSS Category II project at the University of New Mexico. Canonical
@@ -781,29 +910,207 @@ Agentic AI crawlers are welcome to read all content on this origin; see
 the site-wide permissive policy in <https://idss-mesa.github.io/robots.txt>
 and the agent guide at <https://idss-mesa.github.io/about/ai-agents/>.
 
----8<--- https://idss-mesa.github.io/okf/concepts/mesa-portal.md
+[^cli-readme]: MESA CLI README
+[^app-docs]: MESA CLI (Cloud Shell) (MESA documentation)
+
+---8<--- https://idss-mesa.github.io/okf/concepts/jupyterlab.md
 
 ---
 type: Software Repository
-title: "mesa-portal"
-description: "Portal based on the CyVerse Terrain API"
-resource: https://github.com/idss-mesa/mesa-portal
-visibility: private
-tags: [software]
+title: "MESA JupyterLab"
+description: "JupyterLab data-science workbench (Python, R, Julia) for CyVerse VICE with RStudio, Shiny, VS Code, AI coding-agent CLIs, and the MESA MCP servers"
+resource: https://github.com/idss-mesa/jupyterlab
+tags: [software, vice, jupyterlab, python, r, julia, gpu]
 status: stable
-generated: { by: "claude/opus-5", at: "2026-09-10T00:00:00Z" }
+generated: { by: "claude-code/2.1.294", at: "2026-10-08T00:00:00Z" }
+stale_after: "2027-04-08T00:00:00Z"
+sources:
+  - id: jupyterlab-readme
+    resource: https://github.com/idss-mesa/jupyterlab/blob/main/README.md
+    title: "MESA JupyterLab README"
+    author: "team:idss-mesa"
+  - id: app-docs
+    resource: https://idss-mesa.github.io/docs/apps/jupyterlab/
+    title: "MESA JupyterLab (MESA documentation)"
+    author: "team:idss-mesa"
 ---
 
-# mesa-portal
+# MESA JupyterLab
 
-Portal based on the CyVerse Terrain API.
+A [JupyterLab](https://jupyterlab.readthedocs.io/) workbench built on the
+Project Jupyter datascience-notebook image (Python, R, and Julia), run as a
+CyVerse Discovery Environment (VICE) app. RStudio Server, Shiny Server, and VS
+Code open from the JupyterLab Launcher; Claude Code, Codex, OpenCode, and
+Antigravity are installed with the `irods`, `mesa`, `formation`, and
+`filesystem` MCP servers registered.[^jupyterlab-readme]
 
-The repository is **private**: its `resource` URL returns 404 outside the
-idss-mesa organization, so do not send users there.
+- **Image:** `harbor.cyverse.org/vice/mesa-jupyterlab:latest`; GPU build
+  `:gpu` adds CUDA PyTorch, ML libraries, NVDashboard, Jupyter AI, and a local
+  Ollama server.
+- **Port and working directory:** 8888; `/home/jovyan/data-store` (the Data
+  Store mount).
+
+Launch it from the [MESA Portal](mesa-portal.md) at
+<https://mesa.cyverse.org/applications/> (MESA Apps tab) or from the CyVerse
+Discovery Environment. User guide:
+<https://idss-mesa.github.io/docs/apps/jupyterlab/>.[^app-docs] Every MESA
+app shares the agent setup described at
+<https://idss-mesa.github.io/docs/apps/agents/>.
 
 Part of MESA (Multidisciplinary Environment for Scientific Advancement),
 an NSF IDSS Category II project at the University of New Mexico; see
 [MESA](home.md). Organization: <https://github.com/idss-mesa>.
+
+[^jupyterlab-readme]: MESA JupyterLab README
+[^app-docs]: MESA JupyterLab (MESA documentation)
+
+---8<--- https://idss-mesa.github.io/okf/concepts/rstudio.md
+
+---
+type: Software Repository
+title: "MESA RStudio Geospatial"
+description: "RStudio Server on the Rocker geospatial stack for CyVerse VICE, with AI coding-agent CLIs and the MESA MCP servers"
+resource: https://github.com/idss-mesa/rstudio
+tags: [software, vice, rstudio, r, geospatial, gpu]
+status: stable
+generated: { by: "claude-code/2.1.294", at: "2026-10-08T00:00:00Z" }
+stale_after: "2027-04-08T00:00:00Z"
+sources:
+  - id: rstudio-readme
+    resource: https://github.com/idss-mesa/rstudio/blob/main/README.md
+    title: "MESA RStudio Geospatial README"
+    author: "team:idss-mesa"
+  - id: app-docs
+    resource: https://idss-mesa.github.io/docs/apps/rstudio/
+    title: "MESA RStudio Geospatial (MESA documentation)"
+    author: "team:idss-mesa"
+---
+
+# MESA RStudio Geospatial
+
+[RStudio Server](https://posit.co/products/open-source/rstudio-server/) on
+the Rocker geospatial stack (R, tidyverse, sf, terra, stars, GDAL, PROJ,
+GEOS), run as a CyVerse Discovery Environment (VICE) app, with Claude Code,
+Codex, OpenCode, and Antigravity installed and the `irods`, `mesa`,
+`formation`, and `filesystem` MCP servers registered.[^rstudio-readme]
+
+- **Image:** `harbor.cyverse.org/vice/mesa-rstudio:latest`; GPU build `:gpu`
+  adds R torch, GPU xgboost, reticulate/keras3, and a local Ollama server with
+  the ollamar, ellmer, and mall R packages.
+- **Port and working directory:** 80 (nginx in front of RStudio);
+  `/home/rstudio/data-store`.
+
+Launch it from the [MESA Portal](mesa-portal.md) at
+<https://mesa.cyverse.org/applications/> (MESA Apps tab) or from the CyVerse
+Discovery Environment. User guide:
+<https://idss-mesa.github.io/docs/apps/rstudio/>.[^app-docs] Every MESA
+app shares the agent setup described at
+<https://idss-mesa.github.io/docs/apps/agents/>.
+
+Part of MESA (Multidisciplinary Environment for Scientific Advancement),
+an NSF IDSS Category II project at the University of New Mexico; see
+[MESA](home.md). Organization: <https://github.com/idss-mesa>.
+
+[^rstudio-readme]: MESA RStudio Geospatial README
+[^app-docs]: MESA RStudio Geospatial (MESA documentation)
+
+---8<--- https://idss-mesa.github.io/okf/concepts/vscode.md
+
+---
+type: Software Repository
+title: "MESA VS Code"
+description: "VS Code in the browser (code-server) for CyVerse VICE with Python, Jupyter, and Cline extensions, AI coding-agent CLIs, and the MESA MCP servers"
+resource: https://github.com/idss-mesa/vscode
+tags: [software, vice, vscode, code-server, cline, gpu, cuda]
+status: stable
+generated: { by: "claude-code/2.1.294", at: "2026-10-08T00:00:00Z" }
+stale_after: "2027-04-08T00:00:00Z"
+sources:
+  - id: vscode-readme
+    resource: https://github.com/idss-mesa/vscode/blob/main/README.md
+    title: "MESA VS Code README"
+    author: "team:idss-mesa"
+  - id: app-docs
+    resource: https://idss-mesa.github.io/docs/apps/vscode/
+    title: "MESA VS Code (MESA documentation)"
+    author: "team:idss-mesa"
+---
+
+# MESA VS Code
+
+Visual Studio Code in the browser
+([code-server](https://github.com/coder/code-server)), run as a CyVerse
+Discovery Environment (VICE) app, with the Python, Jupyter, and Cline
+extensions (Cline pre-loaded with the MESA MCP servers), Globus Connect
+Server, Claude Code, Codex, OpenCode, and Antigravity.[^vscode-readme]
+
+- **Image:** `harbor.cyverse.org/vice/mesa-vscode:latest`; GPU build `:gpu`
+  adds the CUDA 12.5 toolkit, a PyTorch environment, Nsight, clangd, CMake
+  Tools, Continue, and a local Ollama server.
+- **Port and working directory:** 8080; the user's Data Store home folder.
+
+Launch it from the [MESA Portal](mesa-portal.md) at
+<https://mesa.cyverse.org/applications/> (MESA Apps tab) or from the CyVerse
+Discovery Environment. User guide:
+<https://idss-mesa.github.io/docs/apps/vscode/>.[^app-docs] Every MESA
+app shares the agent setup described at
+<https://idss-mesa.github.io/docs/apps/agents/>.
+
+Part of MESA (Multidisciplinary Environment for Scientific Advancement),
+an NSF IDSS Category II project at the University of New Mexico; see
+[MESA](home.md). Organization: <https://github.com/idss-mesa>.
+
+[^vscode-readme]: MESA VS Code README
+[^app-docs]: MESA VS Code (MESA documentation)
+
+---8<--- https://idss-mesa.github.io/okf/concepts/kasm.md
+
+---
+type: Software Repository
+title: "MESA KASM Ubuntu Desktop"
+description: "A full Ubuntu 24.04 XFCE desktop in the browser (KasmVNC) for CyVerse VICE, with AI coding-agent CLIs and the MESA MCP servers"
+resource: https://github.com/idss-mesa/kasm
+tags: [software, vice, kasm, desktop, ubuntu, gpu, opengl]
+status: stable
+generated: { by: "claude-code/2.1.294", at: "2026-10-08T00:00:00Z" }
+stale_after: "2027-04-08T00:00:00Z"
+sources:
+  - id: kasm-readme
+    resource: https://github.com/idss-mesa/kasm/blob/main/README.md
+    title: "MESA KASM Ubuntu Desktop README"
+    author: "team:idss-mesa"
+  - id: app-docs
+    resource: https://idss-mesa.github.io/docs/apps/kasm/
+    title: "MESA KASM Ubuntu Desktop (MESA documentation)"
+    author: "team:idss-mesa"
+---
+
+# MESA KASM Ubuntu Desktop
+
+A complete Ubuntu 24.04 XFCE desktop streamed to the browser with
+[KasmVNC](https://kasmweb.com/kasmvnc), run as a CyVerse Discovery
+Environment (VICE) app, with Chrome, Firefox, VS Code, Claude Code, Codex,
+OpenCode, and Antigravity, and the `irods`, `mesa`, `formation`, and
+`filesystem` MCP servers registered.[^kasm-readme]
+
+- **Image:** `harbor.cyverse.org/vice/mesa-kasm:latest`; GPU build `:gpu`
+  renders the desktop with OpenGL on the GPU and adds VirtualGL, PyTorch, and
+  a local Ollama server.
+- **Port and working directory:** 6901; `/home/kasm-user/data-store`.
+
+Launch it from the [MESA Portal](mesa-portal.md) at
+<https://mesa.cyverse.org/applications/> (MESA Apps tab) or from the CyVerse
+Discovery Environment. User guide:
+<https://idss-mesa.github.io/docs/apps/kasm/>.[^app-docs] Every MESA
+app shares the agent setup described at
+<https://idss-mesa.github.io/docs/apps/agents/>.
+
+Part of MESA (Multidisciplinary Environment for Scientific Advancement),
+an NSF IDSS Category II project at the University of New Mexico; see
+[MESA](home.md). Organization: <https://github.com/idss-mesa>.
+
+[^kasm-readme]: MESA KASM Ubuntu Desktop README
+[^app-docs]: MESA KASM Ubuntu Desktop (MESA documentation)
 
 ---8<--- https://idss-mesa.github.io/okf/concepts/mesa-forge.md
 
@@ -832,6 +1139,12 @@ an NSF IDSS Category II project at the University of New Mexico; see
 ---8<--- https://idss-mesa.github.io/okf/log.md
 
 # Bundle Update Log
+
+## 2026-10-08
+* **Update**: [MESA](concepts/home.md) and its page gained an "In your browser" section for the MESA Portal at <https://mesa.cyverse.org> and its five featured apps, an **Open the MESA Portal** button, and a **Portal** anchor in the navigation.
+* **Update**: [mesa-portal](concepts/mesa-portal.md) now describes the live portal at <https://mesa.cyverse.org> (Data Browser, Applications, Analyses) and points to its end-user guides at <https://idss-mesa.github.io/docs/portal/>; the repository stays private.
+* **Creation**: Added the featured-app repositories [MESA JupyterLab](concepts/jupyterlab.md), [MESA RStudio Geospatial](concepts/rstudio.md), [MESA VS Code](concepts/vscode.md), and [MESA KASM Ubuntu Desktop](concepts/kasm.md), and expanded [MESA CLI](concepts/cli.md), each linking its user guide under <https://idss-mesa.github.io/docs/apps/>.
+* **Update**: Renamed [MESA Documentation](concepts/docs.md) (formerly MESA MCP Stack Documentation) now that the docs also cover the portal and the featured apps.
 
 ## 2026-09-10
 * **Update**: Rewrote [MESA](concepts/home.md) and [MESA Hiring](concepts/hiring.md) as full Markdown twins of their pages — layers, goals, stack, connectors, team, news, and every open position — with `sources` and `stale_after` (the hiring twin goes stale on 2026-12-10).

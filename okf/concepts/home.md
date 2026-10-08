@@ -5,7 +5,7 @@ description: "MESA is an open-source, agentic AI platform that connects scientif
 resource: https://idss-mesa.github.io/
 tags: [site, mesa, agentic-ai, data-lakehouse, data-mesh, mcp, cyverse]
 status: stable
-generated: { by: "claude/opus-5", at: "2026-09-10T00:00:00Z" }
+generated: { by: "claude-code/2.1.294", at: "2026-10-08T00:00:00Z" }
 stale_after: "2027-03-10T00:00:00Z"
 sources:
   - id: landing-src
@@ -16,6 +16,14 @@ sources:
     resource: https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2632685
     title: "NSF Award #2632685 — MESA"
     author: "team:nsf"
+  - id: portal
+    resource: https://mesa.cyverse.org/
+    title: "MESA Portal"
+    author: "team:idss-mesa"
+  - id: portal-docs
+    resource: https://idss-mesa.github.io/docs/portal/
+    title: "MESA Portal guides (MESA documentation)"
+    author: "team:idss-mesa"
   - id: install-sh
     resource: https://github.com/idss-mesa/docs/blob/main/install.sh
     title: "MESA MCP stack installer (install.sh)"
@@ -38,7 +46,8 @@ today.[^landing-src]
 
 This document is the Markdown twin of the landing page at
 <https://idss-mesa.github.io/>. Documentation lives at
-<https://idss-mesa.github.io/docs/>; code at <https://github.com/idss-mesa>.
+<https://idss-mesa.github.io/docs/>; code at <https://github.com/idss-mesa>; the
+MESA Portal at <https://mesa.cyverse.org>.
 
 ## Five integrated layers
 
@@ -64,6 +73,31 @@ This document is the Markdown twin of the landing page at
    pipelines over curated metadata, and an MCP server framework with
    sandboxed, multi-agent orchestration. Agents that find, describe, and move
    scientific data — with the guardrails written first.
+
+## In your browser: the MESA Portal
+
+The MESA Portal. Sign in and start.
+
+Sign in to <https://mesa.cyverse.org> with a free CyVerse account to browse,
+share, and describe your Data Store files, launch apps, and follow your
+analyses.[^portal] The featured apps start from the portal with your Data
+Store mounted and the MESA MCP servers already registered for Claude Code,
+Codex, OpenCode, and Antigravity.
+
+| Featured app | What it is | Source |
+|--------------|------------|--------|
+| [MESA Cloud Shell](https://idss-mesa.github.io/docs/apps/cli/) | A terminal in the browser with five AI coding-agent CLIs | [MESA CLI](cli.md) |
+| [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) | Python, R, and Julia notebooks, with RStudio and VS Code in the Launcher | [MESA JupyterLab](jupyterlab.md) |
+| [MESA RStudio Geospatial](https://idss-mesa.github.io/docs/apps/rstudio/) | RStudio on the Rocker geospatial stack | [MESA RStudio Geospatial](rstudio.md) |
+| [MESA VS Code](https://idss-mesa.github.io/docs/apps/vscode/) | VS Code in the browser, with Cline wired to the MESA MCP servers | [MESA VS Code](vscode.md) |
+| [MESA KASM Ubuntu Desktop](https://idss-mesa.github.io/docs/apps/kasm/) | A full Ubuntu desktop in the browser | [MESA KASM Ubuntu Desktop](kasm.md) |
+
+Each app also has a GPU build with CUDA PyTorch and a local Ollama server.
+Step-by-step guides with screenshots cover
+[managing data](https://idss-mesa.github.io/docs/portal/data/),
+[starting applications](https://idss-mesa.github.io/docs/portal/applications/),
+and [managing analyses](https://idss-mesa.github.io/docs/portal/analyses/).[^portal-docs]
+The portal's own concept is [mesa-portal](mesa-portal.md).
 
 ## The stack, today
 
@@ -160,5 +194,7 @@ origin, and connect to the MCP servers above for the data itself.
 
 [^landing-src]: MESA landing page source (index.html)
 [^nsf-award]: NSF Award #2632685 — MESA
+[^portal]: MESA Portal
+[^portal-docs]: MESA Portal guides (MESA documentation)
 [^install-sh]: MESA MCP stack installer (install.sh)
 [^openai-black-holes]: Creating new simulations of black holes (OpenAI)
