@@ -1,6 +1,9 @@
 # Bundle Update Log
 
 ## 2026-10-08
+* **Update**: [Formation (hosted MCP server)](concepts/formation-mcp.md) (formerly formation-mcp) now describes CyVerse's hosted Discovery Environment server at <https://de.cyverse.org/formation/mcp>, its CyVerse sign-in, tools, and clients; the stdio formation-mcp it replaced stopped working when CyVerse removed Formation's REST API on 2026-06-11.
+* **Update**: [MESA](concepts/home.md) and its page: the stack table lists Formation as hosted by CyVerse, and "Featured connectors" gives the real endpoints (`https://de.cyverse.org/formation/mcp`, `https://mcp-public.cyverse.ai/mcp`), the current claude.ai menu (Customize → Connectors), and working `claude mcp add` commands in place of placeholders.
+* **Update**: [For AI agents](concepts/ai-agents.md) and its page name the hosted Formation endpoint; [MESA Documentation](concepts/docs.md) covers Formation and the claude.ai connector guide.
 * **Update**: [MESA](concepts/home.md) and its page gained an "In your browser" section for the MESA Portal at <https://mesa.cyverse.org> and its five featured apps, an **Open the MESA Portal** button, and a **Portal** anchor in the navigation.
 * **Update**: [mesa-portal](concepts/mesa-portal.md) now describes the live portal at <https://mesa.cyverse.org> (Data Browser, Applications, Analyses) and points to its end-user guides at <https://idss-mesa.github.io/docs/portal/>; the repository stays private.
 * **Creation**: Added the featured-app repositories [MESA JupyterLab](concepts/jupyterlab.md), [MESA RStudio Geospatial](concepts/rstudio.md), [MESA VS Code](concepts/vscode.md), and [MESA KASM Ubuntu Desktop](concepts/kasm.md), and expanded [MESA CLI](concepts/cli.md), each linking its user guide under <https://idss-mesa.github.io/docs/apps/>.

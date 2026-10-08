@@ -24,6 +24,10 @@ sources:
     resource: https://idss-mesa.github.io/docs/portal/
     title: "MESA Portal guides (MESA documentation)"
     author: "team:idss-mesa"
+  - id: formation
+    resource: https://github.com/cyverse-de/formation
+    title: "Formation source repository (hosted Discovery Environment MCP server)"
+    author: "team:cyverse-de"
   - id: install-sh
     resource: https://github.com/idss-mesa/docs/blob/main/install.sh
     title: "MESA MCP stack installer (install.sh)"
@@ -101,12 +105,13 @@ The portal's own concept is [mesa-portal](mesa-portal.md).
 
 ## The stack, today
 
-One line. Four servers. No credentials required.
+One line. Four servers. One sign-in.
 
 MESA is not a promise — the MCP stack is public and installs now. One command
-clones, builds, and registers four CyVerse servers in Claude Code (and in
-Codex CLI, Antigravity, and OpenCode); anonymous public access to the Data
-Store works out of the box.[^install-sh]
+clones, builds, and registers the CyVerse servers in Claude Code, Codex CLI,
+Antigravity, and OpenCode, and connects them to CyVerse's hosted Formation
+server. Anonymous public access to the Data Store works out of the box;
+Formation asks you to sign in once with your CyVerse account.[^install-sh]
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/idss-mesa/docs/main/install.sh | bash
@@ -117,31 +122,35 @@ curl -fsSL https://raw.githubusercontent.com/idss-mesa/docs/main/install.sh | ba
 | [mesa-mcp](mesa-mcp.md) | Python | iRODS Data Store + OBO/OLS ontology metadata, DataCite, DuckLake history |
 | [mesa-ducklake](mesa-ducklake.md) | Python | AVU metadata-history library backing mesa-mcp |
 | [irods-mcp-server](irods-mcp-server.md) | Go | Reference iRODS Data Store server |
-| [formation-mcp](formation-mcp.md) | Go | CyVerse Discovery Environment — launch apps, manage analyses |
+| [Formation](formation-mcp.md) | Hosted by CyVerse | CyVerse Discovery Environment — launch apps, manage analyses |
 
 ### Featured connectors. Nothing to install.
 
-The Data Store and Discovery Environment servers also run hosted, as remote
-MCP connectors — no local build, no toolchain. In Claude Desktop or
-claude.ai, open Settings → Connectors → Add custom connector, name the
-connector, paste its endpoint URL, and authenticate when prompted. A
-connector added to a claude.ai organization follows you everywhere Claude
-runs: Claude Desktop, claude.ai, and Claude Code on the web.
+CyVerse runs the Discovery Environment server, Formation, as a hosted MCP
+server, and serves public Data Store collections the same way — no local
+build, no toolchain.[^formation] On claude.ai or in Claude Desktop, open
+Customize → Connectors → Add custom connector, name the connector, paste its
+endpoint URL, and sign in with your CyVerse account when prompted. A connector
+on your claude.ai account follows you to Claude Desktop, the Claude mobile
+apps, and Claude Code.
 
-| Connector | Server | What it opens |
-|-----------|--------|---------------|
-| cyverse-irods-shared | [irods-mcp-server](irods-mcp-server.md) | CyVerse Data Store — public collections under `/iplant/home/shared`, anonymous read |
-| cyverse-formation | [formation-mcp](formation-mcp.md) | Discovery Environment — browse data, launch apps, track analyses |
+| Connector | Endpoint | What it opens |
+|-----------|----------|---------------|
+| [CyVerse Formation](https://idss-mesa.github.io/docs/claude-ai/) | https://de.cyverse.org/formation/mcp | Discovery Environment — launch apps, track analyses, read and write your Data Store files, as you |
+| cyverse-irods-shared | https://mcp-public.cyverse.ai/mcp | CyVerse Data Store — public collections under `/iplant/home/shared`, anonymous read |
 
-Claude Code registers the same endpoints from the terminal (swap in the
-current endpoint URLs from the [documentation](docs.md), which also
-covers credentialed access, running either server locally in Claude Desktop
-via `claude_desktop_config.json`, and self-hosting the endpoints):
+Claude Code registers the same endpoints from the terminal; run `/mcp`
+afterwards to sign in to Formation:
 
 ```bash
-claude mcp add --transport http irods https://IRODS-ENDPOINT/mcp
-claude mcp add --transport http formation https://FORMATION-ENDPOINT/mcp
+claude mcp add --transport http --scope user formation https://de.cyverse.org/formation/mcp
+claude mcp add --transport http --scope user irods-public https://mcp-public.cyverse.ai/mcp
 ```
+
+The [Formation docs](https://idss-mesa.github.io/docs/servers/formation-mcp/)
+cover Codex, OpenCode, and Antigravity, and the
+[connector guide](https://idss-mesa.github.io/docs/claude-ai/) covers Team and
+Enterprise organizations.
 
 ## The team
 
@@ -195,6 +204,7 @@ origin, and connect to the MCP servers above for the data itself.
 [^landing-src]: MESA landing page source (index.html)
 [^nsf-award]: NSF Award #2632685 — MESA
 [^portal]: MESA Portal
+[^formation]: Formation source repository (hosted Discovery Environment MCP server)
 [^portal-docs]: MESA Portal guides (MESA documentation)
 [^install-sh]: MESA MCP stack installer (install.sh)
 [^openai-black-holes]: Creating new simulations of black holes (OpenAI)

@@ -1,7 +1,7 @@
 ---
 type: Website
 title: "MESA Documentation"
-description: "MESA documentation: the MESA Portal at mesa.cyverse.org and its featured CyVerse apps, and the one-line install of the MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server, formation-mcp) for Claude Code, Codex CLI, Antigravity, and OpenCode"
+description: "MESA documentation: the MESA Portal at mesa.cyverse.org and its featured CyVerse apps, the one-line install of the MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server) for Claude Code, Codex CLI, Antigravity, and OpenCode, and CyVerse's hosted Formation MCP server, also available as a claude.ai connector"
 resource: https://idss-mesa.github.io/docs/
 tags: [documentation, mcp, install, cyverse, portal, vice]
 status: stable
@@ -24,10 +24,11 @@ and for the MESA featured apps — [MESA CLI](cli.md),
 <https://idss-mesa.github.io/docs/apps/>.
 
 It also documents the one-line install of the CyVerse MESA MCP stack — [mesa-mcp](mesa-mcp.md),
-[mesa-ducklake](mesa-ducklake.md),
-[irods-mcp-server](irods-mcp-server.md), and
-[formation-mcp](formation-mcp.md) — for Claude Code, Codex CLI,
-Antigravity, and OpenCode.[^docs-repo]
+[mesa-ducklake](mesa-ducklake.md), and
+[irods-mcp-server](irods-mcp-server.md), plus CyVerse's hosted
+[Formation](formation-mcp.md) server — for Claude Code, Codex CLI,
+Antigravity, and OpenCode, and how to add Formation as a custom connector on
+claude.ai and in Claude Desktop.[^docs-repo]
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/idss-mesa/docs/main/install.sh | bash
