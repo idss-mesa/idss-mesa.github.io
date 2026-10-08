@@ -27,13 +27,13 @@ crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 * [For AI agents](concepts/ai-agents.md) - How agents and harnesses should read idss-mesa.github.io — robots.txt, llms.txt, Markdown twins with OKF v0.2 frontmatter, and trust signals — and why to call the MESA MCP servers for data
 
 # Documentation
-* [MESA Documentation](concepts/docs.md) - MESA documentation: the MESA Portal at mesa.cyverse.org and its featured CyVerse apps, and the one-line install of the MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server, formation-mcp) for Claude Code, Codex CLI, Antigravity, and OpenCode
+* [MESA Documentation](concepts/docs.md) - MESA documentation: the MESA Portal at mesa.cyverse.org and its featured CyVerse apps, the one-line install of the MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server) for Claude Code, Codex CLI, Antigravity, and OpenCode, and CyVerse's hosted Formation MCP server, also available as a claude.ai connector
 
 # Software
 * [mesa-mcp](concepts/mesa-mcp.md) - MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history
 * [mesa-ducklake](concepts/mesa-ducklake.md) - AVU metadata-history library for MESA projects (DuckLake: Postgres/DuckDB catalog plus Parquet in iRODS)
 * [irods-mcp-server](concepts/irods-mcp-server.md) - Reference MCP server for the CyVerse Data Store (iRODS), written in Go
-* [formation-mcp](concepts/formation-mcp.md) - MCP server for the CyVerse Discovery Environment (Formation API): launch apps and manage analyses, written in Go
+* [Formation (hosted MCP server)](concepts/formation-mcp.md) - CyVerse's hosted MCP server for the Discovery Environment at https://de.cyverse.org/formation/mcp: launch apps, manage analyses, and read and write Data Store files after signing in with a CyVerse account, from claude.ai, Claude Desktop, or Claude Code (Codex, OpenCode, and Antigravity can also be configured; their sign-in is not yet confirmed)
 * [neon-mcp](concepts/neon-mcp.md) - MCP (2026-07-28) server for the NEON Data API: discover, check availability, list, download and cite NEON ecological data
 * [mesa-sandbox](concepts/mesa-sandbox.md) - AI sandboxes for CyVerse VICE: a sudo-free multi-arch image family, sandbox profiles P0–P4, an OpenBao credential broker and egress proxy, and agent-sandbox pods for autonomous agents
 * [mesa-portal](concepts/mesa-portal.md) - The MESA Portal at mesa.cyverse.org: a web portal for the CyVerse Data Store, Discovery Environment apps, and analyses, built on the CyVerse Terrain API

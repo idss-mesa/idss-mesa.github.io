@@ -16,14 +16,14 @@ MESA's software is a set of MCP servers: for scientific data, connect to them (t
 
 ## Documentation
 
-- [MESA Documentation](https://idss-mesa.github.io/okf/concepts/docs.md): MESA documentation: the MESA Portal at mesa.cyverse.org and its featured CyVerse apps, and the one-line install of the MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server, formation-mcp) for Claude Code, Codex CLI, Antigravity, and OpenCode. Canonical: https://idss-mesa.github.io/docs/
+- [MESA Documentation](https://idss-mesa.github.io/okf/concepts/docs.md): MESA documentation: the MESA Portal at mesa.cyverse.org and its featured CyVerse apps, the one-line install of the MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server) for Claude Code, Codex CLI, Antigravity, and OpenCode, and CyVerse's hosted Formation MCP server, also available as a claude.ai connector. Canonical: https://idss-mesa.github.io/docs/
 
 ## Software
 
 - [mesa-mcp](https://idss-mesa.github.io/okf/concepts/mesa-mcp.md): MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history. Canonical: https://github.com/idss-mesa/mesa-mcp
 - [mesa-ducklake](https://idss-mesa.github.io/okf/concepts/mesa-ducklake.md): AVU metadata-history library for MESA projects (DuckLake: Postgres/DuckDB catalog plus Parquet in iRODS). Canonical: https://github.com/idss-mesa/mesa-ducklake
 - [irods-mcp-server](https://idss-mesa.github.io/okf/concepts/irods-mcp-server.md): Reference MCP server for the CyVerse Data Store (iRODS), written in Go. Canonical: https://github.com/idss-mesa/irods-mcp-server
-- [formation-mcp](https://idss-mesa.github.io/okf/concepts/formation-mcp.md): MCP server for the CyVerse Discovery Environment (Formation API): launch apps and manage analyses, written in Go. Canonical: https://github.com/idss-mesa/formation-mcp
+- [Formation (hosted MCP server)](https://idss-mesa.github.io/okf/concepts/formation-mcp.md): CyVerse's hosted MCP server for the Discovery Environment at https://de.cyverse.org/formation/mcp: launch apps, manage analyses, and read and write Data Store files after signing in with a CyVerse account, from claude.ai, Claude Desktop, or Claude Code (Codex, OpenCode, and Antigravity can also be configured; their sign-in is not yet confirmed). Canonical: https://de.cyverse.org/formation/mcp
 - [neon-mcp](https://idss-mesa.github.io/okf/concepts/neon-mcp.md): MCP (2026-07-28) server for the NEON Data API: discover, check availability, list, download and cite NEON ecological data. Canonical: https://github.com/idss-mesa/neon-mcp
 - [mesa-sandbox](https://idss-mesa.github.io/okf/concepts/mesa-sandbox.md): AI sandboxes for CyVerse VICE: a sudo-free multi-arch image family, sandbox profiles P0–P4, an OpenBao credential broker and egress proxy, and agent-sandbox pods for autonomous agents. Canonical: https://github.com/idss-mesa/mesa-sandbox
 - [mesa-portal](https://idss-mesa.github.io/okf/concepts/mesa-portal.md): The MESA Portal at mesa.cyverse.org: a web portal for the CyVerse Data Store, Discovery Environment apps, and analyses, built on the CyVerse Terrain API. Canonical: https://github.com/idss-mesa/mesa-portal (private repository; not publicly readable)
