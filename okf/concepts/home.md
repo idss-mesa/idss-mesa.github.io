@@ -105,13 +105,14 @@ The portal's own concept is [mesa-portal](mesa-portal.md).
 
 ## The stack, today
 
-One line. Four servers. One sign-in.
+One line. Four servers. Your CyVerse sign-in.
 
 MESA is not a promise — the MCP stack is public and installs now. One command
 clones, builds, and registers the CyVerse servers in Claude Code, Codex CLI,
 Antigravity, and OpenCode, and connects them to CyVerse's hosted Formation
 server. Anonymous public access to the Data Store works out of the box;
-Formation asks you to sign in once with your CyVerse account.[^install-sh]
+Formation asks you to sign in with your CyVerse account once in each agent
+client.[^install-sh]
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/idss-mesa/docs/main/install.sh | bash
@@ -130,17 +131,23 @@ CyVerse runs the Discovery Environment server, Formation, as a hosted MCP
 server, and serves public Data Store collections the same way — no local
 build, no toolchain.[^formation] On claude.ai or in Claude Desktop, open
 Customize → Connectors → Add custom connector, name the connector, paste its
-endpoint URL, and sign in with your CyVerse account when prompted. A connector
-on your claude.ai account follows you to Claude Desktop, the Claude mobile
-apps, and Claude Code.
+endpoint URL, and sign in with your CyVerse account for Formation (the public
+Data Store connector needs no sign-in). The Free plan allows one custom
+connector, so add the one you need. A connector on your claude.ai account
+follows you to Claude Desktop and the Claude mobile apps, and to Claude Code
+when Claude Code is signed in with your claude.ai subscription (not an API key
+or another model provider).
 
 | Connector | Endpoint | What it opens |
 |-----------|----------|---------------|
 | [CyVerse Formation](https://idss-mesa.github.io/docs/claude-ai/) | https://de.cyverse.org/formation/mcp | Discovery Environment — launch apps, track analyses, read and write your Data Store files, as you |
 | cyverse-irods-shared | https://mcp-public.cyverse.ai/mcp | CyVerse Data Store — public collections under `/iplant/home/shared`, anonymous read |
 
-Claude Code registers the same endpoints from the terminal; run `/mcp`
-afterwards to sign in to Formation:
+The installer already registers formation. Without it, Claude Code registers
+the same endpoints from the terminal; if an older MESA install left a local
+formation entry, run `claude mcp remove formation -s user` first (see
+[Moving from the local formation-mcp](https://idss-mesa.github.io/docs/servers/formation-mcp/#moving-from-the-local-formation-mcp)).
+Run `/mcp` afterwards to sign in to Formation:
 
 ```bash
 claude mcp add --transport http --scope user formation https://de.cyverse.org/formation/mcp

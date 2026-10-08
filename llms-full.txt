@@ -39,7 +39,7 @@ crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 * [mesa-mcp](concepts/mesa-mcp.md) - MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history
 * [mesa-ducklake](concepts/mesa-ducklake.md) - AVU metadata-history library for MESA projects (DuckLake: Postgres/DuckDB catalog plus Parquet in iRODS)
 * [irods-mcp-server](concepts/irods-mcp-server.md) - Reference MCP server for the CyVerse Data Store (iRODS), written in Go
-* [Formation (hosted MCP server)](concepts/formation-mcp.md) - CyVerse's hosted MCP server for the Discovery Environment at https://de.cyverse.org/formation/mcp: launch apps, manage analyses, and read and write Data Store files from claude.ai, Claude Code, Codex, OpenCode, or Antigravity after signing in with a CyVerse account
+* [Formation (hosted MCP server)](concepts/formation-mcp.md) - CyVerse's hosted MCP server for the Discovery Environment at https://de.cyverse.org/formation/mcp: launch apps, manage analyses, and read and write Data Store files after signing in with a CyVerse account, from claude.ai, Claude Desktop, or Claude Code (Codex, OpenCode, and Antigravity can also be configured; their sign-in is not yet confirmed)
 * [neon-mcp](concepts/neon-mcp.md) - MCP (2026-07-28) server for the NEON Data API: discover, check availability, list, download and cite NEON ecological data
 * [mesa-sandbox](concepts/mesa-sandbox.md) - AI sandboxes for CyVerse VICE: a sudo-free multi-arch image family, sandbox profiles P0–P4, an OpenBao credential broker and egress proxy, and agent-sandbox pods for autonomous agents
 * [mesa-portal](concepts/mesa-portal.md) - The MESA Portal at mesa.cyverse.org: a web portal for the CyVerse Data Store, Discovery Environment apps, and analyses, built on the CyVerse Terrain API
@@ -159,13 +159,14 @@ The portal's own concept is [mesa-portal](mesa-portal.md).
 
 ## The stack, today
 
-One line. Four servers. One sign-in.
+One line. Four servers. Your CyVerse sign-in.
 
 MESA is not a promise — the MCP stack is public and installs now. One command
 clones, builds, and registers the CyVerse servers in Claude Code, Codex CLI,
 Antigravity, and OpenCode, and connects them to CyVerse's hosted Formation
 server. Anonymous public access to the Data Store works out of the box;
-Formation asks you to sign in once with your CyVerse account.[^install-sh]
+Formation asks you to sign in with your CyVerse account once in each agent
+client.[^install-sh]
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/idss-mesa/docs/main/install.sh | bash
@@ -184,17 +185,23 @@ CyVerse runs the Discovery Environment server, Formation, as a hosted MCP
 server, and serves public Data Store collections the same way — no local
 build, no toolchain.[^formation] On claude.ai or in Claude Desktop, open
 Customize → Connectors → Add custom connector, name the connector, paste its
-endpoint URL, and sign in with your CyVerse account when prompted. A connector
-on your claude.ai account follows you to Claude Desktop, the Claude mobile
-apps, and Claude Code.
+endpoint URL, and sign in with your CyVerse account for Formation (the public
+Data Store connector needs no sign-in). The Free plan allows one custom
+connector, so add the one you need. A connector on your claude.ai account
+follows you to Claude Desktop and the Claude mobile apps, and to Claude Code
+when Claude Code is signed in with your claude.ai subscription (not an API key
+or another model provider).
 
 | Connector | Endpoint | What it opens |
 |-----------|----------|---------------|
 | [CyVerse Formation](https://idss-mesa.github.io/docs/claude-ai/) | https://de.cyverse.org/formation/mcp | Discovery Environment — launch apps, track analyses, read and write your Data Store files, as you |
 | cyverse-irods-shared | https://mcp-public.cyverse.ai/mcp | CyVerse Data Store — public collections under `/iplant/home/shared`, anonymous read |
 
-Claude Code registers the same endpoints from the terminal; run `/mcp`
-afterwards to sign in to Formation:
+The installer already registers formation. Without it, Claude Code registers
+the same endpoints from the terminal; if an older MESA install left a local
+formation entry, run `claude mcp remove formation -s user` first (see
+[Moving from the local formation-mcp](https://idss-mesa.github.io/docs/servers/formation-mcp/#moving-from-the-local-formation-mcp)).
+Run `/mcp` afterwards to sign in to Formation:
 
 ```bash
 claude mcp add --transport http --scope user formation https://de.cyverse.org/formation/mcp
@@ -705,7 +712,7 @@ and the agent guide at <https://idss-mesa.github.io/about/ai-agents/>.
 ---
 type: MCP Server
 title: "Formation (hosted MCP server)"
-description: "CyVerse's hosted MCP server for the Discovery Environment at https://de.cyverse.org/formation/mcp: launch apps, manage analyses, and read and write Data Store files from claude.ai, Claude Code, Codex, OpenCode, or Antigravity after signing in with a CyVerse account"
+description: "CyVerse's hosted MCP server for the Discovery Environment at https://de.cyverse.org/formation/mcp: launch apps, manage analyses, and read and write Data Store files after signing in with a CyVerse account, from claude.ai, Claude Desktop, or Claude Code (Codex, OpenCode, and Antigravity can also be configured; their sign-in is not yet confirmed)"
 resource: https://de.cyverse.org/formation/mcp
 tags: [software, mcp, hosted, connector, discovery-environment, cyverse]
 status: stable
@@ -734,12 +741,17 @@ client registration); every tool then acts as that user.[^formation]
   `launch_app_and_wait`, `get_analysis_status`, `list_running_analyses`,
   `stop_analysis`, `browse_data`, `create_directory`, `upload_file`,
   `set_metadata`, `delete_data`.
-- **Clients:** a custom connector on claude.ai and in Claude Desktop, Claude
-  Code, Codex CLI, OpenCode, and Antigravity. The MESA installer registers it
-  with every client it finds, and the MESA featured apps ship with it.
+- **Clients:** a custom connector on claude.ai and in Claude Desktop, and
+  Claude Code, the clients CyVerse documents its sign-in for. Codex CLI,
+  OpenCode, and Antigravity can be configured with it too, but their CyVerse
+  sign-in is not yet confirmed: Codex and OpenCode send `http://127.0.0.1`
+  callbacks, which CyVerse's documented allowlist (`http://localhost*`) does
+  not cover. The MESA installer registers it with every client it finds, and
+  the MESA featured apps ship with it.
 - **History:** it replaced the stdio server formation-mcp
   (<https://github.com/idss-mesa/formation-mcp>), which called Formation's
-  former REST API; CyVerse removed that API on 2026-06-11.
+  former REST API; CyVerse removed that API from Formation in mid-2026
+  (release v2026.07.07).
 
 Setup for each client: <https://idss-mesa.github.io/docs/servers/formation-mcp/>
 and <https://idss-mesa.github.io/docs/claude-ai/>.[^formation-docs]
@@ -1181,7 +1193,8 @@ an NSF IDSS Category II project at the University of New Mexico; see
 # Bundle Update Log
 
 ## 2026-10-08
-* **Update**: [Formation (hosted MCP server)](concepts/formation-mcp.md) (formerly formation-mcp) now describes CyVerse's hosted Discovery Environment server at <https://de.cyverse.org/formation/mcp>, its CyVerse sign-in, tools, and clients; the stdio formation-mcp it replaced stopped working when CyVerse removed Formation's REST API on 2026-06-11.
+* **Update**: [MESA](concepts/home.md) and its page: the stack says Formation asks for a CyVerse sign-in once in each agent client; "Featured connectors" notes that the public Data Store connector needs no sign-in, that the Free plan allows one custom connector, and that claude.ai connectors reach Claude Code only when it is signed in with a claude.ai subscription; the `claude mcp add` lead-in covers an older local formation entry. [Formation (hosted MCP server)](concepts/formation-mcp.md) says its Codex, OpenCode, and Antigravity sign-in is not yet confirmed.
+* **Update**: [Formation (hosted MCP server)](concepts/formation-mcp.md) (formerly formation-mcp) now describes CyVerse's hosted Discovery Environment server at <https://de.cyverse.org/formation/mcp>, its CyVerse sign-in, tools, and clients; the stdio formation-mcp it replaced stopped working when CyVerse removed Formation's REST API in mid-2026 (Formation release v2026.07.07).
 * **Update**: [MESA](concepts/home.md) and its page: the stack table lists Formation as hosted by CyVerse, and "Featured connectors" gives the real endpoints (`https://de.cyverse.org/formation/mcp`, `https://mcp-public.cyverse.ai/mcp`), the current claude.ai menu (Customize → Connectors), and working `claude mcp add` commands in place of placeholders.
 * **Update**: [For AI agents](concepts/ai-agents.md) and its page name the hosted Formation endpoint; [MESA Documentation](concepts/docs.md) covers Formation and the claude.ai connector guide.
 * **Update**: [MESA](concepts/home.md) and its page gained an "In your browser" section for the MESA Portal at <https://mesa.cyverse.org> and its five featured apps, an **Open the MESA Portal** button, and a **Portal** anchor in the navigation.

@@ -1,7 +1,7 @@
 ---
 type: MCP Server
 title: "Formation (hosted MCP server)"
-description: "CyVerse's hosted MCP server for the Discovery Environment at https://de.cyverse.org/formation/mcp: launch apps, manage analyses, and read and write Data Store files from claude.ai, Claude Code, Codex, OpenCode, or Antigravity after signing in with a CyVerse account"
+description: "CyVerse's hosted MCP server for the Discovery Environment at https://de.cyverse.org/formation/mcp: launch apps, manage analyses, and read and write Data Store files after signing in with a CyVerse account, from claude.ai, Claude Desktop, or Claude Code (Codex, OpenCode, and Antigravity can also be configured; their sign-in is not yet confirmed)"
 resource: https://de.cyverse.org/formation/mcp
 tags: [software, mcp, hosted, connector, discovery-environment, cyverse]
 status: stable
@@ -30,12 +30,17 @@ client registration); every tool then acts as that user.[^formation]
   `launch_app_and_wait`, `get_analysis_status`, `list_running_analyses`,
   `stop_analysis`, `browse_data`, `create_directory`, `upload_file`,
   `set_metadata`, `delete_data`.
-- **Clients:** a custom connector on claude.ai and in Claude Desktop, Claude
-  Code, Codex CLI, OpenCode, and Antigravity. The MESA installer registers it
-  with every client it finds, and the MESA featured apps ship with it.
+- **Clients:** a custom connector on claude.ai and in Claude Desktop, and
+  Claude Code, the clients CyVerse documents its sign-in for. Codex CLI,
+  OpenCode, and Antigravity can be configured with it too, but their CyVerse
+  sign-in is not yet confirmed: Codex and OpenCode send `http://127.0.0.1`
+  callbacks, which CyVerse's documented allowlist (`http://localhost*`) does
+  not cover. The MESA installer registers it with every client it finds, and
+  the MESA featured apps ship with it.
 - **History:** it replaced the stdio server formation-mcp
   (<https://github.com/idss-mesa/formation-mcp>), which called Formation's
-  former REST API; CyVerse removed that API on 2026-06-11.
+  former REST API; CyVerse removed that API from Formation in mid-2026
+  (release v2026.07.07).
 
 Setup for each client: <https://idss-mesa.github.io/docs/servers/formation-mcp/>
 and <https://idss-mesa.github.io/docs/claude-ai/>.[^formation-docs]

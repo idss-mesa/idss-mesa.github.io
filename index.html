@@ -403,8 +403,8 @@ body[data-baselines]::after {
 
   <section class="stack" id="stack">
     <span class="kicker">The stack, today</span>
-    <h2 class="stack-title">One line. Four servers. One sign-in.</h2>
-    <p class="note">MESA is not a promise — the MCP stack is public and installs now. One command clones, builds, and registers the CyVerse servers in Claude Code, Codex CLI, Antigravity, and OpenCode, and connects them to CyVerse’s hosted Formation server. Anonymous public access to the Data Store works out of the box; Formation asks you to sign in once with your CyVerse account.</p>
+    <h2 class="stack-title">One line. Four servers. Your CyVerse sign-in.</h2>
+    <p class="note">MESA is not a promise — the MCP stack is public and installs now. One command clones, builds, and registers the CyVerse servers in Claude Code, Codex CLI, Antigravity, and OpenCode, and connects them to CyVerse’s hosted Formation server. Anonymous public access to the Data Store works out of the box; Formation asks you to sign in with your CyVerse account once in each agent client.</p>
     <div class="code"><span class="prompt">$</span> curl -fsSL https://raw.githubusercontent.com/idss-mesa/docs/main/install.sh | bash</div>
     <table class="table">
       <thead><tr><th>Server</th><th>Language</th><th>Role</th></tr></thead>
@@ -416,7 +416,7 @@ body[data-baselines]::after {
       </tbody>
     </table>
     <h3 class="sub">Featured connectors. Nothing to install.</h3>
-    <p class="note">CyVerse runs the Discovery Environment server, Formation, as a hosted MCP server, and serves public Data Store collections the same way — no local build, no toolchain. On claude.ai or in Claude Desktop, open Customize → Connectors → Add custom connector, name the connector, paste its endpoint URL, and sign in with your CyVerse account when prompted. A connector on your claude.ai account follows you to Claude Desktop, the Claude mobile apps, and Claude Code.</p>
+    <p class="note">CyVerse runs the Discovery Environment server, Formation, as a hosted MCP server, and serves public Data Store collections the same way — no local build, no toolchain. On claude.ai or in Claude Desktop, open Customize → Connectors → Add custom connector, name the connector, paste its endpoint URL, and sign in with your CyVerse account for Formation (the public Data Store connector needs no sign-in). The Free plan allows one custom connector, so add the one you need. A connector on your claude.ai account follows you to Claude Desktop and the Claude mobile apps, and to Claude Code when Claude Code is signed in with your claude.ai subscription (not an API key or another model provider).</p>
     <table class="table">
       <thead><tr><th>Connector</th><th>Endpoint</th><th>What it opens</th></tr></thead>
       <tbody>
@@ -424,7 +424,7 @@ body[data-baselines]::after {
         <tr><td>cyverse-irods-shared</td><td>https://mcp-public.cyverse.ai/mcp</td><td>CyVerse Data Store — public collections under /iplant/home/shared, anonymous read</td></tr>
       </tbody>
     </table>
-    <p class="note">Claude Code registers the same endpoints from the terminal; run <code>/mcp</code> afterwards to sign in to Formation:</p>
+    <p class="note">The installer already registers formation. Without it, Claude Code registers the same endpoints from the terminal; if an older MESA install left a local formation entry, run <code>claude mcp remove formation -s user</code> first (see <a href="https://idss-mesa.github.io/docs/servers/formation-mcp/#moving-from-the-local-formation-mcp">Moving from the local formation-mcp</a>). Run <code>/mcp</code> afterwards to sign in to Formation:</p>
     <div class="code"><span class="prompt">$</span> claude mcp add --transport http --scope user formation https://de.cyverse.org/formation/mcp
 <span class="prompt">$</span> claude mcp add --transport http --scope user irods-public https://mcp-public.cyverse.ai/mcp</div>
     <p class="note">The <a href="https://idss-mesa.github.io/docs/servers/formation-mcp/">Formation docs</a> cover Codex, OpenCode, and Antigravity, and the <a href="https://idss-mesa.github.io/docs/claude-ai/">connector guide</a> covers Team and Enterprise organizations.</p>
