@@ -27,7 +27,7 @@ crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 * [For AI agents](concepts/ai-agents.md) - How agents and harnesses should read idss-mesa.github.io — robots.txt, llms.txt, Markdown twins with OKF v0.2 frontmatter, and trust signals — and why to call the MESA MCP servers for data
 
 # Documentation
-* [MESA MCP Stack Documentation](concepts/docs.md) - One-line install of the CyVerse MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server, formation-mcp) for Claude Code, Codex CLI, Antigravity, and OpenCode
+* [MESA Documentation](concepts/docs.md) - MESA documentation: the MESA Portal at mesa.cyverse.org and its featured CyVerse apps, and the one-line install of the MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server, formation-mcp) for Claude Code, Codex CLI, Antigravity, and OpenCode
 
 # Software
 * [mesa-mcp](concepts/mesa-mcp.md) - MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history
@@ -36,6 +36,10 @@ crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 * [formation-mcp](concepts/formation-mcp.md) - MCP server for the CyVerse Discovery Environment (Formation API): launch apps and manage analyses, written in Go
 * [neon-mcp](concepts/neon-mcp.md) - MCP (2026-07-28) server for the NEON Data API: discover, check availability, list, download and cite NEON ecological data
 * [mesa-sandbox](concepts/mesa-sandbox.md) - AI sandboxes for CyVerse VICE: a sudo-free multi-arch image family, sandbox profiles P0–P4, an OpenBao credential broker and egress proxy, and agent-sandbox pods for autonomous agents
+* [mesa-portal](concepts/mesa-portal.md) - The MESA Portal at mesa.cyverse.org: a web portal for the CyVerse Data Store, Discovery Environment apps, and analyses, built on the CyVerse Terrain API
 * [MESA CLI](concepts/cli.md) - CyVerse Cloud Shell CLI with MESA tools
-* [mesa-portal](concepts/mesa-portal.md) - Portal based on the CyVerse Terrain API
+* [MESA JupyterLab](concepts/jupyterlab.md) - JupyterLab data-science workbench (Python, R, Julia) for CyVerse VICE with RStudio, Shiny, VS Code, AI coding-agent CLIs, and the MESA MCP servers
+* [MESA RStudio Geospatial](concepts/rstudio.md) - RStudio Server on the Rocker geospatial stack for CyVerse VICE, with AI coding-agent CLIs and the MESA MCP servers
+* [MESA VS Code](concepts/vscode.md) - VS Code in the browser (code-server) for CyVerse VICE with Python, Jupyter, and Cline extensions, AI coding-agent CLIs, and the MESA MCP servers
+* [MESA KASM Ubuntu Desktop](concepts/kasm.md) - A full Ubuntu 24.04 XFCE desktop in the browser (KasmVNC) for CyVerse VICE, with AI coding-agent CLIs and the MESA MCP servers
 * [mesa-forge](concepts/mesa-forge.md) - A metadata extraction tool generation and management library

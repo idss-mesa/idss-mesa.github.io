@@ -1,11 +1,11 @@
 ---
 type: Website
-title: "MESA MCP Stack Documentation"
-description: "One-line install of the CyVerse MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server, formation-mcp) for Claude Code, Codex CLI, Antigravity, and OpenCode"
+title: "MESA Documentation"
+description: "MESA documentation: the MESA Portal at mesa.cyverse.org and its featured CyVerse apps, and the one-line install of the MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server, formation-mcp) for Claude Code, Codex CLI, Antigravity, and OpenCode"
 resource: https://idss-mesa.github.io/docs/
-tags: [documentation, mcp, install, cyverse]
+tags: [documentation, mcp, install, cyverse, portal, vice]
 status: stable
-generated: { by: "claude/opus-5", at: "2026-09-10T00:00:00Z" }
+generated: { by: "claude-code/2.1.294", at: "2026-10-08T00:00:00Z" }
 sources:
   - id: docs-repo
     resource: https://github.com/idss-mesa/docs
@@ -13,9 +13,17 @@ sources:
     author: "team:idss-mesa"
 ---
 
-# MESA MCP Stack Documentation
+# MESA Documentation
 
-One-line install of the CyVerse MESA MCP stack — [mesa-mcp](mesa-mcp.md),
+User guides for the [MESA Portal](mesa-portal.md) at <https://mesa.cyverse.org>
+(managing data, starting applications, managing analyses, with screenshots)
+and for the MESA featured apps — [MESA CLI](cli.md),
+[MESA JupyterLab](jupyterlab.md), [MESA RStudio Geospatial](rstudio.md),
+[MESA VS Code](vscode.md), and [MESA KASM Ubuntu Desktop](kasm.md) — at
+<https://idss-mesa.github.io/docs/portal/> and
+<https://idss-mesa.github.io/docs/apps/>.
+
+It also documents the one-line install of the CyVerse MESA MCP stack — [mesa-mcp](mesa-mcp.md),
 [mesa-ducklake](mesa-ducklake.md),
 [irods-mcp-server](irods-mcp-server.md), and
 [formation-mcp](formation-mcp.md) — for Claude Code, Codex CLI,
