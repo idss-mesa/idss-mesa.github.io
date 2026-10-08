@@ -31,7 +31,7 @@ client registration); every tool then acts as that user.[^formation]
   `stop_analysis`, `browse_data`, `create_directory`, `upload_file`,
   `set_metadata`, `delete_data`.
 - **Clients:** a custom connector on claude.ai and in Claude Desktop, and
-  Claude Code, the clients CyVerse documents its sign-in for. Codex CLI,
+  Claude Code, the clients whose sign-in callbacks CyVerse documents. Codex CLI,
   OpenCode, and Antigravity can be configured with it too, but their CyVerse
   sign-in is not yet confirmed: Codex and OpenCode send `http://127.0.0.1`
   callbacks, which CyVerse's documented allowlist (`http://localhost*`) does

@@ -131,8 +131,9 @@ CyVerse runs the Discovery Environment server, Formation, as a hosted MCP
 server, and serves public Data Store collections the same way — no local
 build, no toolchain.[^formation] On claude.ai or in Claude Desktop, open
 Customize → Connectors → Add custom connector, name the connector, paste its
-endpoint URL, and sign in with your CyVerse account for Formation (the public
-Data Store connector needs no sign-in). The Free plan allows one custom
+endpoint URL, and for Formation choose Register automatically under OAuth
+client and sign in with your CyVerse account (the public Data Store connector
+needs no sign-in). The Free plan allows one custom
 connector, so add the one you need. A connector on your claude.ai account
 follows you to Claude Desktop and the Claude mobile apps, and to Claude Code
 when Claude Code is signed in with your claude.ai subscription (not an API key
