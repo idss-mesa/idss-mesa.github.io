@@ -5,7 +5,7 @@ description: "MESA and CARC are hiring at the University of New Mexico — full-
 resource: https://idss-mesa.github.io/hiring.html
 tags: [site, hiring, jobs, unm, carc]
 status: stable
-generated: { by: "claude/opus-5", at: "2026-09-10T00:00:00Z" }
+generated: { by: "claude/opus-5.5", at: "2026-10-10T00:00:00Z" }
 stale_after: "2026-12-10T00:00:00Z"
 sources:
   - id: hiring-src
@@ -15,10 +15,6 @@ sources:
   - id: req-37416
     resource: https://unm.csod.com/ux/ats/careersite/18/home/requisition/37416
     title: "UNM Jobs requisition 37416 — Postdoctoral Researcher, Agentic AI"
-    author: "team:unm"
-  - id: req-37424
-    resource: https://unm.csod.com/ux/ats/careersite/18/home/requisition/37424
-    title: "UNM Jobs requisition 37424 — Program Manager"
     author: "team:unm"
   - id: req-37492
     resource: https://unm.csod.com/ux/ats/careersite/18/home/requisition/37492
@@ -30,11 +26,11 @@ sources:
 
 **Build the agentic layer of national science.**
 
-MESA is hiring at the University of New Mexico. Two full-time positions
-anchor the project at the Center for Advanced Research Computing (CARC) in
-Albuquerque, working directly with the PI and partner teams at the University
-of Arizona and UNC-CH/RENCI. CARC is separately hiring a Research Computing
-Facilitator who will work alongside the team.[^hiring-src]
+MESA is hiring at the University of New Mexico. A full-time postdoctoral
+position anchors the project at the Center for Advanced Research Computing
+(CARC) in Albuquerque, working directly with the PI and partner teams at the
+University of Arizona and UNC-CH/RENCI. CARC is separately hiring a Research
+Computing Facilitator who will work alongside the team.[^hiring-src]
 
 This document is the Markdown twin of <https://idss-mesa.github.io/hiring.html>.
 Open positions close: after this document's `stale_after` date, confirm a
@@ -59,22 +55,7 @@ review participation are part of the role.
 
 Apply: <https://unm.csod.com/ux/ats/careersite/18/home/requisition/37416>[^req-37416]
 
-### 02 — Program Manager
-
-*1.0 FTE · CARC · Reports to the PI*
-
-Run a $4.6M NSF cooperative agreement the way NSF expects it run: the Project
-Execution Plan, WBS-based schedule and budget tracking, risk register, change
-control, monthly program-officer meetings, and coordination across three
-institutions and two subawards.
-
-**You bring** experience managing funded research or infrastructure projects,
-fluency with earned-value-informed progress tracking, and the authority to
-keep an Agile software project on a federal baseline.
-
-Apply: <https://unm.csod.com/ux/ats/careersite/18/home/requisition/37424>[^req-37424]
-
-### 03 — Research Computing Facilitator
+### 02 — Research Computing Facilitator
 
 *1.0 FTE · CARC · Research Facilitation Team · posted as Systems/Network Analyst 2*
 
@@ -124,5 +105,4 @@ New Mexico is an Equal Opportunity Employer.
 
 [^hiring-src]: MESA hiring page source (hiring.html)
 [^req-37416]: UNM Jobs requisition 37416 — Postdoctoral Researcher, Agentic AI
-[^req-37424]: UNM Jobs requisition 37424 — Program Manager
 [^req-37492]: UNM Jobs requisition 37492 — Research Computing Facilitator

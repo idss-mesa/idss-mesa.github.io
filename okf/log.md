@@ -1,5 +1,8 @@
 # Bundle Update Log
 
+## 2026-10-10
+* **Update**: Removed the Program Manager position (UNM Jobs requisition 37424) from [MESA Hiring](concepts/hiring.md) and its page; the Research Computing Facilitator is now position 02.
+
 ## 2026-09-10
 * **Update**: Rewrote [MESA](concepts/home.md) and [MESA Hiring](concepts/hiring.md) as full Markdown twins of their pages — layers, goals, stack, connectors, team, news, and every open position — with `sources` and `stale_after` (the hiring twin goes stale on 2026-12-10).
 * **Creation**: Added [For AI agents](concepts/ai-agents.md), the agent guide rendered at <https://idss-mesa.github.io/about/ai-agents/>, modelled on the CARC and neon-mcp guides.
