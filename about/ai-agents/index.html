@@ -27,8 +27,8 @@
 <meta name="okf:type" content="Reference" />
 <meta name="okf:status" content="stable" />
 <meta name="okf:trust-tier" content="unverified" />
-<meta name="okf:generated-at" content="2026-09-10T00:00:00Z" />
-<meta name="okf:generated-by" content="claude/opus-5" />
+<meta name="okf:generated-at" content="2026-10-08T00:00:00Z" />
+<meta name="okf:generated-by" content="claude-code/2.1.294" />
 <meta name="okf:stale-after" content="2027-03-10T00:00:00Z" />
 <!-- okf:end -->
 <style>
@@ -159,9 +159,9 @@ footer a:hover { color: var(--color-accent-600); }
   <section class="block" id="tooling">
     <span class="kicker">MESA is agent tooling</span>
     <h2 class="block-title">For data, call the servers.</h2>
-    <p class="note">MESA’s product is a set of Model Context Protocol servers. If what you want is scientific data — files and metadata in the CyVerse Data Store, Discovery Environment apps and analyses, NEON ecological data — do not scrape these pages: connect to the servers and call their tools. One command registers <code>mesa-mcp</code>, <code>irods</code>, and <code>formation</code> with every agent client it finds (Claude Code, Codex CLI, Antigravity, OpenCode):</p>
+    <p class="note">MESA’s product is a set of Model Context Protocol servers. If what you want is scientific data — files and metadata in the CyVerse Data Store, Discovery Environment apps and analyses, NEON ecological data — do not scrape these pages: connect to the servers and call their tools. One command registers <code>mesa-mcp</code> and <code>irods</code> as local servers, and CyVerse’s hosted <code>formation</code>, with every agent client it finds (Claude Code, Codex CLI, Antigravity, OpenCode):</p>
     <div class="code"><span class="prompt">$</span> curl -fsSL https://raw.githubusercontent.com/idss-mesa/docs/main/install.sh | bash</div>
-    <p class="note">The Data Store and Discovery Environment servers also run hosted as remote MCP connectors over Streamable HTTP; the <a href="https://idss-mesa.github.io/docs/">MESA docs</a> carry the current endpoint URLs. For NEON data, use <a href="https://idss-mesa.github.io/neon-mcp/">neon-mcp</a>. Use this site to learn what MESA is; use the servers to get the data.</p>
+    <p class="note">The Discovery Environment server, Formation, is hosted by CyVerse at <a href="https://de.cyverse.org/formation/mcp">https://de.cyverse.org/formation/mcp</a> (Streamable HTTP, sign-in with a CyVerse account) and works as a custom connector on claude.ai — see the <a href="https://idss-mesa.github.io/docs/servers/formation-mcp/">Formation docs</a>; the <a href="https://idss-mesa.github.io/docs/">MESA docs</a> also carry the hosted Data Store endpoints. For NEON data, use <a href="https://idss-mesa.github.io/neon-mcp/">neon-mcp</a>. Use this site to learn what MESA is; use the servers to get the data.</p>
   </section>
 
   <section class="block" id="entry-points">

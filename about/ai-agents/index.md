@@ -5,7 +5,7 @@ description: "How agents and harnesses should read idss-mesa.github.io — robot
 resource: https://idss-mesa.github.io/about/ai-agents/
 tags: [about, ai-agents, okf, llms-txt, robots-txt]
 status: stable
-generated: { by: "claude/opus-5", at: "2026-09-10T00:00:00Z" }
+generated: { by: "claude-code/2.1.294", at: "2026-10-08T00:00:00Z" }
 stale_after: "2027-03-10T00:00:00Z"
 sources:
   - id: okf-spec
@@ -43,13 +43,15 @@ want is scientific data — files and metadata in the CyVerse Data Store,
 Discovery Environment apps and analyses, NEON ecological data — do not scrape
 these pages: connect to the servers and call their tools.
 
-- **Install locally.** One command registers `mesa-mcp`, `irods`, and
-  `formation` with every agent client it finds (Claude Code, Codex CLI,
-  Antigravity, OpenCode):
+- **Install locally.** One command registers `mesa-mcp` and `irods` as local
+  servers, and CyVerse's hosted `formation`, with every agent client it finds
+  (Claude Code, Codex CLI, Antigravity, OpenCode):
   `curl -fsSL https://raw.githubusercontent.com/idss-mesa/docs/main/install.sh | bash`
-- **Hosted connectors.** The Data Store (`irods-mcp-server`) and Discovery
-  Environment (`formation-mcp`) servers also run as remote MCP connectors
-  over Streamable HTTP. Current endpoint URLs are in the MESA documentation,
+- **Hosted connectors.** The Discovery Environment server, Formation, is
+  hosted by CyVerse at <https://de.cyverse.org/formation/mcp> (Streamable
+  HTTP, sign-in with a CyVerse account) and works as a custom connector on
+  claude.ai; see <https://idss-mesa.github.io/docs/servers/formation-mcp/>.
+  Hosted Data Store endpoints are in the MESA documentation,
   <https://idss-mesa.github.io/docs/>.
 - **NEON data.** Use neon-mcp, <https://idss-mesa.github.io/neon-mcp/>.
 

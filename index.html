@@ -26,8 +26,8 @@
 <meta name="okf:type" content="Website" />
 <meta name="okf:status" content="stable" />
 <meta name="okf:trust-tier" content="unverified" />
-<meta name="okf:generated-at" content="2026-09-10T00:00:00Z" />
-<meta name="okf:generated-by" content="claude/opus-5" />
+<meta name="okf:generated-at" content="2026-10-08T00:00:00Z" />
+<meta name="okf:generated-by" content="claude-code/2.1.294" />
 <meta name="okf:stale-after" content="2027-03-10T00:00:00Z" />
 <!-- okf:end -->
 <style>
@@ -190,6 +190,7 @@ body { margin: 0; text-wrap: pretty; }
 .code .prompt { color: var(--color-accent); user-select: none; }
 .stack .table { margin-top: calc(1.5 * var(--leading)); }
 .stack .table a { color: var(--color-text); }
+.stack .table td { overflow-wrap: anywhere; } /* endpoint URLs wrap at phone width */
 .stack .table a:hover { color: var(--color-accent-700); }
 /* — featured-connectors sub-block: the sub-head rides the feature-title scale,
    everything else reuses the section's drawn structure (ruled table, code box) — */
@@ -330,6 +331,7 @@ body[data-baselines]::after {
 <nav class="nav">
   <span class="nav-brand"><img class="nav-logo" src="assets/mesa-logo.svg" alt="" width="28" height="28" /> MESA</span>
   <a href="#platform" aria-current="location">Platform</a>
+  <a href="#portal">Portal</a>
   <a href="#stack">Stack</a>
   <a href="#team">Team</a>
   <a href="#kickoff">Kick-off</a>
@@ -343,6 +345,7 @@ body[data-baselines]::after {
     <p class="sub">MESA — the Multidisciplinary Environment for Scientific Advancement — is an open-source, agentic AI platform that connects scientific data through curated, indexed metadata. A data lakehouse, a federated data mesh, and AI agents that speak both, running on national research infrastructure today.</p>
     <div class="row">
       <a class="btn btn-primary" href="https://idss-mesa.github.io/docs/">Read the docs</a>
+      <a class="btn btn-ghost" href="https://mesa.cyverse.org">Open the MESA Portal</a>
       <a class="btn btn-ghost" href="https://github.com/idss-mesa">github.com/idss-mesa</a>
     </div>
   </section>
@@ -379,10 +382,29 @@ body[data-baselines]::after {
     </div>
   </section>
 
+  <section class="stack" id="portal">
+    <span class="kicker">In your browser</span>
+    <h2 class="stack-title">The MESA Portal. Sign in and start.</h2>
+    <p class="note">Sign in to <a href="https://mesa.cyverse.org">mesa.cyverse.org</a> with a free CyVerse account to browse, share, and describe your Data Store files, launch apps, and follow your analyses. The featured apps start from the portal with your Data Store mounted and the MESA MCP servers already registered for Claude Code, Codex, OpenCode, and Antigravity.</p>
+    <table class="table">
+      <thead><tr><th>Featured app</th><th>What it is</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://idss-mesa.github.io/docs/apps/cli/">MESA Cloud Shell</a></td><td>A terminal in the browser with five AI coding-agent CLIs</td><td><a href="https://github.com/idss-mesa/cli">cli</a></td></tr>
+        <tr><td><a href="https://idss-mesa.github.io/docs/apps/jupyterlab/">MESA JupyterLab</a></td><td>Python, R, and Julia notebooks, with RStudio and VS Code in the Launcher</td><td><a href="https://github.com/idss-mesa/jupyterlab">jupyterlab</a></td></tr>
+        <tr><td><a href="https://idss-mesa.github.io/docs/apps/rstudio/">MESA RStudio Geospatial</a></td><td>RStudio on the Rocker geospatial stack</td><td><a href="https://github.com/idss-mesa/rstudio">rstudio</a></td></tr>
+        <tr><td><a href="https://idss-mesa.github.io/docs/apps/vscode/">MESA VS Code</a></td><td>VS Code in the browser, with Cline wired to the MESA MCP servers</td><td><a href="https://github.com/idss-mesa/vscode">vscode</a></td></tr>
+        <tr><td><a href="https://idss-mesa.github.io/docs/apps/kasm/">MESA KASM Ubuntu Desktop</a></td><td>A full Ubuntu desktop in the browser</td><td><a href="https://github.com/idss-mesa/kasm">kasm</a></td></tr>
+      </tbody>
+    </table>
+    <p class="note">Each app also has a GPU build with CUDA PyTorch and a local Ollama server. Step-by-step guides with screenshots cover <a href="https://idss-mesa.github.io/docs/portal/data/">managing data</a>, <a href="https://idss-mesa.github.io/docs/portal/applications/">starting applications</a>, and <a href="https://idss-mesa.github.io/docs/portal/analyses/">managing analyses</a>.</p>
+  </section>
+
+  <hr class="rule2" />
+
   <section class="stack" id="stack">
     <span class="kicker">The stack, today</span>
-    <h2 class="stack-title">One line. Four servers. No credentials required.</h2>
-    <p class="note">MESA is not a promise — the MCP stack is public and installs now. One command clones, builds, and registers four CyVerse servers in Claude Code; anonymous public access to the Data Store works out of the box.</p>
+    <h2 class="stack-title">One line. Four servers. Your CyVerse sign-in.</h2>
+    <p class="note">MESA is not a promise — the MCP stack is public and installs now. One command clones, builds, and registers the CyVerse servers in Claude Code, Codex CLI, Antigravity, and OpenCode, and connects them to CyVerse’s hosted Formation server. Anonymous public access to the Data Store works out of the box; Formation asks you to sign in with your CyVerse account once in each agent client.</p>
     <div class="code"><span class="prompt">$</span> curl -fsSL https://raw.githubusercontent.com/idss-mesa/docs/main/install.sh | bash</div>
     <table class="table">
       <thead><tr><th>Server</th><th>Language</th><th>Role</th></tr></thead>
@@ -390,22 +412,22 @@ body[data-baselines]::after {
         <tr><td><a href="https://github.com/idss-mesa/mesa-mcp">mesa-mcp</a></td><td>Python</td><td>iRODS Data Store + OBO/OLS ontology metadata, DataCite, DuckLake history</td></tr>
         <tr><td><a href="https://github.com/idss-mesa/mesa-ducklake">mesa-ducklake</a></td><td>Python</td><td>AVU metadata-history library backing mesa-mcp</td></tr>
         <tr><td><a href="https://github.com/idss-mesa/irods-mcp-server">irods-mcp-server</a></td><td>Go</td><td>Reference iRODS Data Store server</td></tr>
-        <tr><td><a href="https://github.com/idss-mesa/formation-mcp">formation-mcp</a></td><td>Go</td><td>CyVerse Discovery Environment — launch apps, manage analyses</td></tr>
+        <tr><td><a href="https://idss-mesa.github.io/docs/servers/formation-mcp/">Formation</a></td><td>Hosted by CyVerse</td><td>CyVerse Discovery Environment — launch apps, manage analyses</td></tr>
       </tbody>
     </table>
     <h3 class="sub">Featured connectors. Nothing to install.</h3>
-    <p class="note">The Data Store and Discovery Environment servers also run hosted, as remote MCP connectors — no local build, no toolchain. In Claude Desktop or claude.ai, open Settings → Connectors → Add custom connector, name the connector, paste its endpoint URL, and authenticate when prompted. A connector added to your claude.ai organization follows you everywhere Claude runs: Claude Desktop, claude.ai, and Claude Code on the web.</p>
+    <p class="note">CyVerse runs the Discovery Environment server, Formation, as a hosted MCP server, and serves public Data Store collections the same way — no local build, no toolchain. On claude.ai or in Claude Desktop, open Customize → Connectors → Add custom connector, name the connector, paste its endpoint URL, and for Formation choose Register automatically under OAuth client and sign in with your CyVerse account (the public Data Store connector needs no sign-in). The Free plan allows one custom connector, so add the one you need. A connector on your claude.ai account follows you to Claude Desktop and the Claude mobile apps, and to Claude Code when Claude Code is signed in with your claude.ai subscription (not an API key or another model provider).</p>
     <table class="table">
-      <thead><tr><th>Connector</th><th>Server</th><th>What it opens</th></tr></thead>
+      <thead><tr><th>Connector</th><th>Endpoint</th><th>What it opens</th></tr></thead>
       <tbody>
-        <tr><td>cyverse-irods-shared</td><td><a href="https://github.com/idss-mesa/irods-mcp-server">irods-mcp-server</a></td><td>CyVerse Data Store — public collections under /iplant/home/shared, anonymous read</td></tr>
-        <tr><td>cyverse-formation</td><td><a href="https://github.com/idss-mesa/formation-mcp">formation-mcp</a></td><td>Discovery Environment — browse data, launch apps, track analyses</td></tr>
+        <tr><td><a href="https://idss-mesa.github.io/docs/claude-ai/">CyVerse Formation</a></td><td>https://de.cyverse.org/formation/mcp</td><td>Discovery Environment — launch apps, track analyses, read and write your Data Store files, as you</td></tr>
+        <tr><td>cyverse-irods-shared</td><td>https://mcp-public.cyverse.ai/mcp</td><td>CyVerse Data Store — public collections under /iplant/home/shared, anonymous read</td></tr>
       </tbody>
     </table>
-    <p class="note">Claude Code registers the same endpoints from the terminal:</p>
-    <div class="code"><span class="prompt">$</span> claude mcp add --transport http irods https://IRODS-ENDPOINT/mcp
-<span class="prompt">$</span> claude mcp add --transport http formation https://FORMATION-ENDPOINT/mcp</div>
-    <p class="note">Swap in the current endpoint URLs from the <a href="https://idss-mesa.github.io/docs/">docs</a>, which also cover credentialed access, running either server locally in Claude Desktop via claude_desktop_config.json, and self-hosting the endpoints.</p>
+    <p class="note">The installer already registers formation. Without it, Claude Code registers the same endpoints from the terminal; if an older MESA install left a local formation entry, run <code>claude mcp remove formation -s user</code> first (see <a href="https://idss-mesa.github.io/docs/servers/formation-mcp/#moving-from-the-local-formation-mcp">Moving from the local formation-mcp</a>). Run <code>/mcp</code> afterwards to sign in to Formation:</p>
+    <div class="code"><span class="prompt">$</span> claude mcp add --transport http --scope user formation https://de.cyverse.org/formation/mcp
+<span class="prompt">$</span> claude mcp add --transport http --scope user irods-public https://mcp-public.cyverse.ai/mcp</div>
+    <p class="note">The <a href="https://idss-mesa.github.io/docs/servers/formation-mcp/">Formation docs</a> cover Codex, OpenCode, and Antigravity, and the <a href="https://idss-mesa.github.io/docs/claude-ai/">connector guide</a> covers Team and Enterprise organizations.</p>
   </section>
 
   <section class="team" id="team">
@@ -462,6 +484,7 @@ body[data-baselines]::after {
   <div class="wrap">
     <h3><span class="line">Reducing time to discovery.</span></h3>
     <div class="row">
+      <a class="btn btn-ghost" href="https://mesa.cyverse.org">Open the MESA Portal</a>
       <a class="btn btn-ghost" href="https://idss-mesa.github.io/docs/quickstart/">Start with the quickstart</a>
     </div>
   </div>
