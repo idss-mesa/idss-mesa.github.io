@@ -1,5 +1,10 @@
 # Bundle Update Log
 
+## 2026-10-19
+* **Creation**: Split the single-scroll landing page into separate pages, each with a Markdown twin: [MESA Portal and featured apps](concepts/portal.md) (<https://idss-mesa.github.io/portal.html>), [MESA MCP stack](concepts/stack.md) (<https://idss-mesa.github.io/stack.html>), [MESA team](concepts/team.md) (<https://idss-mesa.github.io/team.html>), and [MESA news](concepts/news.md) (<https://idss-mesa.github.io/news.html>).
+* **Update**: [MESA](concepts/home.md) and its page keep the hero, the five layers, and the three innovation goals, and link the new pages from an "Explore MESA" list; the portal, stack, connector, team, and news sections and their sources moved to the new twins. Every page's navigation now links pages rather than in-page anchors.
+* **Update**: [MESA team](concepts/team.md) adds Alaina Martinez, Program Manager at UNM, with a headshot on the team page.
+* **Update**: [For AI agents](concepts/ai-agents.md) and its page list the new pages and twins; [MESA Hiring](concepts/hiring.md) points to [MESA MCP stack](concepts/stack.md) for the stack.
 ## 2026-10-10
 * **Update**: Removed the Program Manager position (UNM Jobs requisition 37424) from [MESA Hiring](concepts/hiring.md) and its page; the Research Computing Facilitator is now position 02.
 ## 2026-10-08

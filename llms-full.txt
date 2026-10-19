@@ -29,6 +29,10 @@ crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 
 # Site
 * [MESA — Multidisciplinary Environment for Scientific Advancement](concepts/home.md) - MESA is an open-source, agentic AI platform that connects scientific data through curated, indexed metadata — a data lakehouse, a federated data mesh, and AI agents that speak both. NSF IDSS Category II project at the University of New Mexico
+* [MESA Portal and featured apps](concepts/portal.md) - The MESA Portal page: sign in at mesa.cyverse.org with a free CyVerse account to manage Data Store files and analyses, and launch the five featured apps — MESA Cloud Shell, JupyterLab, RStudio Geospatial, VS Code, and KASM Ubuntu Desktop — with your Data Store mounted
+* [MESA MCP stack](concepts/stack.md) - The MESA stack page: a one-line install of the MESA MCP servers for Claude Code, Codex CLI, Antigravity, and OpenCode, and CyVerse's hosted Formation and public Data Store connectors for claude.ai, Claude Desktop, and Claude Code
+* [MESA team](concepts/team.md) - The people building MESA: investigators, staff, and students at the University of New Mexico, the University of Arizona, and UNC-Chapel Hill / RENCI, with each person's role and institution
+* [MESA news](concepts/news.md) - News from the MESA project: the July 2026 kick-off with the NSF Integrated Data Systems & Services program, and co-investigator CK Chan's work with OpenAI on simulations of black holes
 * [MESA Hiring](concepts/hiring.md) - MESA and CARC are hiring at the University of New Mexico — full-time positions at the Center for Advanced Research Computing in Albuquerque
 * [For AI agents](concepts/ai-agents.md) - How agents and harnesses should read idss-mesa.github.io — robots.txt, llms.txt, Markdown twins with OKF v0.2 frontmatter, and trust signals — and why to call the MESA MCP servers for data
 
@@ -59,7 +63,7 @@ description: "MESA is an open-source, agentic AI platform that connects scientif
 resource: https://idss-mesa.github.io/
 tags: [site, mesa, agentic-ai, data-lakehouse, data-mesh, mcp, cyverse]
 status: stable
-generated: { by: "claude-code/2.1.294", at: "2026-10-08T00:00:00Z" }
+generated: { by: "claude/opus-5.5", at: "2026-10-19T00:00:00Z" }
 stale_after: "2027-03-10T00:00:00Z"
 sources:
   - id: landing-src
@@ -70,26 +74,6 @@ sources:
     resource: https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2632685
     title: "NSF Award #2632685 — MESA"
     author: "team:nsf"
-  - id: portal
-    resource: https://mesa.cyverse.org/
-    title: "MESA Portal"
-    author: "team:idss-mesa"
-  - id: portal-docs
-    resource: https://idss-mesa.github.io/docs/portal/
-    title: "MESA Portal guides (MESA documentation)"
-    author: "team:idss-mesa"
-  - id: formation
-    resource: https://github.com/cyverse-de/formation
-    title: "Formation source repository (hosted Discovery Environment MCP server)"
-    author: "team:cyverse-de"
-  - id: install-sh
-    resource: https://github.com/idss-mesa/docs/blob/main/install.sh
-    title: "MESA MCP stack installer (install.sh)"
-    author: "team:idss-mesa"
-  - id: openai-black-holes
-    resource: https://openai.com/index/creating-new-simulations-black-holes/
-    title: "Creating new simulations of black holes (OpenAI)"
-    author: "team:openai"
 ---
 
 # MESA — Multidisciplinary Environment for Scientific Advancement
@@ -132,15 +116,74 @@ MESA Portal at <https://mesa.cyverse.org>.
    sandboxed, multi-agent orchestration. Agents that find, describe, and move
    scientific data — with the guardrails written first.
 
-## In your browser: the MESA Portal
+## Explore MESA
 
-The MESA Portal. Sign in and start.
+The rest of the site has a page each; every page has its own Markdown twin.
+
+| # | Page | Twin | What is on it |
+|---|------|------|---------------|
+| 01 | [Portal](https://idss-mesa.github.io/portal.html) | [MESA Portal and featured apps](portal.md) | Sign in at mesa.cyverse.org and launch the featured apps with your Data Store mounted |
+| 02 | [Stack](https://idss-mesa.github.io/stack.html) | [MESA MCP stack](stack.md) | One line installs the MESA MCP servers; CyVerse's hosted connectors need no install |
+| 03 | [Team](https://idss-mesa.github.io/team.html) | [MESA team](team.md) | Investigators, staff, and students at UNM, Arizona, and UNC-CH/RENCI |
+| 04 | [News](https://idss-mesa.github.io/news.html) | [MESA news](news.md) | The July 2026 kick-off with NSF IDSS, and CK Chan's black-hole simulations with OpenAI |
+| 05 | [We're hiring](https://idss-mesa.github.io/hiring.html) | [MESA Hiring](hiring.md) | Open positions at the UNM Center for Advanced Research Computing in Albuquerque |
+
+## Funding
+
+MESA is supported by the U.S. National Science Foundation under Award
+#2632685 (Integrated Data Systems & Services, 2026–2029).[^nsf-award] Any
+opinions, findings, and conclusions are those of the authors and do not
+necessarily reflect the views of the NSF. Partner institutions: University of
+New Mexico, University of Arizona, UNC-Chapel Hill / RENCI.
+
+Agents: see [For AI agents](ai-agents.md) for how to read this
+origin, and connect to the MCP servers on the [stack page](stack.md) for the
+data itself.
+
+[^landing-src]: MESA landing page source (index.html)
+[^nsf-award]: NSF Award #2632685 — MESA
+
+---8<--- https://idss-mesa.github.io/okf/concepts/portal.md
+
+---
+type: Webpage
+title: "MESA Portal and featured apps"
+description: "The MESA Portal page: sign in at mesa.cyverse.org with a free CyVerse account to manage Data Store files and analyses, and launch the five featured apps — MESA Cloud Shell, JupyterLab, RStudio Geospatial, VS Code, and KASM Ubuntu Desktop — with your Data Store mounted"
+resource: https://idss-mesa.github.io/portal.html
+tags: [site, portal, cyverse, apps, data-store]
+status: stable
+generated: { by: "claude/opus-5.5", at: "2026-10-19T00:00:00Z" }
+stale_after: "2027-03-10T00:00:00Z"
+sources:
+  - id: portal-src
+    resource: https://github.com/idss-mesa/idss-mesa.github.io/blob/main/portal.html
+    title: "MESA Portal page source (portal.html)"
+    author: "team:idss-mesa"
+  - id: portal
+    resource: https://mesa.cyverse.org/
+    title: "MESA Portal"
+    author: "team:idss-mesa"
+  - id: portal-docs
+    resource: https://idss-mesa.github.io/docs/portal/
+    title: "MESA Portal guides (MESA documentation)"
+    author: "team:idss-mesa"
+---
+
+# MESA Portal and featured apps
+
+**The MESA Portal. Sign in and start.**
 
 Sign in to <https://mesa.cyverse.org> with a free CyVerse account to browse,
 share, and describe your Data Store files, launch apps, and follow your
 analyses.[^portal] The featured apps start from the portal with your Data
 Store mounted and the MESA MCP servers already registered for Claude Code,
-Codex, OpenCode, and Antigravity.
+Codex, OpenCode, and Antigravity.[^portal-src]
+
+This document is the Markdown twin of
+<https://idss-mesa.github.io/portal.html>. The portal software itself is the
+concept [mesa-portal](mesa-portal.md).
+
+## Featured apps
 
 | Featured app | What it is | Source |
 |--------------|------------|--------|
@@ -155,11 +198,42 @@ Step-by-step guides with screenshots cover
 [managing data](https://idss-mesa.github.io/docs/portal/data/),
 [starting applications](https://idss-mesa.github.io/docs/portal/applications/),
 and [managing analyses](https://idss-mesa.github.io/docs/portal/analyses/).[^portal-docs]
-The portal's own concept is [mesa-portal](mesa-portal.md).
 
-## The stack, today
+The rest of the site starts at [MESA](home.md).
 
-One line. Four servers. Your CyVerse sign-in.
+[^portal-src]: MESA Portal page source (portal.html)
+[^portal]: MESA Portal
+[^portal-docs]: MESA Portal guides (MESA documentation)
+
+---8<--- https://idss-mesa.github.io/okf/concepts/stack.md
+
+---
+type: Webpage
+title: "MESA MCP stack"
+description: "The MESA stack page: a one-line install of the MESA MCP servers for Claude Code, Codex CLI, Antigravity, and OpenCode, and CyVerse's hosted Formation and public Data Store connectors for claude.ai, Claude Desktop, and Claude Code"
+resource: https://idss-mesa.github.io/stack.html
+tags: [site, mcp, install, connectors, formation, cyverse]
+status: stable
+generated: { by: "claude/opus-5.5", at: "2026-10-19T00:00:00Z" }
+stale_after: "2027-03-10T00:00:00Z"
+sources:
+  - id: stack-src
+    resource: https://github.com/idss-mesa/idss-mesa.github.io/blob/main/stack.html
+    title: "MESA stack page source (stack.html)"
+    author: "team:idss-mesa"
+  - id: install-sh
+    resource: https://github.com/idss-mesa/docs/blob/main/install.sh
+    title: "MESA MCP stack installer (install.sh)"
+    author: "team:idss-mesa"
+  - id: formation
+    resource: https://github.com/cyverse-de/formation
+    title: "Formation source repository (hosted Discovery Environment MCP server)"
+    author: "team:cyverse-de"
+---
+
+# MESA MCP stack
+
+**One line. Four servers. Your CyVerse sign-in.**
 
 MESA is not a promise — the MCP stack is public and installs now. One command
 clones, builds, and registers the CyVerse servers in Claude Code, Codex CLI,
@@ -167,6 +241,12 @@ Antigravity, and OpenCode, and connects them to CyVerse's hosted Formation
 server. Anonymous public access to the Data Store works out of the box;
 Formation asks you to sign in with your CyVerse account once in each agent
 client.[^install-sh]
+
+This document is the Markdown twin of
+<https://idss-mesa.github.io/stack.html>.[^stack-src] The full install guide is
+the [MESA Documentation](docs.md).
+
+## Install it in one line
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/idss-mesa/docs/main/install.sh | bash
@@ -179,7 +259,7 @@ curl -fsSL https://raw.githubusercontent.com/idss-mesa/docs/main/install.sh | ba
 | [irods-mcp-server](irods-mcp-server.md) | Go | Reference iRODS Data Store server |
 | [Formation](formation-mcp.md) | Hosted by CyVerse | CyVerse Discovery Environment — launch apps, manage analyses |
 
-### Featured connectors. Nothing to install.
+## Featured connectors. Nothing to install.
 
 CyVerse runs the Discovery Environment server, Formation, as a hosted MCP
 server, and serves public Data Store collections the same way — no local
@@ -214,6 +294,40 @@ cover Codex, OpenCode, and Antigravity, and the
 [connector guide](https://idss-mesa.github.io/docs/claude-ai/) covers Team and
 Enterprise organizations.
 
+The rest of the site starts at [MESA](home.md).
+
+[^stack-src]: MESA stack page source (stack.html)
+[^install-sh]: MESA MCP stack installer (install.sh)
+[^formation]: Formation source repository (hosted Discovery Environment MCP server)
+
+---8<--- https://idss-mesa.github.io/okf/concepts/team.md
+
+---
+type: Webpage
+title: "MESA team"
+description: "The people building MESA: investigators, staff, and students at the University of New Mexico, the University of Arizona, and UNC-Chapel Hill / RENCI, with each person's role and institution"
+resource: https://idss-mesa.github.io/team.html
+tags: [site, team, people, unm, arizona, renci]
+status: stable
+generated: { by: "claude/opus-5.5", at: "2026-10-19T00:00:00Z" }
+stale_after: "2027-03-10T00:00:00Z"
+sources:
+  - id: team-src
+    resource: https://github.com/idss-mesa/idss-mesa.github.io/blob/main/team.html
+    title: "MESA team page source (team.html)"
+    author: "team:idss-mesa"
+---
+
+# MESA team
+
+**Three institutions. One team.**
+
+MESA is built by investigators, staff, and students at the University of New
+Mexico, the University of Arizona, and UNC-Chapel Hill / RENCI.[^team-src]
+
+This document is the Markdown twin of
+<https://idss-mesa.github.io/team.html>.
+
 ## The team
 
 | Name | Role |
@@ -223,6 +337,7 @@ Enterprise organizations.
 | David Ebert, Ph.D. | Co-PI · Chief AI & Data Science Officer · Arizona |
 | Lei Cao, Ph.D. | Co-PI · Lakehouse lead · Arizona |
 | Terrell Russell, Ph.D. | Co-PI · Data Mesh Lead · RENCI Site Lead |
+| Alaina Martinez | Program Manager · UNM |
 | Illyoung Choi, Ph.D. | Research Software Engineer · Arizona |
 | Kory Draughn | Chief Technologist · RENCI |
 | Alan King | Senior Software Developer · RENCI |
@@ -239,7 +354,39 @@ Enterprise organizations.
 | Junyong Zhao | PhD Student · Arizona |
 | Linan Zheng | PhD Student · Arizona |
 
-MESA is hiring; see [MESA Hiring](hiring.md).
+MESA is hiring; see [MESA Hiring](hiring.md). Write to the PI at
+<mailto:tswetnam@unm.edu>. The rest of the site starts at [MESA](home.md).
+
+[^team-src]: MESA team page source (team.html)
+
+---8<--- https://idss-mesa.github.io/okf/concepts/news.md
+
+---
+type: Webpage
+title: "MESA news"
+description: "News from the MESA project: the July 2026 kick-off with the NSF Integrated Data Systems & Services program, and co-investigator CK Chan's work with OpenAI on simulations of black holes"
+resource: https://idss-mesa.github.io/news.html
+tags: [site, news, nsf, kickoff]
+status: stable
+generated: { by: "claude/opus-5.5", at: "2026-10-19T00:00:00Z" }
+stale_after: "2027-03-10T00:00:00Z"
+sources:
+  - id: news-src
+    resource: https://github.com/idss-mesa/idss-mesa.github.io/blob/main/news.html
+    title: "MESA news page source (news.html)"
+    author: "team:idss-mesa"
+  - id: openai-black-holes
+    resource: https://openai.com/index/creating-new-simulations-black-holes/
+    title: "Creating new simulations of black holes (OpenAI)"
+    author: "team:openai"
+---
+
+# MESA news
+
+**News from MESA.** Project milestones, and work by the MESA team.[^news-src]
+
+This document is the Markdown twin of
+<https://idss-mesa.github.io/news.html>.
 
 ## News
 
@@ -248,27 +395,14 @@ MESA is hiring; see [MESA Hiring](hiring.md).
   meeting — the University of New Mexico, the University of Arizona, and
   UNC-CH/RENCI, setting the two-year prototype baseline in motion.
 - **Creating new simulations of black holes, with OpenAI.** Co-investigator
-  CK Chan, Ph.D. worked with OpenAI on creating new simulations of black
-  holes — a look at agentic coding against Event Horizon Telescope
+  CK Chan, Ph.D. worked with OpenAI on
+  [creating new simulations of black holes](https://openai.com/index/creating-new-simulations-black-holes/)
+  — a look at agentic coding against Event Horizon Telescope
   science.[^openai-black-holes]
 
-## Funding
+The rest of the site starts at [MESA](home.md).
 
-MESA is supported by the U.S. National Science Foundation under Award
-#2632685 (Integrated Data Systems & Services, 2026–2029).[^nsf-award] Any
-opinions, findings, and conclusions are those of the authors and do not
-necessarily reflect the views of the NSF. Partner institutions: University of
-New Mexico, University of Arizona, UNC-Chapel Hill / RENCI.
-
-Agents: see [For AI agents](ai-agents.md) for how to read this
-origin, and connect to the MCP servers above for the data itself.
-
-[^landing-src]: MESA landing page source (index.html)
-[^nsf-award]: NSF Award #2632685 — MESA
-[^portal]: MESA Portal
-[^formation]: Formation source repository (hosted Discovery Environment MCP server)
-[^portal-docs]: MESA Portal guides (MESA documentation)
-[^install-sh]: MESA MCP stack installer (install.sh)
+[^news-src]: MESA news page source (news.html)
 [^openai-black-holes]: Creating new simulations of black holes (OpenAI)
 
 ---8<--- https://idss-mesa.github.io/okf/concepts/hiring.md
@@ -280,7 +414,7 @@ description: "MESA and CARC are hiring at the University of New Mexico — full-
 resource: https://idss-mesa.github.io/hiring.html
 tags: [site, hiring, jobs, unm, carc]
 status: stable
-generated: { by: "claude/opus-5.5", at: "2026-10-10T00:00:00Z" }
+generated: { by: "claude/opus-5.5", at: "2026-10-19T00:00:00Z" }
 stale_after: "2026-12-10T00:00:00Z"
 sources:
   - id: hiring-src
@@ -356,7 +490,7 @@ Apply: <https://unm.csod.com/ux/ats/careersite/18/home/requisition/37492>[^req-3
 Real hardware, real data, day one. The prototype runs on leveraged national
 infrastructure — no waiting for procurement. You join a team that already
 ships: the MESA MCP stack is public, installable in one line, and in use
-against the CyVerse Data Store today (see [MESA](home.md)).
+against the CyVerse Data Store today (see [MESA MCP stack](stack.md)).
 
 - **UNM CARC clusters** — Easley (H100, L40S) and Hopper (A100) GPU clusters
   with multi-petabyte storage, on campus.
@@ -391,7 +525,7 @@ description: "How agents and harnesses should read idss-mesa.github.io — robot
 resource: https://idss-mesa.github.io/about/ai-agents/
 tags: [about, ai-agents, okf, llms-txt, robots-txt]
 status: stable
-generated: { by: "claude-code/2.1.294", at: "2026-10-08T00:00:00Z" }
+generated: { by: "claude/opus-5.5", at: "2026-10-19T00:00:00Z" }
 stale_after: "2027-03-10T00:00:00Z"
 sources:
   - id: okf-spec
@@ -464,6 +598,10 @@ instead names its twin in its `<head>`:
 | Page | Markdown twin |
 | ---- | ------------- |
 | <https://idss-mesa.github.io/> | <https://idss-mesa.github.io/okf/concepts/home.md> |
+| <https://idss-mesa.github.io/portal.html> | <https://idss-mesa.github.io/okf/concepts/portal.md> |
+| <https://idss-mesa.github.io/stack.html> | <https://idss-mesa.github.io/okf/concepts/stack.md> |
+| <https://idss-mesa.github.io/team.html> | <https://idss-mesa.github.io/okf/concepts/team.md> |
+| <https://idss-mesa.github.io/news.html> | <https://idss-mesa.github.io/okf/concepts/news.md> |
 | <https://idss-mesa.github.io/hiring.html> | <https://idss-mesa.github.io/okf/concepts/hiring.md> |
 | <https://idss-mesa.github.io/about/ai-agents/> | <https://idss-mesa.github.io/about/ai-agents/index.md> (a copy of <https://idss-mesa.github.io/okf/concepts/ai-agents.md>) |
 
@@ -1173,6 +1311,11 @@ an NSF IDSS Category II project at the University of New Mexico; see
 
 # Bundle Update Log
 
+## 2026-10-19
+* **Creation**: Split the single-scroll landing page into separate pages, each with a Markdown twin: [MESA Portal and featured apps](concepts/portal.md) (<https://idss-mesa.github.io/portal.html>), [MESA MCP stack](concepts/stack.md) (<https://idss-mesa.github.io/stack.html>), [MESA team](concepts/team.md) (<https://idss-mesa.github.io/team.html>), and [MESA news](concepts/news.md) (<https://idss-mesa.github.io/news.html>).
+* **Update**: [MESA](concepts/home.md) and its page keep the hero, the five layers, and the three innovation goals, and link the new pages from an "Explore MESA" list; the portal, stack, connector, team, and news sections and their sources moved to the new twins. Every page's navigation now links pages rather than in-page anchors.
+* **Update**: [MESA team](concepts/team.md) adds Alaina Martinez, Program Manager at UNM, with a headshot on the team page.
+* **Update**: [For AI agents](concepts/ai-agents.md) and its page list the new pages and twins; [MESA Hiring](concepts/hiring.md) points to [MESA MCP stack](concepts/stack.md) for the stack.
 ## 2026-10-10
 * **Update**: Removed the Program Manager position (UNM Jobs requisition 37424) from [MESA Hiring](concepts/hiring.md) and its page; the Research Computing Facilitator is now position 02.
 ## 2026-10-08

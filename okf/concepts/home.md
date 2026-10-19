@@ -5,7 +5,7 @@ description: "MESA is an open-source, agentic AI platform that connects scientif
 resource: https://idss-mesa.github.io/
 tags: [site, mesa, agentic-ai, data-lakehouse, data-mesh, mcp, cyverse]
 status: stable
-generated: { by: "claude-code/2.1.294", at: "2026-10-08T00:00:00Z" }
+generated: { by: "claude/opus-5.5", at: "2026-10-19T00:00:00Z" }
 stale_after: "2027-03-10T00:00:00Z"
 sources:
   - id: landing-src
@@ -16,26 +16,6 @@ sources:
     resource: https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2632685
     title: "NSF Award #2632685 — MESA"
     author: "team:nsf"
-  - id: portal
-    resource: https://mesa.cyverse.org/
-    title: "MESA Portal"
-    author: "team:idss-mesa"
-  - id: portal-docs
-    resource: https://idss-mesa.github.io/docs/portal/
-    title: "MESA Portal guides (MESA documentation)"
-    author: "team:idss-mesa"
-  - id: formation
-    resource: https://github.com/cyverse-de/formation
-    title: "Formation source repository (hosted Discovery Environment MCP server)"
-    author: "team:cyverse-de"
-  - id: install-sh
-    resource: https://github.com/idss-mesa/docs/blob/main/install.sh
-    title: "MESA MCP stack installer (install.sh)"
-    author: "team:idss-mesa"
-  - id: openai-black-holes
-    resource: https://openai.com/index/creating-new-simulations-black-holes/
-    title: "Creating new simulations of black holes (OpenAI)"
-    author: "team:openai"
 ---
 
 # MESA — Multidisciplinary Environment for Scientific Advancement
@@ -78,125 +58,17 @@ MESA Portal at <https://mesa.cyverse.org>.
    sandboxed, multi-agent orchestration. Agents that find, describe, and move
    scientific data — with the guardrails written first.
 
-## In your browser: the MESA Portal
+## Explore MESA
 
-The MESA Portal. Sign in and start.
+The rest of the site has a page each; every page has its own Markdown twin.
 
-Sign in to <https://mesa.cyverse.org> with a free CyVerse account to browse,
-share, and describe your Data Store files, launch apps, and follow your
-analyses.[^portal] The featured apps start from the portal with your Data
-Store mounted and the MESA MCP servers already registered for Claude Code,
-Codex, OpenCode, and Antigravity.
-
-| Featured app | What it is | Source |
-|--------------|------------|--------|
-| [MESA Cloud Shell](https://idss-mesa.github.io/docs/apps/cli/) | A terminal in the browser with five AI coding-agent CLIs | [MESA CLI](cli.md) |
-| [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) | Python, R, and Julia notebooks, with RStudio and VS Code in the Launcher | [MESA JupyterLab](jupyterlab.md) |
-| [MESA RStudio Geospatial](https://idss-mesa.github.io/docs/apps/rstudio/) | RStudio on the Rocker geospatial stack | [MESA RStudio Geospatial](rstudio.md) |
-| [MESA VS Code](https://idss-mesa.github.io/docs/apps/vscode/) | VS Code in the browser, with Cline wired to the MESA MCP servers | [MESA VS Code](vscode.md) |
-| [MESA KASM Ubuntu Desktop](https://idss-mesa.github.io/docs/apps/kasm/) | A full Ubuntu desktop in the browser | [MESA KASM Ubuntu Desktop](kasm.md) |
-
-Each app also has a GPU build with CUDA PyTorch and a local Ollama server.
-Step-by-step guides with screenshots cover
-[managing data](https://idss-mesa.github.io/docs/portal/data/),
-[starting applications](https://idss-mesa.github.io/docs/portal/applications/),
-and [managing analyses](https://idss-mesa.github.io/docs/portal/analyses/).[^portal-docs]
-The portal's own concept is [mesa-portal](mesa-portal.md).
-
-## The stack, today
-
-One line. Four servers. Your CyVerse sign-in.
-
-MESA is not a promise — the MCP stack is public and installs now. One command
-clones, builds, and registers the CyVerse servers in Claude Code, Codex CLI,
-Antigravity, and OpenCode, and connects them to CyVerse's hosted Formation
-server. Anonymous public access to the Data Store works out of the box;
-Formation asks you to sign in with your CyVerse account once in each agent
-client.[^install-sh]
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/idss-mesa/docs/main/install.sh | bash
-```
-
-| Server | Language | Role |
-|--------|----------|------|
-| [mesa-mcp](mesa-mcp.md) | Python | iRODS Data Store + OBO/OLS ontology metadata, DataCite, DuckLake history |
-| [mesa-ducklake](mesa-ducklake.md) | Python | AVU metadata-history library backing mesa-mcp |
-| [irods-mcp-server](irods-mcp-server.md) | Go | Reference iRODS Data Store server |
-| [Formation](formation-mcp.md) | Hosted by CyVerse | CyVerse Discovery Environment — launch apps, manage analyses |
-
-### Featured connectors. Nothing to install.
-
-CyVerse runs the Discovery Environment server, Formation, as a hosted MCP
-server, and serves public Data Store collections the same way — no local
-build, no toolchain.[^formation] On claude.ai or in Claude Desktop, open
-Customize → Connectors → Add custom connector, name the connector, paste its
-endpoint URL, and for Formation choose Register automatically under OAuth
-client and sign in with your CyVerse account (the public Data Store connector
-needs no sign-in). The Free plan allows one custom
-connector, so add the one you need. A connector on your claude.ai account
-follows you to Claude Desktop and the Claude mobile apps, and to Claude Code
-when Claude Code is signed in with your claude.ai subscription (not an API key
-or another model provider).
-
-| Connector | Endpoint | What it opens |
-|-----------|----------|---------------|
-| [CyVerse Formation](https://idss-mesa.github.io/docs/claude-ai/) | https://de.cyverse.org/formation/mcp | Discovery Environment — launch apps, track analyses, read and write your Data Store files, as you |
-| cyverse-irods-shared | https://mcp-public.cyverse.ai/mcp | CyVerse Data Store — public collections under `/iplant/home/shared`, anonymous read |
-
-The installer already registers formation. Without it, Claude Code registers
-the same endpoints from the terminal; if an older MESA install left a local
-formation entry, run `claude mcp remove formation -s user` first (see
-[Moving from the local formation-mcp](https://idss-mesa.github.io/docs/servers/formation-mcp/#moving-from-the-local-formation-mcp)).
-Run `/mcp` afterwards to sign in to Formation:
-
-```bash
-claude mcp add --transport http --scope user formation https://de.cyverse.org/formation/mcp
-claude mcp add --transport http --scope user irods-public https://mcp-public.cyverse.ai/mcp
-```
-
-The [Formation docs](https://idss-mesa.github.io/docs/servers/formation-mcp/)
-cover Codex, OpenCode, and Antigravity, and the
-[connector guide](https://idss-mesa.github.io/docs/claude-ai/) covers Team and
-Enterprise organizations.
-
-## The team
-
-| Name | Role |
-|------|------|
-| Tyson L. Swetnam, Ph.D. | Principal Investigator · UNM |
-| Arthur B. Maccabe, Ph.D. | Co-PI · Arizona site lead |
-| David Ebert, Ph.D. | Co-PI · Chief AI & Data Science Officer · Arizona |
-| Lei Cao, Ph.D. | Co-PI · Lakehouse lead · Arizona |
-| Terrell Russell, Ph.D. | Co-PI · Data Mesh Lead · RENCI Site Lead |
-| Illyoung Choi, Ph.D. | Research Software Engineer · Arizona |
-| Kory Draughn | Chief Technologist · RENCI |
-| Alan King | Senior Software Developer · RENCI |
-| Justin James | Applications Engineer · RENCI |
-| Sarah Roberts | Research Software Engineer · Arizona |
-| Tony Edgin | Data Curator · Arizona |
-| Edwin Skidmore | Cloud Orchestration / Infrastructure · CyVerse |
-| Greg Chism, Ph.D. | EOT Lead · Senior Personnel · Arizona |
-| Jingdi Chen, Ph.D. | 5G/6G Networking · Arizona |
-| CK Chan, Ph.D. | Astronomer · Arizona |
-| Wolfgang Jentner, Ph.D. | Human-Computer Interaction · Arizona |
-| Junjia Guo | PhD Student · Arizona |
-| Pengxin Wang | PhD Student · Arizona |
-| Junyong Zhao | PhD Student · Arizona |
-| Linan Zheng | PhD Student · Arizona |
-
-MESA is hiring; see [MESA Hiring](hiring.md).
-
-## News
-
-- **MESA kicks off with NSF IDSS, July 2026.** The project team convenes with
-  the NSF Integrated Data Systems & Services program for the MESA kick-off
-  meeting — the University of New Mexico, the University of Arizona, and
-  UNC-CH/RENCI, setting the two-year prototype baseline in motion.
-- **Creating new simulations of black holes, with OpenAI.** Co-investigator
-  CK Chan, Ph.D. worked with OpenAI on creating new simulations of black
-  holes — a look at agentic coding against Event Horizon Telescope
-  science.[^openai-black-holes]
+| # | Page | Twin | What is on it |
+|---|------|------|---------------|
+| 01 | [Portal](https://idss-mesa.github.io/portal.html) | [MESA Portal and featured apps](portal.md) | Sign in at mesa.cyverse.org and launch the featured apps with your Data Store mounted |
+| 02 | [Stack](https://idss-mesa.github.io/stack.html) | [MESA MCP stack](stack.md) | One line installs the MESA MCP servers; CyVerse's hosted connectors need no install |
+| 03 | [Team](https://idss-mesa.github.io/team.html) | [MESA team](team.md) | Investigators, staff, and students at UNM, Arizona, and UNC-CH/RENCI |
+| 04 | [News](https://idss-mesa.github.io/news.html) | [MESA news](news.md) | The July 2026 kick-off with NSF IDSS, and CK Chan's black-hole simulations with OpenAI |
+| 05 | [We're hiring](https://idss-mesa.github.io/hiring.html) | [MESA Hiring](hiring.md) | Open positions at the UNM Center for Advanced Research Computing in Albuquerque |
 
 ## Funding
 
@@ -207,12 +79,8 @@ necessarily reflect the views of the NSF. Partner institutions: University of
 New Mexico, University of Arizona, UNC-Chapel Hill / RENCI.
 
 Agents: see [For AI agents](ai-agents.md) for how to read this
-origin, and connect to the MCP servers above for the data itself.
+origin, and connect to the MCP servers on the [stack page](stack.md) for the
+data itself.
 
 [^landing-src]: MESA landing page source (index.html)
 [^nsf-award]: NSF Award #2632685 — MESA
-[^portal]: MESA Portal
-[^formation]: Formation source repository (hosted Discovery Environment MCP server)
-[^portal-docs]: MESA Portal guides (MESA documentation)
-[^install-sh]: MESA MCP stack installer (install.sh)
-[^openai-black-holes]: Creating new simulations of black holes (OpenAI)

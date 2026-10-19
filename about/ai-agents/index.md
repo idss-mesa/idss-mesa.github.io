@@ -5,7 +5,7 @@ description: "How agents and harnesses should read idss-mesa.github.io — robot
 resource: https://idss-mesa.github.io/about/ai-agents/
 tags: [about, ai-agents, okf, llms-txt, robots-txt]
 status: stable
-generated: { by: "claude-code/2.1.294", at: "2026-10-08T00:00:00Z" }
+generated: { by: "claude/opus-5.5", at: "2026-10-19T00:00:00Z" }
 stale_after: "2027-03-10T00:00:00Z"
 sources:
   - id: okf-spec
@@ -78,6 +78,10 @@ instead names its twin in its `<head>`:
 | Page | Markdown twin |
 | ---- | ------------- |
 | <https://idss-mesa.github.io/> | <https://idss-mesa.github.io/okf/concepts/home.md> |
+| <https://idss-mesa.github.io/portal.html> | <https://idss-mesa.github.io/okf/concepts/portal.md> |
+| <https://idss-mesa.github.io/stack.html> | <https://idss-mesa.github.io/okf/concepts/stack.md> |
+| <https://idss-mesa.github.io/team.html> | <https://idss-mesa.github.io/okf/concepts/team.md> |
+| <https://idss-mesa.github.io/news.html> | <https://idss-mesa.github.io/okf/concepts/news.md> |
 | <https://idss-mesa.github.io/hiring.html> | <https://idss-mesa.github.io/okf/concepts/hiring.md> |
 | <https://idss-mesa.github.io/about/ai-agents/> | <https://idss-mesa.github.io/about/ai-agents/index.md> (a copy of <https://idss-mesa.github.io/okf/concepts/ai-agents.md>) |
 

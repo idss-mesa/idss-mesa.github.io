@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://idss-mesa.github.io/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://idss-mesa.github.io/hiring.html</loc><lastmod>2026-10-10</lastmod></url>
-  <url><loc>https://idss-mesa.github.io/about/ai-agents/</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://idss-mesa.github.io/about/ai-agents/index.md</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://idss-mesa.github.io/</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://idss-mesa.github.io/hiring.html</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://idss-mesa.github.io/about/ai-agents/</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://idss-mesa.github.io/about/ai-agents/index.md</loc><lastmod>2026-10-08</lastmod></url>
+  <url><loc>https://idss-mesa.github.io/</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://idss-mesa.github.io/portal.html</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://idss-mesa.github.io/stack.html</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://idss-mesa.github.io/team.html</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://idss-mesa.github.io/news.html</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://idss-mesa.github.io/hiring.html</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://idss-mesa.github.io/about/ai-agents/</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://idss-mesa.github.io/about/ai-agents/index.md</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://idss-mesa.github.io/llms.txt</loc></url>
   <url><loc>https://idss-mesa.github.io/llms-full.txt</loc></url>
   <url><loc>https://idss-mesa.github.io/okf/index.md</loc></url>
   <url><loc>https://idss-mesa.github.io/okf/log.md</loc></url>
-  <url><loc>https://idss-mesa.github.io/okf/concepts/home.md</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://idss-mesa.github.io/okf/concepts/hiring.md</loc><lastmod>2026-10-10</lastmod></url>
-  <url><loc>https://idss-mesa.github.io/okf/concepts/ai-agents.md</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://idss-mesa.github.io/okf/concepts/docs.md</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://idss-mesa.github.io/okf/concepts/home.md</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://idss-mesa.github.io/okf/concepts/hiring.md</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://idss-mesa.github.io/okf/concepts/ai-agents.md</loc><lastmod>2026-10-08</lastmod></url>
+  <url><loc>https://idss-mesa.github.io/okf/concepts/home.md</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://idss-mesa.github.io/okf/concepts/portal.md</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://idss-mesa.github.io/okf/concepts/stack.md</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://idss-mesa.github.io/okf/concepts/team.md</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://idss-mesa.github.io/okf/concepts/news.md</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://idss-mesa.github.io/okf/concepts/hiring.md</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://idss-mesa.github.io/okf/concepts/ai-agents.md</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://idss-mesa.github.io/okf/concepts/docs.md</loc><lastmod>2026-10-08</lastmod></url>
   <url><loc>https://idss-mesa.github.io/okf/concepts/mesa-mcp.md</loc><lastmod>2026-08-30</lastmod></url>
   <url><loc>https://idss-mesa.github.io/okf/concepts/mesa-ducklake.md</loc><lastmod>2026-08-30</lastmod></url>

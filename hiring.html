@@ -26,7 +26,7 @@
 <meta name="okf:type" content="Webpage" />
 <meta name="okf:status" content="stable" />
 <meta name="okf:trust-tier" content="unverified" />
-<meta name="okf:generated-at" content="2026-10-10T00:00:00Z" />
+<meta name="okf:generated-at" content="2026-10-19T00:00:00Z" />
 <meta name="okf:generated-by" content="claude/opus-5.5" />
 <meta name="okf:stale-after" content="2026-12-10T00:00:00Z" />
 <!-- okf:end -->
@@ -45,15 +45,15 @@ body { margin: 0; text-wrap: pretty; }
 .wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--edge); }
 .nav { padding-inline: max(var(--edge), calc((100% - 1200px) / 2 + var(--edge))); }
 .nav a { white-space: nowrap; }
-.nav a[aria-current='page'] { color: var(--color-accent); }
-@media (max-width: 480px) { /* phone width: drop the cross-page section anchors;
-   the current page and the one action stay reachable */
-  .nav { flex-wrap: wrap; row-gap: var(--space-2); }
-  .nav a[href^="index.html#"] { display: none; }
-}
-.nav-brand { display: flex; align-items: center; gap: 10px; } /* the mark rides the
-   brand — text still carries the name */
+.nav .nav-brand { display: flex; align-items: center; gap: 10px; font-size: 18px; } /* the
+   brand links home; it restates the component's 18px over the nav's 14px links */
 .nav-logo { width: 28px; height: 28px; display: block; } /* one leading unit square */
+.nav-links { display: flex; align-items: center; gap: var(--space-4); }
+@media (max-width: 760px) { /* page links drop to a second row under the brand
+   and the one action, and wrap on the narrowest phones */
+  .nav { flex-wrap: wrap; row-gap: var(--space-2); }
+  .nav-links { order: 1; flex-basis: 100%; flex-wrap: wrap; row-gap: var(--space-1); }
+}
 .rule2 { height: 2px; border: 0; margin: 0; background: var(--color-divider); }
 .kicker {
   display: block; font-size: 13px; line-height: var(--half);
@@ -147,11 +147,15 @@ footer a:hover { color: var(--color-accent-600); }
 </head>
 <body>
 <nav class="nav">
-  <span class="nav-brand"><img class="nav-logo" src="assets/mesa-logo.svg" alt="" width="28" height="28" /> MESA</span>
-  <a href="index.html">Platform</a>
-  <a href="index.html#stack">Stack</a>
-  <a href="index.html#team">Team</a>
-  <a href="hiring.html" aria-current="page">We’re hiring</a>
+  <a class="nav-brand" href="index.html"><img class="nav-logo" src="assets/mesa-logo.svg" alt="" width="28" height="28" /> MESA</a>
+  <div class="nav-links">
+    <a href="index.html">Platform</a>
+    <a href="portal.html">Portal</a>
+    <a href="stack.html">Stack</a>
+    <a href="team.html">Team</a>
+    <a href="news.html">News</a>
+    <a href="hiring.html" aria-current="page">We’re hiring</a>
+  </div>
   <a class="btn btn-primary" href="https://idss-mesa.github.io/docs/">Read the docs</a>
 </nav>
 <div class="wrap">
