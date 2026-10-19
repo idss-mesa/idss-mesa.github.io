@@ -23,6 +23,10 @@ crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 
 # Site
 * [MESA — Multidisciplinary Environment for Scientific Advancement](concepts/home.md) - MESA is an open-source, agentic AI platform that connects scientific data through curated, indexed metadata — a data lakehouse, a federated data mesh, and AI agents that speak both. NSF IDSS Category II project at the University of New Mexico
+* [MESA Portal and featured apps](concepts/portal.md) - The MESA Portal page: sign in at mesa.cyverse.org with a free CyVerse account to manage Data Store files and analyses, and launch the five featured apps — MESA Cloud Shell, JupyterLab, RStudio Geospatial, VS Code, and KASM Ubuntu Desktop — with your Data Store mounted
+* [MESA MCP stack](concepts/stack.md) - The MESA stack page: a one-line install of the MESA MCP servers for Claude Code, Codex CLI, Antigravity, and OpenCode, and CyVerse's hosted Formation and public Data Store connectors for claude.ai, Claude Desktop, and Claude Code
+* [MESA team](concepts/team.md) - The people building MESA: investigators, staff, and students at the University of New Mexico, the University of Arizona, and UNC-Chapel Hill / RENCI, with each person's role and institution
+* [MESA news](concepts/news.md) - News from the MESA project: the July 2026 kick-off with the NSF Integrated Data Systems & Services program, and co-investigator CK Chan's work with OpenAI on simulations of black holes
 * [MESA Hiring](concepts/hiring.md) - MESA and CARC are hiring at the University of New Mexico — full-time positions at the Center for Advanced Research Computing in Albuquerque
 * [For AI agents](concepts/ai-agents.md) - How agents and harnesses should read idss-mesa.github.io — robots.txt, llms.txt, Markdown twins with OKF v0.2 frontmatter, and trust signals — and why to call the MESA MCP servers for data
 

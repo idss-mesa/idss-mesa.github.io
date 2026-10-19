@@ -26,8 +26,8 @@
 <meta name="okf:type" content="Website" />
 <meta name="okf:status" content="stable" />
 <meta name="okf:trust-tier" content="unverified" />
-<meta name="okf:generated-at" content="2026-10-08T00:00:00Z" />
-<meta name="okf:generated-by" content="claude-code/2.1.294" />
+<meta name="okf:generated-at" content="2026-10-19T00:00:00Z" />
+<meta name="okf:generated-by" content="claude/opus-5.5" />
 <meta name="okf:stale-after" content="2027-03-10T00:00:00Z" />
 <!-- okf:end -->
 <style>
@@ -71,17 +71,17 @@ body { margin: 0; text-wrap: pretty; }
    (padding-only — full-width paint such as a masthead rule is untouched) */
 .nav { padding-inline: max(var(--edge), calc((100% - 1200px) / 2 + var(--edge))); }
 .nav a { white-space: nowrap; }
-.nav a[aria-current='location'] { color: var(--color-accent); } /* in-page anchor, not
-   a page link — 'location' is the truthful value; carry the component's active ink */
-@media (max-width: 480px) { /* phone width: drop the section anchors only — the
-   full link row's min-content crosses narrow-phone widths, but the hiring link
-   and the one action stay reachable; wrap catches the narrowest phones */
-  .nav { flex-wrap: wrap; row-gap: var(--space-2); }
-  .nav a[href^="#"] { display: none; }
-}
-.nav-brand { display: flex; align-items: center; gap: 10px; } /* the mark rides the
-   brand — text still carries the name */
+.nav .nav-brand { display: flex; align-items: center; gap: 10px; font-size: 18px; } /* the
+   mark rides the brand — text still carries the name; the brand links home, so it
+   restates the component's 18px over the nav's 14px link size */
 .nav-logo { width: 28px; height: 28px; display: block; } /* one leading unit square */
+.nav-links { display: flex; align-items: center; gap: var(--space-4); }
+@media (max-width: 760px) { /* the page links' min-content crosses this width, so they
+   drop to a second row under the brand and the one action, and wrap on the
+   narrowest phones — every page stays one tap away */
+  .nav { flex-wrap: wrap; row-gap: var(--space-2); }
+  .nav-links { order: 1; flex-basis: 100%; flex-wrap: wrap; row-gap: var(--space-1); }
+}
 
 /* — drawn structure: the 2px rule is the section seam (the deck's header
    band as page grammar; rules span the content column, solid — this system
@@ -136,6 +136,15 @@ body { margin: 0; text-wrap: pretty; }
   font-feature-settings: "tnum" 1; text-box: trim-both cap alphabetic; }
 @media (max-width: 720px) { .layer { grid-template-columns: 48px 1fr; } .l-tech { grid-column: 2; } }
 
+/* — explore (the rest of the site, set in the layers' ruled-row grammar: each
+   row names a page and says what is on it; the rows keep the ids of the
+   sections that moved to those pages, so old #portal / #stack / #team /
+   #kickoff links still land on the right row) — */
+.explore { padding: calc(2.5 * var(--leading)) 0 calc(3 * var(--leading)); }
+.explore .l-title a { color: var(--color-text); text-decoration: underline;
+  text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.explore .l-title a:hover { color: var(--color-accent-700); }
+
 /* — stat row (in-grammar: red stays a MARK on the light ground — the stat
    numerals take the accent at display size, ≥3:1 as large text per the
    system's own accent rule; the red FIELD is reserved for the close) — */
@@ -174,33 +183,6 @@ body { margin: 0; text-wrap: pretty; }
   color: color-mix(in srgb, var(--color-text) 78%, transparent);
   max-width: 52ch; text-box: trim-both cap alphabetic; }
 
-/* — the stack today (install one-liner + the four servers; the code block
-   is drawn structure — a 2px-ruled box, mono, flush left, no fill drama) — */
-.stack { padding: calc(2.5 * var(--leading)) 0 calc(3 * var(--leading)); }
-.stack-title { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-  font-size: 32px; line-height: calc(1.5 * var(--leading)); letter-spacing: -0.015em;
-  margin: 0; text-box: trim-both cap alphabetic; }
-.stack .note { font-size: 15.5px; line-height: var(--leading);
-  color: color-mix(in srgb, var(--color-text) 78%, transparent);
-  margin: calc(var(--leading) - 1cap) 0 0; max-width: var(--measure); text-box: trim-both cap alphabetic; }
-.code { border: 2px solid var(--color-divider); background: var(--color-neutral-100);
-  margin: calc(1.5 * var(--leading)) 0 0; padding: var(--leading) var(--space-4);
-  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-  font-size: 14.5px; line-height: var(--leading); overflow-x: auto; white-space: pre; }
-.code .prompt { color: var(--color-accent); user-select: none; }
-.stack .table { margin-top: calc(1.5 * var(--leading)); }
-.stack .table a { color: var(--color-text); }
-.stack .table td { overflow-wrap: anywhere; } /* endpoint URLs wrap at phone width */
-.stack .table a:hover { color: var(--color-accent-700); }
-/* — featured-connectors sub-block: the sub-head rides the feature-title scale,
-   everything else reuses the section's drawn structure (ruled table, code box) — */
-.stack .sub { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-  font-size: 24px; line-height: var(--leading); letter-spacing: -0.01em;
-  margin: calc(2.5 * var(--leading)) 0 0; text-box: trim-both cap alphabetic; }
-.stack .note a { color: var(--color-accent-700); } /* small-text link ink — base accent
-   is a large-text value; see .kicker */
-.stack .note a:hover { color: var(--color-accent-600); }
-
 /* — imagery split (grayscale photograph — the system prints in black and
    white; the box pins the bundled asset's 951×665 ratio so swaps
    cover-crop into the same frame) — */
@@ -215,38 +197,6 @@ body { margin: 0; text-wrap: pretty; }
   margin: calc(var(--leading) - 1cap) 0 0; max-width: 48ch; text-box: trim-both cap alphabetic; }
 .split-figure { margin: 0; }
 .split-figure image-slot { width: 100%; aspect-ratio: 951 / 665; }
-
-/* — team grid (photographs print black and white per the system; ruled top
-   seam, names in the heading weight, roles as small furniture ink) — */
-.team { padding: calc(2.5 * var(--leading)) 0 calc(3 * var(--leading)); }
-.team .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
-  gap: calc(1.5 * var(--leading)) var(--leading); margin-top: var(--leading); }
-.person img, .person image-slot { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
-.person image-slot { --is-radius: 0; }
-.p-name { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-  font-size: 16px; line-height: var(--half); letter-spacing: -0.01em;
-  margin: var(--leading) 0 0; text-box: trim-both cap alphabetic; }
-.p-role { font-size: 13px; line-height: 18px; letter-spacing: 0.04em; text-transform: uppercase;
-  color: color-mix(in srgb, var(--color-text) 70%, transparent);
-  margin: var(--half) 0 0; }
-
-/* — kick-off callout (the announcement rides the quote's display slot —
-   type does the work, red stays a mark) — */
-.kickoff { padding: calc(2.5 * var(--leading)) 0 calc(3.5 * var(--leading)); }
-.kickoff h2 { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-  font-size: clamp(24px, 2.6vw, 34px); line-height: calc(1.5 * var(--leading));
-  letter-spacing: -0.015em; max-width: 34ch; margin: 0; text-box: trim-both cap alphabetic; }
-.kickoff .note a { color: var(--color-accent-700); }
-.kickoff .note a:hover { color: var(--color-accent-600); }
-.kickoff .note { font-size: 15.5px; line-height: var(--leading);
-  color: color-mix(in srgb, var(--color-text) 78%, transparent);
-  margin: calc(var(--leading) - 1cap) 0 0; max-width: var(--measure); text-box: trim-both cap alphabetic; }
-.kickoff .item + .item { border-top: 2px solid var(--color-divider);
-  margin-top: calc(2 * var(--leading)); padding-top: calc(2 * var(--leading)); } /* the ruled
-   seam — news items take the page's repeated-unit grammar */
-.kickoff .shot { margin: calc(1.5 * var(--leading)) 0 0; max-width: 640px; }
-.kickoff .shot img { width: 100%; display: block; border: 2px solid var(--color-divider); } /* drawn
-   frame; the image prints black and white via .grayscale, per the system */
 
 /* — quote (hanging punctuation, the deck's measured Archivo advances) — */
 .quote { padding: calc(2.5 * var(--leading)) 0 calc(3.5 * var(--leading)); }
@@ -329,13 +279,15 @@ body[data-baselines]::after {
 </head>
 <body>
 <nav class="nav">
-  <span class="nav-brand"><img class="nav-logo" src="assets/mesa-logo.svg" alt="" width="28" height="28" /> MESA</span>
-  <a href="#platform" aria-current="location">Platform</a>
-  <a href="#portal">Portal</a>
-  <a href="#stack">Stack</a>
-  <a href="#team">Team</a>
-  <a href="#kickoff">Kick-off</a>
-  <a href="hiring.html">We’re hiring</a>
+  <a class="nav-brand" href="index.html"><img class="nav-logo" src="assets/mesa-logo.svg" alt="" width="28" height="28" /> MESA</a>
+  <div class="nav-links">
+    <a href="index.html" aria-current="page">Platform</a>
+    <a href="portal.html">Portal</a>
+    <a href="stack.html">Stack</a>
+    <a href="team.html">Team</a>
+    <a href="news.html">News</a>
+    <a href="hiring.html">We’re hiring</a>
+  </div>
   <a class="btn btn-primary" href="https://idss-mesa.github.io/docs/">Read the docs</a>
 </nav>
 <div class="wrap">
@@ -382,100 +334,15 @@ body[data-baselines]::after {
     </div>
   </section>
 
-  <section class="stack" id="portal">
-    <span class="kicker">In your browser</span>
-    <h2 class="stack-title">The MESA Portal. Sign in and start.</h2>
-    <p class="note">Sign in to <a href="https://mesa.cyverse.org">mesa.cyverse.org</a> with a free CyVerse account to browse, share, and describe your Data Store files, launch apps, and follow your analyses. The featured apps start from the portal with your Data Store mounted and the MESA MCP servers already registered for Claude Code, Codex, OpenCode, and Antigravity.</p>
-    <table class="table">
-      <thead><tr><th>Featured app</th><th>What it is</th><th>Source</th></tr></thead>
-      <tbody>
-        <tr><td><a href="https://idss-mesa.github.io/docs/apps/cli/">MESA Cloud Shell</a></td><td>A terminal in the browser with five AI coding-agent CLIs</td><td><a href="https://github.com/idss-mesa/cli">cli</a></td></tr>
-        <tr><td><a href="https://idss-mesa.github.io/docs/apps/jupyterlab/">MESA JupyterLab</a></td><td>Python, R, and Julia notebooks, with RStudio and VS Code in the Launcher</td><td><a href="https://github.com/idss-mesa/jupyterlab">jupyterlab</a></td></tr>
-        <tr><td><a href="https://idss-mesa.github.io/docs/apps/rstudio/">MESA RStudio Geospatial</a></td><td>RStudio on the Rocker geospatial stack</td><td><a href="https://github.com/idss-mesa/rstudio">rstudio</a></td></tr>
-        <tr><td><a href="https://idss-mesa.github.io/docs/apps/vscode/">MESA VS Code</a></td><td>VS Code in the browser, with Cline wired to the MESA MCP servers</td><td><a href="https://github.com/idss-mesa/vscode">vscode</a></td></tr>
-        <tr><td><a href="https://idss-mesa.github.io/docs/apps/kasm/">MESA KASM Ubuntu Desktop</a></td><td>A full Ubuntu desktop in the browser</td><td><a href="https://github.com/idss-mesa/kasm">kasm</a></td></tr>
-      </tbody>
-    </table>
-    <p class="note">Each app also has a GPU build with CUDA PyTorch and a local Ollama server. Step-by-step guides with screenshots cover <a href="https://idss-mesa.github.io/docs/portal/data/">managing data</a>, <a href="https://idss-mesa.github.io/docs/portal/applications/">starting applications</a>, and <a href="https://idss-mesa.github.io/docs/portal/analyses/">managing analyses</a>.</p>
-  </section>
-
   <hr class="rule2" />
 
-  <section class="stack" id="stack">
-    <span class="kicker">The stack, today</span>
-    <h2 class="stack-title">One line. Four servers. Your CyVerse sign-in.</h2>
-    <p class="note">MESA is not a promise — the MCP stack is public and installs now. One command clones, builds, and registers the CyVerse servers in Claude Code, Codex CLI, Antigravity, and OpenCode, and connects them to CyVerse’s hosted Formation server. Anonymous public access to the Data Store works out of the box; Formation asks you to sign in with your CyVerse account once in each agent client.</p>
-    <div class="code"><span class="prompt">$</span> curl -fsSL https://raw.githubusercontent.com/idss-mesa/docs/main/install.sh | bash</div>
-    <table class="table">
-      <thead><tr><th>Server</th><th>Language</th><th>Role</th></tr></thead>
-      <tbody>
-        <tr><td><a href="https://github.com/idss-mesa/mesa-mcp">mesa-mcp</a></td><td>Python</td><td>iRODS Data Store + OBO/OLS ontology metadata, DataCite, DuckLake history</td></tr>
-        <tr><td><a href="https://github.com/idss-mesa/mesa-ducklake">mesa-ducklake</a></td><td>Python</td><td>AVU metadata-history library backing mesa-mcp</td></tr>
-        <tr><td><a href="https://github.com/idss-mesa/irods-mcp-server">irods-mcp-server</a></td><td>Go</td><td>Reference iRODS Data Store server</td></tr>
-        <tr><td><a href="https://idss-mesa.github.io/docs/servers/formation-mcp/">Formation</a></td><td>Hosted by CyVerse</td><td>CyVerse Discovery Environment — launch apps, manage analyses</td></tr>
-      </tbody>
-    </table>
-    <h3 class="sub">Featured connectors. Nothing to install.</h3>
-    <p class="note">CyVerse runs the Discovery Environment server, Formation, as a hosted MCP server, and serves public Data Store collections the same way — no local build, no toolchain. On claude.ai or in Claude Desktop, open Customize → Connectors → Add custom connector, name the connector, paste its endpoint URL, and for Formation choose Register automatically under OAuth client and sign in with your CyVerse account (the public Data Store connector needs no sign-in). The Free plan allows one custom connector, so add the one you need. A connector on your claude.ai account follows you to Claude Desktop and the Claude mobile apps, and to Claude Code when Claude Code is signed in with your claude.ai subscription (not an API key or another model provider).</p>
-    <table class="table">
-      <thead><tr><th>Connector</th><th>Endpoint</th><th>What it opens</th></tr></thead>
-      <tbody>
-        <tr><td><a href="https://idss-mesa.github.io/docs/claude-ai/">CyVerse Formation</a></td><td>https://de.cyverse.org/formation/mcp</td><td>Discovery Environment — launch apps, track analyses, read and write your Data Store files, as you</td></tr>
-        <tr><td>cyverse-irods-shared</td><td>https://mcp-public.cyverse.ai/mcp</td><td>CyVerse Data Store — public collections under /iplant/home/shared, anonymous read</td></tr>
-      </tbody>
-    </table>
-    <p class="note">The installer already registers formation. Without it, Claude Code registers the same endpoints from the terminal; if an older MESA install left a local formation entry, run <code>claude mcp remove formation -s user</code> first (see <a href="https://idss-mesa.github.io/docs/servers/formation-mcp/#moving-from-the-local-formation-mcp">Moving from the local formation-mcp</a>). Run <code>/mcp</code> afterwards to sign in to Formation:</p>
-    <div class="code"><span class="prompt">$</span> claude mcp add --transport http --scope user formation https://de.cyverse.org/formation/mcp
-<span class="prompt">$</span> claude mcp add --transport http --scope user irods-public https://mcp-public.cyverse.ai/mcp</div>
-    <p class="note">The <a href="https://idss-mesa.github.io/docs/servers/formation-mcp/">Formation docs</a> cover Codex, OpenCode, and Antigravity, and the <a href="https://idss-mesa.github.io/docs/claude-ai/">connector guide</a> covers Team and Enterprise organizations.</p>
-  </section>
-
-  <section class="team" id="team">
-    <span class="kicker">The team</span>
-    <div class="grid">
-      <div class="person"><div class="grayscale"><img src="assets/team/tyson_swetnam.png" alt="Portrait of Tyson L. Swetnam"></div><p class="p-name">Tyson L. Swetnam, Ph.D.</p><p class="p-role">Principal Investigator · UNM</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/barney_maccabe.png" alt="Portrait of Arthur B. Maccabe"></div><p class="p-name">Arthur B. Maccabe, Ph.D.</p><p class="p-role">Co-PI · Arizona site lead</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/david_ebert.jpg" alt="Portrait of David Ebert"></div><p class="p-name">David Ebert, Ph.D.</p><p class="p-role">Co-PI · Chief AI &amp; Data Science Officer · Arizona</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/lei_cao.webp" alt="Portrait of Lei Cao"></div><p class="p-name">Lei Cao, Ph.D.</p><p class="p-role">Co-PI · Lakehouse lead · Arizona</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/terrell_russell.avif" alt="Portrait of Terrell Russell"></div><p class="p-name">Terrell Russell, Ph.D.</p><p class="p-role">Co-PI · Data Mesh Lead · RENCI Site Lead</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/illyoung_choi.jpeg" alt="Portrait of Illyoung Choi"></div><p class="p-name">Illyoung Choi, Ph.D.</p><p class="p-role">Research Software Engineer · Arizona</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/kory_draughn.avif" alt="Portrait of Kory Draughn"></div><p class="p-name">Kory Draughn</p><p class="p-role">Chief Technologist · RENCI</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/alan_king.jpg" alt="Portrait of Alan King"></div><p class="p-name">Alan King</p><p class="p-role">Senior Software Developer · RENCI</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/justin_james.jpg" alt="Portrait of Justin James"></div><p class="p-name">Justin James</p><p class="p-role">Applications Engineer · RENCI</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/sarah_roberts.webp" alt="Portrait of Sarah Roberts"></div><p class="p-name">Sarah Roberts</p><p class="p-role">Research Software Engineer · Arizona</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/tony_edgin.jpeg" alt="Portrait of Tony Edgin"></div><p class="p-name">Tony Edgin</p><p class="p-role">Data Curator · Arizona</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/edwin_skidmore.webp" alt="Portrait of Edwin Skidmore"></div><p class="p-name">Edwin Skidmore</p><p class="p-role">Cloud Orchestration / Infrastructure · CyVerse</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/greg_chism.png" alt="Portrait of Greg Chism"></div><p class="p-name">Greg Chism, Ph.D.</p><p class="p-role">EOT Lead · Senior Personnel · Arizona</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/jingdi_chen.png" alt="Portrait of Jingdi Chen"></div><p class="p-name">Jingdi Chen, Ph.D.</p><p class="p-role">5G/6G Networking · Arizona</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/ck_chan.png" alt="Portrait of CK Chan"></div><p class="p-name">CK Chan, Ph.D.</p><p class="p-role">Astronomer · Arizona</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/wolfgang_jentner.png" alt="Portrait of Wolfgang Jentner"></div><p class="p-name">Wolfgang Jentner, Ph.D.</p><p class="p-role">Human-Computer Interaction · Arizona</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/junjia_guo.png" alt="Portrait of Junjia Guo"></div><p class="p-name">Junjia Guo</p><p class="p-role">PhD Student · Arizona</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/pengxin_wang.png" alt="Portrait of Pengxin Wang"></div><p class="p-name">Pengxin Wang</p><p class="p-role">PhD Student · Arizona</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/junyong_zhao.jpeg" alt="Portrait of Junyong Zhao"></div><p class="p-name">Junyong Zhao</p><p class="p-role">PhD Student · Arizona</p></div>
-      <div class="person"><div class="grayscale"><img src="assets/team/linan_zheng.jpg" alt="Portrait of Linan Zheng"></div><p class="p-name">Linan Zheng</p><p class="p-role">PhD Student · Arizona</p></div>
-    </div>
-  </section>
-
-  <hr class="rule2" />
-
-  <section class="kickoff" id="kickoff">
-    <span class="kicker">News</span>
-    <div class="item">
-      <h2>MESA kicks off with NSF IDSS, July 2026.</h2>
-      <p class="note">The project team convenes with the NSF Integrated Data Systems &amp; Services program for the MESA kick-off meeting — the University of New Mexico, the University of Arizona, and UNC-CH/RENCI, setting the two-year prototype baseline in motion.</p>
-    </div>
-    <div class="item">
-      <h2>Creating new simulations of black holes, with OpenAI.</h2>
-      <p class="note">Co-investigator CK Chan, Ph.D. worked with OpenAI on <a href="https://openai.com/index/creating-new-simulations-black-holes/">creating new simulations of black holes</a> — a look at agentic coding against Event Horizon Telescope science.</p>
-      <!-- Screenshot slot: save a capture of the article page to
-           assets/news/openai-black-holes.png, then uncomment. (This remote
-           session's network policy blocks openai.com, so it could not be
-           captured here.)
-      <figure class="shot grayscale">
-        <img src="assets/news/openai-black-holes.png" alt="The OpenAI article page: Creating new simulations of black holes" loading="lazy" />
-      </figure>
-      -->
-    </div>
+  <section class="layers explore" aria-label="Explore MESA">
+    <span class="kicker">Explore MESA</span>
+    <div class="layer" id="portal"><p class="l-num">01</p><h2 class="l-title"><a href="portal.html">Portal</a></h2><p class="l-tech">Sign in at mesa.cyverse.org and launch the featured apps with your Data Store mounted</p></div>
+    <div class="layer" id="stack"><p class="l-num">02</p><h2 class="l-title"><a href="stack.html">Stack</a></h2><p class="l-tech">One line installs the MESA MCP servers; CyVerse’s hosted connectors need no install</p></div>
+    <div class="layer" id="team"><p class="l-num">03</p><h2 class="l-title"><a href="team.html">Team</a></h2><p class="l-tech">Investigators, staff, and students at UNM, Arizona, and UNC-CH/RENCI</p></div>
+    <div class="layer" id="kickoff"><p class="l-num">04</p><h2 class="l-title"><a href="news.html">News</a></h2><p class="l-tech">The July 2026 kick-off with NSF IDSS, and CK Chan’s black-hole simulations with OpenAI</p></div>
+    <div class="layer" id="hiring"><p class="l-num">05</p><h2 class="l-title"><a href="hiring.html">We’re hiring</a></h2><p class="l-tech">Open positions at the UNM Center for Advanced Research Computing in Albuquerque</p></div>
   </section>
 
 </div>

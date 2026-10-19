@@ -38,7 +38,10 @@ python3 -m http.server                   # preview at http://localhost:8000
 ## Editing rules
 
 1. **Pages and twins change together.** `index.html` ↔ `okf/concepts/home.md`,
-   `hiring.html` ↔ `okf/concepts/hiring.md`, `about/ai-agents/index.html` ↔
+   `portal.html` ↔ `okf/concepts/portal.md`, `stack.html` ↔
+   `okf/concepts/stack.md`, `team.html` ↔ `okf/concepts/team.md`,
+   `news.html` ↔ `okf/concepts/news.md`, `hiring.html` ↔
+   `okf/concepts/hiring.md`, `about/ai-agents/index.html` ↔
    `okf/concepts/ai-agents.md`. When you change a page's content, update its
    twin in the same commit, bump `generated.at`, and set `generated.by`.
 2. **A new page** gets a twin concept, an entry in the `PAGES` map of
@@ -71,8 +74,11 @@ python3 -m http.server                   # preview at http://localhost:8000
 9. **Never add `verified:`.** Only a human maintainer does that, as
    `verified: { by: "human:<id>", at: <ISO 8601> }`.
 10. **Pages** use `styles.css` for tokens and components and keep their
-    layout in a page-level `<style>`. Check new layouts at phone width
-    (~400px): the nav drops its section anchors below 480px.
+    layout in a page-level `<style>`. Every page carries the same nav (brand
+    linking home, a `.nav-links` row of page links with `aria-current="page"`
+    on the current one, and the docs button), so a new page adds its link to
+    the nav of every page. Check new layouts at phone width (~400px): below
+    760px the page links drop to a second row and wrap.
 11. **robots.txt** stays fully permissive. Keep its AI-fetcher list aligned
     with the UNM-CARC/docs and neon-mcp lists, and keep the `Sitemap:` lines
     for the sub-sites.

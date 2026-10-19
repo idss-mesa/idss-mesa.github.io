@@ -4,7 +4,11 @@ Landing site for **MESA — Multidisciplinary Environment for Scientific Advance
 
 Static HTML/CSS, no build step.
 
-- `index.html` — landing page
+- `index.html` — landing page: the five layers and three innovation goals
+- `portal.html` — the MESA Portal and its featured apps
+- `stack.html` — the MCP stack install and the hosted connectors
+- `team.html` — the team
+- `news.html` — project news
 - `hiring.html` — open positions at UNM
 - `about/ai-agents/` — the For AI agents guide
 - `styles.css` — Modernist design tokens + components

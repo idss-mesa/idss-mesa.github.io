@@ -5,7 +5,7 @@ description: "MESA and CARC are hiring at the University of New Mexico — full-
 resource: https://idss-mesa.github.io/hiring.html
 tags: [site, hiring, jobs, unm, carc]
 status: stable
-generated: { by: "claude/opus-5.5", at: "2026-10-10T00:00:00Z" }
+generated: { by: "claude/opus-5.5", at: "2026-10-19T00:00:00Z" }
 stale_after: "2026-12-10T00:00:00Z"
 sources:
   - id: hiring-src
@@ -81,7 +81,7 @@ Apply: <https://unm.csod.com/ux/ats/careersite/18/home/requisition/37492>[^req-3
 Real hardware, real data, day one. The prototype runs on leveraged national
 infrastructure — no waiting for procurement. You join a team that already
 ships: the MESA MCP stack is public, installable in one line, and in use
-against the CyVerse Data Store today (see [MESA](home.md)).
+against the CyVerse Data Store today (see [MESA MCP stack](stack.md)).
 
 - **UNM CARC clusters** — Easley (H100, L40S) and Hopper (A100) GPU clusters
   with multi-petabyte storage, on campus.

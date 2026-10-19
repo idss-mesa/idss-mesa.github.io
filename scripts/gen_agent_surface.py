@@ -40,6 +40,10 @@ BASE = "https://idss-mesa.github.io/"
 # Each HTML page and the concept that is its Markdown twin.
 PAGES = {
     "index.html": "concepts/home.md",
+    "portal.html": "concepts/portal.md",
+    "stack.html": "concepts/stack.md",
+    "team.html": "concepts/team.md",
+    "news.html": "concepts/news.md",
     "hiring.html": "concepts/hiring.md",
     "about/ai-agents/index.html": "concepts/ai-agents.md",
 }
