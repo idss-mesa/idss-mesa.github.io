@@ -5,7 +5,7 @@ description: "How agents and harnesses should read idss-mesa.github.io — robot
 resource: https://idss-mesa.github.io/about/ai-agents/
 tags: [about, ai-agents, okf, llms-txt, robots-txt]
 status: stable
-generated: { by: "claude/opus-5.5", at: "2026-10-19T00:00:00Z" }
+generated: { by: "claude-code/2.1.224", at: "2026-11-11T00:00:00Z" }
 stale_after: "2027-03-10T00:00:00Z"
 sources:
   - id: okf-spec
@@ -61,7 +61,7 @@ Use this site to learn what MESA is; use the servers to get the data.
 
 | Endpoint | What you get |
 | -------- | ------------ |
-| <https://idss-mesa.github.io/robots.txt> | Crawl policy for the whole origin: fully permissive, with AI fetchers named explicitly. Crawlers read robots.txt only at the origin root,[^rfc9309] so this file also governs `/docs/` and `/neon-mcp/` |
+| <https://idss-mesa.github.io/robots.txt> | Crawl policy for the whole origin: fully permissive, with AI fetchers named explicitly. Crawlers read robots.txt only at the origin root,[^rfc9309] so this file also governs `/docs/`, `/neon-mcp/`, and `/trainings/` |
 | <https://idss-mesa.github.io/llms.txt> | Linked outline of every document with one-line descriptions ([llms.txt convention](https://llmstxt.org)[^llmstxt]) |
 | <https://idss-mesa.github.io/llms-full.txt> | The whole bundle in one file: every document's Markdown with frontmatter, each prefixed by its canonical URL |
 | <https://idss-mesa.github.io/okf/index.md> | The OKF bundle root: every concept, grouped by section. <https://idss-mesa.github.io/okf/log.md> is its dated change log |

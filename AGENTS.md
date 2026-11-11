@@ -12,8 +12,9 @@ every concept under `okf/concepts/` carries YAML frontmatter with `type`,
 the OKF §8 bundle-root listing and `okf/log.md` the OKF §9 dated change log.
 
 `robots.txt` here is the only one crawlers honor on this origin, so it also
-governs the project sub-sites `/docs/` (repo `idss-mesa/docs`) and
-`/neon-mcp/` (repo `idss-mesa/neon-mcp`), which are separate OKF bundles.
+governs the project sub-sites `/docs/` (repo `idss-mesa/docs`),
+`/neon-mcp/` (repo `idss-mesa/neon-mcp`), and `/trainings/` (repo
+`idss-mesa/trainings`), which are separate OKF bundles.
 
 ## Reading the corpus
 
@@ -76,9 +77,14 @@ python3 -m http.server                   # preview at http://localhost:8000
 10. **Pages** use `styles.css` for tokens and components and keep their
     layout in a page-level `<style>`. Every page carries the same nav (brand
     linking home, a `.nav-links` row of page links with `aria-current="page"`
-    on the current one, and the docs button), so a new page adds its link to
-    the nav of every page. Check new layouts at phone width (~400px): below
+    on the current one, the **Trainings** menu — a `<details class="nav-menu">`
+    linking the `/trainings/` sub-site by absolute URL — and the docs button),
+    so a new page adds its link to the nav of every page. Check new layouts at phone width (~400px): below
     760px the page links drop to a second row and wrap.
-11. **robots.txt** stays fully permissive. Keep its AI-fetcher list aligned
+11. **A new sub-site** (a repository served under this origin, such as
+    `/docs/` or `/trainings/`) gets a `Website` concept, a bullet in
+    `okf/index.md`, an entry in `SUBSITES` in `scripts/gen_agent_surface.py`,
+    and a `Sitemap:` line and bundle pointer in `robots.txt`.
+12. **robots.txt** stays fully permissive. Keep its AI-fetcher list aligned
     with the UNM-CARC/docs and neon-mcp lists, and keep the `Sitemap:` lines
     for the sub-sites.

@@ -219,6 +219,38 @@ textarea.input { min-height: 90px; resize: vertical; }
 .nav a { color: inherit; text-decoration: none; font-size: 14px; }
 .nav a:hover, .nav a[aria-current='page'] { color: var(--color-accent); }
 
+/* — navigation menu: a <details> dropdown among the .nav-links, no JavaScript.
+   <summary> is the label, .nav-menu-list the panel. Below 760px, where the
+   page links wrap, the open panel takes its own row instead of floating. — */
+.nav-menu { position: relative; }
+.nav-menu > summary {
+  display: inline-flex; align-items: center; gap: 6px;
+  list-style: none; cursor: pointer; font-size: 14px; white-space: nowrap;
+}
+.nav-menu > summary::-webkit-details-marker { display: none; }
+.nav-menu > summary::after {
+  content: ""; width: 6px; height: 6px; margin-top: -3px;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+}
+.nav-menu[open] > summary::after { margin-top: 3px; transform: rotate(-135deg); }
+.nav-menu > summary:hover, .nav-menu[open] > summary { color: var(--color-accent); }
+.nav-menu-list {
+  position: absolute; z-index: 10; top: calc(100% + var(--space-3)); left: calc(-1 * var(--space-3));
+  display: flex; flex-direction: column; min-width: 210px; padding: var(--space-2) 0;
+  background: var(--color-bg); border: 2px solid var(--color-divider);
+  box-shadow: var(--shadow-md);
+}
+.nav-menu-list a { padding: var(--space-2) var(--space-3); }
+.nav-menu-list a:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+@media (max-width: 760px) {
+  .nav-menu[open] { flex-basis: 100%; }
+  .nav-menu-list {
+    position: static; margin-top: var(--space-2); min-width: 0;
+    border-width: 0 0 0 2px; box-shadow: none;
+  }
+}
+
 /* — tables — */
 .table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .table th {

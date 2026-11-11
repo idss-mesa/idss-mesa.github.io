@@ -1,5 +1,9 @@
 # Bundle Update Log
 
+## 2026-11-11
+* **Creation**: Added [MESA Trainings](concepts/trainings.md), the training sub-site at <https://idss-mesa.github.io/trainings/> (repository `idss-mesa/trainings`): short, single-task tutorials for the MESA Portal and its apps, all drafts not yet validated on the live portal. `robots.txt` and `llms.txt` list its sitemap and bundle.
+* **Update**: Every page's navigation gained a **Trainings** menu linking the training home page, the tutorials, and the contributing page. The menu is a `<details>` element styled by the new `.nav-menu` component in `styles.css`; no JavaScript.
+* **Update**: [For AI agents](concepts/ai-agents.md) and its page name `/trainings/` among the sub-sites that the origin's robots.txt governs.
 ## 2026-10-19
 * **Creation**: Split the single-scroll landing page into separate pages, each with a Markdown twin: [MESA Portal and featured apps](concepts/portal.md) (<https://idss-mesa.github.io/portal.html>), [MESA MCP stack](concepts/stack.md) (<https://idss-mesa.github.io/stack.html>), [MESA team](concepts/team.md) (<https://idss-mesa.github.io/team.html>), and [MESA news](concepts/news.md) (<https://idss-mesa.github.io/news.html>).
 * **Update**: [MESA](concepts/home.md) and its page keep the hero, the five layers, and the three innovation goals, and link the new pages from an "Explore MESA" list; the portal, stack, connector, team, and news sections and their sources moved to the new twins. Every page's navigation now links pages rather than in-page anchors.
