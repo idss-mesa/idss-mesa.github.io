@@ -19,8 +19,9 @@ IDSS Category II, University of New Mexico). Each page of
 <https://idss-mesa.github.io/> has a concept here that is its Markdown twin.
 
 All content on this origin, including the
-[/docs/](https://idss-mesa.github.io/docs/) and
-[/neon-mcp/](https://idss-mesa.github.io/neon-mcp/) sub-sites, is open to AI
+[/docs/](https://idss-mesa.github.io/docs/),
+[/neon-mcp/](https://idss-mesa.github.io/neon-mcp/), and
+[/trainings/](https://idss-mesa.github.io/trainings/) sub-sites, is open to AI
 crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 [For AI agents](concepts/ai-agents.md); the whole bundle in one file is
 <https://idss-mesa.github.io/llms-full.txt>. Related bundles:
@@ -38,6 +39,9 @@ crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 
 # Documentation
 * [MESA Documentation](concepts/docs.md) - MESA documentation: the MESA Portal at mesa.cyverse.org and its featured CyVerse apps, the one-line install of the MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server) for Claude Code, Codex CLI, Antigravity, and OpenCode, and CyVerse's hosted Formation MCP server, also available as a claude.ai connector
+
+# Training
+* [MESA Trainings](concepts/trainings.md) - MESA Trainings: short, single-task tutorials for the MESA Portal at mesa.cyverse.org and its apps, written for training participants and for anyone using MESA
 
 # Software
 * [mesa-mcp](concepts/mesa-mcp.md) - MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history
@@ -525,7 +529,7 @@ description: "How agents and harnesses should read idss-mesa.github.io — robot
 resource: https://idss-mesa.github.io/about/ai-agents/
 tags: [about, ai-agents, okf, llms-txt, robots-txt]
 status: stable
-generated: { by: "claude/opus-5.5", at: "2026-10-19T00:00:00Z" }
+generated: { by: "claude-code/2.1.224", at: "2026-11-11T00:00:00Z" }
 stale_after: "2027-03-10T00:00:00Z"
 sources:
   - id: okf-spec
@@ -581,7 +585,7 @@ Use this site to learn what MESA is; use the servers to get the data.
 
 | Endpoint | What you get |
 | -------- | ------------ |
-| <https://idss-mesa.github.io/robots.txt> | Crawl policy for the whole origin: fully permissive, with AI fetchers named explicitly. Crawlers read robots.txt only at the origin root,[^rfc9309] so this file also governs `/docs/` and `/neon-mcp/` |
+| <https://idss-mesa.github.io/robots.txt> | Crawl policy for the whole origin: fully permissive, with AI fetchers named explicitly. Crawlers read robots.txt only at the origin root,[^rfc9309] so this file also governs `/docs/`, `/neon-mcp/`, and `/trainings/` |
 | <https://idss-mesa.github.io/llms.txt> | Linked outline of every document with one-line descriptions ([llms.txt convention](https://llmstxt.org)[^llmstxt]) |
 | <https://idss-mesa.github.io/llms-full.txt> | The whole bundle in one file: every document's Markdown with frontmatter, each prefixed by its canonical URL |
 | <https://idss-mesa.github.io/okf/index.md> | The OKF bundle root: every concept, grouped by section. <https://idss-mesa.github.io/okf/log.md> is its dated change log |
@@ -753,6 +757,59 @@ Crawling of `/docs/` is governed by this origin's
 <https://idss-mesa.github.io/robots.txt>.
 
 [^docs-repo]: idss-mesa/docs repository
+
+---8<--- https://idss-mesa.github.io/okf/concepts/trainings.md
+
+---
+type: Website
+title: "MESA Trainings"
+description: "MESA Trainings: short, single-task tutorials for the MESA Portal at mesa.cyverse.org and its apps, written for training participants and for anyone using MESA"
+resource: https://idss-mesa.github.io/trainings/
+tags: [training, tutorials, portal, jupyterlab, cyverse]
+status: draft
+generated: { by: "claude-code/2.1.224", at: "2026-11-11T00:00:00Z" }
+stale_after: "2027-05-11T00:00:00Z"
+sources:
+  - id: trainings-repo
+    resource: https://github.com/idss-mesa/trainings
+    title: "idss-mesa/trainings repository"
+    author: "team:idss-mesa"
+---
+
+# MESA Trainings
+
+Short tutorials for getting things done on MESA, at
+<https://idss-mesa.github.io/trainings/>.[^trainings-repo] Each one takes a
+reader through a single task in five to ten minutes: what you will have at
+the end, what you need, the steps with what you should see at each, a check,
+the most likely slip, and what to do next. They are written for people
+preparing for a MESA training session and for anyone using the
+[MESA Portal](mesa-portal.md).
+
+The first tutorials cover signing in to the portal, finding MESA's community
+data, launching [MESA JupyterLab](jupyterlab.md) with the Data Store mounted,
+saving work where it survives the session, and stopping an app. They link to
+the [MESA Documentation](docs.md) for the full picture of each screen instead
+of repeating it.
+
+The tutorials are drafts: they were written from the documentation and have
+not yet been validated step by step on the live portal. Each page says so.
+Training content is licensed CC BY 4.0; code is BSD 3-Clause.
+
+## For agents
+
+The training site is its own OKF v0.2 bundle, built with Zensical from the
+[idss-mesa/trainings](https://github.com/idss-mesa/trainings) repository:
+
+- Outline: <https://idss-mesa.github.io/trainings/llms.txt>
+- Full corpus: <https://idss-mesa.github.io/trainings/llms-full.txt>
+- Any page's Markdown source: its URL plus `index.md`
+- Agent guide: <https://idss-mesa.github.io/trainings/about/ai-agents/>
+
+Crawling of `/trainings/` is governed by this origin's
+<https://idss-mesa.github.io/robots.txt>.
+
+[^trainings-repo]: idss-mesa/trainings repository
 
 ---8<--- https://idss-mesa.github.io/okf/concepts/mesa-mcp.md
 
@@ -1311,6 +1368,10 @@ an NSF IDSS Category II project at the University of New Mexico; see
 
 # Bundle Update Log
 
+## 2026-11-11
+* **Creation**: Added [MESA Trainings](concepts/trainings.md), the training sub-site at <https://idss-mesa.github.io/trainings/> (repository `idss-mesa/trainings`): short, single-task tutorials for the MESA Portal and its apps, all drafts not yet validated on the live portal. `robots.txt` and `llms.txt` list its sitemap and bundle.
+* **Update**: Every page's navigation gained a **Trainings** menu linking the training home page, the tutorials, and the contributing page. The menu is a `<details>` element styled by the new `.nav-menu` component in `styles.css`; no JavaScript.
+* **Update**: [For AI agents](concepts/ai-agents.md) and its page name `/trainings/` among the sub-sites that the origin's robots.txt governs.
 ## 2026-10-19
 * **Creation**: Split the single-scroll landing page into separate pages, each with a Markdown twin: [MESA Portal and featured apps](concepts/portal.md) (<https://idss-mesa.github.io/portal.html>), [MESA MCP stack](concepts/stack.md) (<https://idss-mesa.github.io/stack.html>), [MESA team](concepts/team.md) (<https://idss-mesa.github.io/team.html>), and [MESA news](concepts/news.md) (<https://idss-mesa.github.io/news.html>).
 * **Update**: [MESA](concepts/home.md) and its page keep the hero, the five layers, and the three innovation goals, and link the new pages from an "Explore MESA" list; the portal, stack, connector, team, and news sections and their sources moved to the new twins. Every page's navigation now links pages rather than in-page anchors.

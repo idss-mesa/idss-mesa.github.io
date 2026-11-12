@@ -13,8 +13,9 @@ IDSS Category II, University of New Mexico). Each page of
 <https://idss-mesa.github.io/> has a concept here that is its Markdown twin.
 
 All content on this origin, including the
-[/docs/](https://idss-mesa.github.io/docs/) and
-[/neon-mcp/](https://idss-mesa.github.io/neon-mcp/) sub-sites, is open to AI
+[/docs/](https://idss-mesa.github.io/docs/),
+[/neon-mcp/](https://idss-mesa.github.io/neon-mcp/), and
+[/trainings/](https://idss-mesa.github.io/trainings/) sub-sites, is open to AI
 crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 [For AI agents](concepts/ai-agents.md); the whole bundle in one file is
 <https://idss-mesa.github.io/llms-full.txt>. Related bundles:
@@ -32,6 +33,9 @@ crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 
 # Documentation
 * [MESA Documentation](concepts/docs.md) - MESA documentation: the MESA Portal at mesa.cyverse.org and its featured CyVerse apps, the one-line install of the MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server) for Claude Code, Codex CLI, Antigravity, and OpenCode, and CyVerse's hosted Formation MCP server, also available as a claude.ai connector
+
+# Training
+* [MESA Trainings](concepts/trainings.md) - MESA Trainings: short, single-task tutorials for the MESA Portal at mesa.cyverse.org and its apps, written for training participants and for anyone using MESA
 
 # Software
 * [mesa-mcp](concepts/mesa-mcp.md) - MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history

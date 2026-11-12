@@ -4,8 +4,9 @@
 # snippeting, and AI grounding of this content are all welcome.
 #
 # Crawlers read robots.txt only at the origin root, so this file governs
-# every path on idss-mesa.github.io, including the project sub-sites /docs/
-# and /neon-mcp/ (their own robots.txt files are informational copies).
+# every path on idss-mesa.github.io, including the project sub-sites /docs/,
+# /neon-mcp/, and /trainings/ (their own robots.txt files are informational
+# copies).
 
 User-agent: *
 Allow: /
@@ -73,6 +74,7 @@ Allow: /
 Sitemap: https://idss-mesa.github.io/sitemap.xml
 Sitemap: https://idss-mesa.github.io/docs/sitemap.xml
 Sitemap: https://idss-mesa.github.io/neon-mcp/sitemap.xml
+Sitemap: https://idss-mesa.github.io/trainings/sitemap.xml
 
 # AI agents and harnesses:
 #   Machine-readable outline:  https://idss-mesa.github.io/llms.txt
@@ -85,3 +87,4 @@ Sitemap: https://idss-mesa.github.io/neon-mcp/sitemap.xml
 #   Sub-site bundles (there, page URL + index.md returns its Markdown):
 #     https://idss-mesa.github.io/docs/llms.txt
 #     https://idss-mesa.github.io/neon-mcp/llms.txt
+#     https://idss-mesa.github.io/trainings/llms.txt

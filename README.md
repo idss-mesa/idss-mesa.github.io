@@ -19,7 +19,7 @@ Static HTML/CSS, no build step.
 The site is published for people and for AI agents, following the
 [UNM CARC documentation](https://carc.unm.edu/docs/about/ai-agents/) conventions:
 
-- `robots.txt` — fully permissive, names AI fetchers; it governs the whole origin, including the `/docs/` and `/neon-mcp/` sub-sites
+- `robots.txt` — fully permissive, names AI fetchers; it governs the whole origin, including the `/docs/`, `/neon-mcp/`, and `/trainings/` sub-sites
 - `okf/` — an [Open Knowledge Format v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) bundle; each page's Markdown twin lives in `okf/concepts/`
 - `llms.txt`, `llms-full.txt`, `sitemap.xml`, and the `okf:*` tags in each page's `<head>` — generated from `okf/` by `scripts/gen_agent_surface.py`
 

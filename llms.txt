@@ -22,6 +22,10 @@ MESA's software is a set of MCP servers: for scientific data, connect to them (t
 
 - [MESA Documentation](https://idss-mesa.github.io/okf/concepts/docs.md): MESA documentation: the MESA Portal at mesa.cyverse.org and its featured CyVerse apps, the one-line install of the MESA MCP stack (mesa-mcp, mesa-ducklake, irods-mcp-server) for Claude Code, Codex CLI, Antigravity, and OpenCode, and CyVerse's hosted Formation MCP server, also available as a claude.ai connector. Canonical: https://idss-mesa.github.io/docs/
 
+## Training
+
+- [MESA Trainings](https://idss-mesa.github.io/okf/concepts/trainings.md): MESA Trainings: short, single-task tutorials for the MESA Portal at mesa.cyverse.org and its apps, written for training participants and for anyone using MESA. Canonical: https://idss-mesa.github.io/trainings/ (draft)
+
 ## Software
 
 - [mesa-mcp](https://idss-mesa.github.io/okf/concepts/mesa-mcp.md): MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history. Canonical: https://github.com/idss-mesa/mesa-mcp
@@ -46,6 +50,9 @@ MESA's software is a set of MCP servers: for scientific data, connect to them (t
 - [neon-mcp docs: llms.txt](https://idss-mesa.github.io/neon-mcp/llms.txt): outline of the MCP server for the NEON Data API: install, API token, tool catalogue, and deployment
 - [neon-mcp docs: llms-full.txt](https://idss-mesa.github.io/neon-mcp/llms-full.txt): every page's Markdown with OKF frontmatter in one file
 - [neon-mcp docs: agent guide](https://idss-mesa.github.io/neon-mcp/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
+- [MESA Trainings: llms.txt](https://idss-mesa.github.io/trainings/llms.txt): outline of short, single-task tutorials for the MESA Portal and its apps
+- [MESA Trainings: llms-full.txt](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with OKF frontmatter in one file
+- [MESA Trainings: agent guide](https://idss-mesa.github.io/trainings/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
 
 ## Related bundles
 
@@ -57,4 +64,4 @@ MESA's software is a set of MCP servers: for scientific data, connect to them (t
 
 - [OKF bundle index](https://idss-mesa.github.io/okf/index.md): the bundle root, every concept grouped by section
 - [Bundle update log](https://idss-mesa.github.io/okf/log.md): dated history of changes to this bundle
-- [robots.txt](https://idss-mesa.github.io/robots.txt): crawl policy for the whole origin, including /docs/ and /neon-mcp/
+- [robots.txt](https://idss-mesa.github.io/robots.txt): crawl policy for the whole origin, including /docs/, /neon-mcp/, and /trainings/

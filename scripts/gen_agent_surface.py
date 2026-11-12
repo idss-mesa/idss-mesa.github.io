@@ -58,6 +58,8 @@ SUBSITES = [
     ("neon-mcp docs", "neon-mcp/",
      "the MCP server for the NEON Data API: install, API token, tool catalogue, "
      "and deployment"),
+    ("MESA Trainings", "trainings/",
+     "short, single-task tutorials for the MESA Portal and its apps"),
 ]
 RELATED = [
     ("CARC documentation", "https://carc.unm.edu/docs/llms.txt",
@@ -240,7 +242,7 @@ def llms_txt(sections, concepts: dict) -> str:
         f"- [OKF bundle index]({BASE}okf/index.md): the bundle root, every concept grouped by section",
         f"- [Bundle update log]({BASE}okf/log.md): dated history of changes to this bundle",
         f"- [robots.txt]({BASE}robots.txt): crawl policy for the whole origin, including "
-        "/docs/ and /neon-mcp/",
+        "/docs/, /neon-mcp/, and /trainings/",
     ]
     return "\n".join(lines).rstrip() + "\n"
 
