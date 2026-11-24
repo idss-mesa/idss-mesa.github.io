@@ -1,5 +1,8 @@
 # Bundle Update Log
 
+## 2026-11-24
+* **Creation**: Added [neon-ducklake](concepts/neon-ducklake.md): the NEON Data API metadata lakehouse and annotated site data, published read-only at <https://data.cyverse.org/dav-anon/iplant/home/tswetnam/neon-ducklake/>. It separates the project's DuckDB `ducklake`-extension lakes from its mesa-ducklake AVU history in `.mesa/ducklake/`, and says how each is read and how the lakes are uploaded.
+* **Update**: [mesa-ducklake](concepts/mesa-ducklake.md) now says it follows the DuckLake pattern but does not use the DuckDB `ducklake` extension: the catalog is not in iRODS, the history is plain Parquet readable with `read_parquet`, and files are pushed before the catalog commits. It gains `sources` and links to the repository's architecture and storage docs. A student's questions showed `llms.txt` could not answer these points.
 ## 2026-11-11
 * **Creation**: Added [MESA Trainings](concepts/trainings.md), the training sub-site at <https://idss-mesa.github.io/trainings/> (repository `idss-mesa/trainings`): short, single-task tutorials for the MESA Portal and its apps, all drafts not yet validated on the live portal. `robots.txt` and `llms.txt` list its sitemap and bundle.
 * **Update**: Every page's navigation gained a **Trainings** menu linking the training home page, the tutorials, and the contributing page. The menu is a `<details>` element styled by the new `.nav-menu` component in `styles.css`; no JavaScript.

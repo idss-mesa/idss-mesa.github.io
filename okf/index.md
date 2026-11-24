@@ -39,10 +39,11 @@ crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 
 # Software
 * [mesa-mcp](concepts/mesa-mcp.md) - MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history
-* [mesa-ducklake](concepts/mesa-ducklake.md) - AVU metadata-history library for MESA projects (DuckLake: Postgres/DuckDB catalog plus Parquet in iRODS)
+* [mesa-ducklake](concepts/mesa-ducklake.md) - AVU metadata-history library for MESA projects: a Postgres or DuckDB catalog plus one plain Parquet file per snapshot in each project's .mesa/ducklake/ collection (the DuckLake pattern, not the DuckDB ducklake extension)
 * [irods-mcp-server](concepts/irods-mcp-server.md) - Reference MCP server for the CyVerse Data Store (iRODS), written in Go
 * [Formation (hosted MCP server)](concepts/formation-mcp.md) - CyVerse's hosted MCP server for the Discovery Environment at https://de.cyverse.org/formation/mcp: launch apps, manage analyses, and read and write Data Store files after signing in with a CyVerse account, from claude.ai, Claude Desktop, or Claude Code (Codex, OpenCode, and Antigravity can also be configured; their sign-in is not yet confirmed)
 * [neon-mcp](concepts/neon-mcp.md) - MCP (2026-07-28) server for the NEON Data API: discover, check availability, list, download and cite NEON ecological data
+* [neon-ducklake](concepts/neon-ducklake.md) - NEON Data API metadata lakehouse and fully annotated NEON site data as one MESA project on the CyVerse Data Store, published read-only: DuckDB ducklake-extension lakes plus the project's mesa-ducklake AVU history
 * [mesa-sandbox](concepts/mesa-sandbox.md) - AI sandboxes for CyVerse VICE: a sudo-free multi-arch image family, sandbox profiles P0–P4, an OpenBao credential broker and egress proxy, and agent-sandbox pods for autonomous agents
 * [mesa-portal](concepts/mesa-portal.md) - The MESA Portal at mesa.cyverse.org: a web portal for the CyVerse Data Store, Discovery Environment apps, and analyses, built on the CyVerse Terrain API
 * [MESA CLI](concepts/cli.md) - CyVerse Cloud Shell CLI with MESA tools

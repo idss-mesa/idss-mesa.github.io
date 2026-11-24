@@ -45,10 +45,11 @@ crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 
 # Software
 * [mesa-mcp](concepts/mesa-mcp.md) - MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history
-* [mesa-ducklake](concepts/mesa-ducklake.md) - AVU metadata-history library for MESA projects (DuckLake: Postgres/DuckDB catalog plus Parquet in iRODS)
+* [mesa-ducklake](concepts/mesa-ducklake.md) - AVU metadata-history library for MESA projects: a Postgres or DuckDB catalog plus one plain Parquet file per snapshot in each project's .mesa/ducklake/ collection (the DuckLake pattern, not the DuckDB ducklake extension)
 * [irods-mcp-server](concepts/irods-mcp-server.md) - Reference MCP server for the CyVerse Data Store (iRODS), written in Go
 * [Formation (hosted MCP server)](concepts/formation-mcp.md) - CyVerse's hosted MCP server for the Discovery Environment at https://de.cyverse.org/formation/mcp: launch apps, manage analyses, and read and write Data Store files after signing in with a CyVerse account, from claude.ai, Claude Desktop, or Claude Code (Codex, OpenCode, and Antigravity can also be configured; their sign-in is not yet confirmed)
 * [neon-mcp](concepts/neon-mcp.md) - MCP (2026-07-28) server for the NEON Data API: discover, check availability, list, download and cite NEON ecological data
+* [neon-ducklake](concepts/neon-ducklake.md) - NEON Data API metadata lakehouse and fully annotated NEON site data as one MESA project on the CyVerse Data Store, published read-only: DuckDB ducklake-extension lakes plus the project's mesa-ducklake AVU history
 * [mesa-sandbox](concepts/mesa-sandbox.md) - AI sandboxes for CyVerse VICE: a sudo-free multi-arch image family, sandbox profiles P0–P4, an OpenBao credential broker and egress proxy, and agent-sandbox pods for autonomous agents
 * [mesa-portal](concepts/mesa-portal.md) - The MESA Portal at mesa.cyverse.org: a web portal for the CyVerse Data Store, Discovery Environment apps, and analyses, built on the CyVerse Terrain API
 * [MESA CLI](concepts/cli.md) - CyVerse Cloud Shell CLI with MESA tools
@@ -840,24 +841,59 @@ and the agent guide at <https://idss-mesa.github.io/about/ai-agents/>.
 ---
 type: Software Repository
 title: "mesa-ducklake"
-description: "AVU metadata-history library for MESA projects (DuckLake: Postgres/DuckDB catalog plus Parquet in iRODS)"
+description: "AVU metadata-history library for MESA projects: a Postgres or DuckDB catalog plus one plain Parquet file per snapshot in each project's .mesa/ducklake/ collection (the DuckLake pattern, not the DuckDB ducklake extension)"
 resource: https://github.com/idss-mesa/mesa-ducklake
-tags: [software]
+tags: [software, ducklake, metadata-history, irods, python]
 status: stable
-generated: { by: "claude-code/claude-fable-5", at: "2026-08-30T00:00:00Z" }
+generated: { by: "claude/opus-5.5", at: "2026-11-24T00:00:00Z" }
+sources:
+  - id: mesa-ducklake-repo
+    resource: https://github.com/idss-mesa/mesa-ducklake
+    title: "idss-mesa/mesa-ducklake repository"
+    author: "team:idss-mesa"
+  - id: mesa-ducklake-docs-page
+    resource: https://idss-mesa.github.io/docs/servers/mesa-ducklake/
+    title: "mesa-ducklake page in the MESA documentation"
+    author: "team:idss-mesa"
 ---
 
 # mesa-ducklake
 
-AVU metadata-history library for MESA projects (DuckLake: Postgres/DuckDB catalog plus Parquet in iRODS).
+The Python library that records the history of AVU (attribute–value–unit)
+metadata changes for MESA-enabled iRODS projects, and that
+[mesa-mcp](mesa-mcp.md) imports in-process.[^mesa-ducklake-repo] Every change
+is an append-only row with provenance (actor, source, ticket, rule), which
+makes time-travel reads possible: the AVUs on a path as of any past moment.
+
+It follows the DuckLake *pattern*, a SQL catalog indexing immutable Parquet
+snapshots. It does **not** use the DuckDB `ducklake` extension:
+
+- The catalog is Postgres, or one DuckDB file for a local install. It is not
+  stored in iRODS.
+- Each snapshot is a plain `snapshot_<id>.parquet` in the project's
+  `.mesa/ducklake/` collection. Every row carries its `project_id`,
+  `snapshot_id`, `ts`, `actor`, `source` and `op`, so `read_parquet` reads
+  the history without the catalog. `ATTACH 'ducklake:…'` does not open it.
+- Files are written to a local cache, pushed to iRODS with a checksum check,
+  and only then committed in the catalog, because DuckDB can't write to iRODS.
+
+A project can also hold its own extension-format DuckLake of science data,
+such as [neon-ducklake](neon-ducklake.md)'s `ducklake/neon_catalog.ducklake`.
+That lake is separate from the project's `.mesa/ducklake/` history.
+
+Documentation: the repository's `docs/`, in particular
+<https://github.com/idss-mesa/mesa-ducklake/blob/main/docs/dev/architecture.md>
+(including porting the history to the extension) and
+<https://github.com/idss-mesa/mesa-ducklake/blob/main/docs/deploy/per-project-storage.md>
+(reading a project's history without the catalog), plus the summary page at
+<https://idss-mesa.github.io/docs/servers/mesa-ducklake/>.[^mesa-ducklake-docs-page]
 
 Part of MESA (Multidisciplinary Environment for Scientific Advancement),
-an NSF IDSS Category II project at the University of New Mexico. Canonical
-resource: <https://github.com/idss-mesa/mesa-ducklake>. Organization: <https://github.com/idss-mesa>.
+an NSF IDSS Category II project at the University of New Mexico; see
+[MESA](home.md). Organization: <https://github.com/idss-mesa>.
 
-Agentic AI crawlers are welcome to read all content on this origin; see
-the site-wide permissive policy in <https://idss-mesa.github.io/robots.txt>
-and the agent guide at <https://idss-mesa.github.io/about/ai-agents/>.
+[^mesa-ducklake-repo]: idss-mesa/mesa-ducklake repository
+[^mesa-ducklake-docs-page]: mesa-ducklake page in the MESA documentation
 
 ---8<--- https://idss-mesa.github.io/okf/concepts/irods-mcp-server.md
 
@@ -985,6 +1021,68 @@ an NSF IDSS Category II project at the University of New Mexico; see
 
 [^neon-mcp-repo]: idss-mesa/neon-mcp repository
 [^neon-mcp-docs]: neon-mcp documentation
+
+---8<--- https://idss-mesa.github.io/okf/concepts/neon-ducklake.md
+
+---
+type: Software Repository
+title: "neon-ducklake"
+description: "NEON Data API metadata lakehouse and fully annotated NEON site data as one MESA project on the CyVerse Data Store, published read-only: DuckDB ducklake-extension lakes plus the project's mesa-ducklake AVU history"
+resource: https://github.com/idss-mesa/neon-ducklake
+tags: [software, dataset, neon, ecology, ducklake, irods, python]
+status: stable
+stale_after: "2027-05-24T00:00:00Z"
+generated: { by: "claude/opus-5.5", at: "2026-11-24T00:00:00Z" }
+sources:
+  - id: neon-ducklake-repo
+    resource: https://github.com/idss-mesa/neon-ducklake
+    title: "idss-mesa/neon-ducklake repository"
+    author: "team:idss-mesa"
+  - id: neon-ducklake-collection
+    resource: https://data.cyverse.org/dav-anon/iplant/home/tswetnam/neon-ducklake/
+    title: "neon-ducklake project collection on the CyVerse Data Store (anonymous read)"
+    author: "team:idss-mesa"
+---
+
+# neon-ducklake
+
+A pipeline and its published output.[^neon-ducklake-repo] It harvests the
+NEON Data API into a DuckLake (Phase 1, the catalog lake: products, sites,
+releases, availability, locations, taxonomy and an inventory of about 3.2
+million data files). It then downloads, stacks and fully annotates NEON site
+data into one DuckLake per site (Phase 2), all inside a single MESA project
+on the CyVerse Data Store. Version 0.1.0: Phase 1 is complete, and Phase 2
+has run for some sites. Built with DuckDB 1.5.5 and the `ducklake`
+extension. MIT licence. It is not affiliated with NEON, Battelle or NSF.
+
+The project collection is readable without an account at
+<https://data.cyverse.org/dav-anon/iplant/home/tswetnam/neon-ducklake/>.[^neon-ducklake-collection]
+It holds two different kinds of "ducklake":
+
+- `ducklake/neon_catalog.ducklake` plus `ducklake/data/`, and
+  `sites/<SITE>/ducklake/neon_<site>.ducklake` plus `data/`, are DuckDB
+  `ducklake`-extension lakes. Attach them read-only, in place over HTTPS
+  (`ATTACH 'ducklake:<url>' (READ_ONLY, DATA_PATH '<url>/data/',
+  OVERRIDE_DATA_PATH true)`), or from a local copy that keeps each
+  `.ducklake` file with its `data/`.
+- `.mesa/ducklake/snapshot_<id>.parquet` is the project's AVU history,
+  written by [mesa-ducklake](mesa-ducklake.md). It is plain Parquet, read
+  with `read_parquet`, and is not an extension lake.
+
+Every lake is built locally and then uploaded: `CHECKPOINT; DETACH`, then
+`data/**` with checksum verification, then the `.ducklake` file last. The
+repository README's "Reading the published lakes" section has tested
+examples.
+
+For live NEON data rather than this snapshot of it, use
+[neon-mcp](neon-mcp.md).
+
+Part of MESA (Multidisciplinary Environment for Scientific Advancement),
+an NSF IDSS Category II project at the University of New Mexico; see
+[MESA](home.md). Organization: <https://github.com/idss-mesa>.
+
+[^neon-ducklake-repo]: idss-mesa/neon-ducklake repository
+[^neon-ducklake-collection]: neon-ducklake project collection on the CyVerse Data Store (anonymous read)
 
 ---8<--- https://idss-mesa.github.io/okf/concepts/mesa-sandbox.md
 
@@ -1368,6 +1466,9 @@ an NSF IDSS Category II project at the University of New Mexico; see
 
 # Bundle Update Log
 
+## 2026-11-24
+* **Creation**: Added [neon-ducklake](concepts/neon-ducklake.md): the NEON Data API metadata lakehouse and annotated site data, published read-only at <https://data.cyverse.org/dav-anon/iplant/home/tswetnam/neon-ducklake/>. It separates the project's DuckDB `ducklake`-extension lakes from its mesa-ducklake AVU history in `.mesa/ducklake/`, and says how each is read and how the lakes are uploaded.
+* **Update**: [mesa-ducklake](concepts/mesa-ducklake.md) now says it follows the DuckLake pattern but does not use the DuckDB `ducklake` extension: the catalog is not in iRODS, the history is plain Parquet readable with `read_parquet`, and files are pushed before the catalog commits. It gains `sources` and links to the repository's architecture and storage docs. A student's questions showed `llms.txt` could not answer these points.
 ## 2026-11-11
 * **Creation**: Added [MESA Trainings](concepts/trainings.md), the training sub-site at <https://idss-mesa.github.io/trainings/> (repository `idss-mesa/trainings`): short, single-task tutorials for the MESA Portal and its apps, all drafts not yet validated on the live portal. `robots.txt` and `llms.txt` list its sitemap and bundle.
 * **Update**: Every page's navigation gained a **Trainings** menu linking the training home page, the tutorials, and the contributing page. The menu is a `<details>` element styled by the new `.nav-menu` component in `styles.css`; no JavaScript.
