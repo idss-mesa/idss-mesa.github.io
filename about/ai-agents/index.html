@@ -184,7 +184,7 @@ footer a:hover { color: var(--color-accent-600); }
       <table class="table">
         <thead><tr><th>Endpoint</th><th>What you get</th></tr></thead>
         <tbody>
-          <tr><td><a href="../../robots.txt"><code>/robots.txt</code></a></td><td>Crawl policy for the whole origin: fully permissive, with AI fetchers named explicitly. Crawlers read robots.txt only at the origin root, so this file also governs <code>/docs/</code>, <code>/neon-mcp/</code>, and <code>/trainings/</code>.</td></tr>
+          <tr><td><a href="../../robots.txt"><code>/robots.txt</code></a></td><td>Crawl policy for the whole origin: fully permissive, with AI fetchers named explicitly. Crawlers read robots.txt only at the origin root, so this file also governs every sub-site listed under <a href="#sub-sites">Sub-sites</a>.</td></tr>
           <tr><td><a href="../../llms.txt"><code>/llms.txt</code></a></td><td>Linked outline of every document with one-line descriptions (the <a href="https://llmstxt.org">llms.txt convention</a>).</td></tr>
           <tr><td><a href="../../llms-full.txt"><code>/llms-full.txt</code></a></td><td>The whole bundle in one file: every document’s Markdown with frontmatter, each prefixed by its canonical URL.</td></tr>
           <tr><td><a href="../../okf/index.md"><code>/okf/index.md</code></a></td><td>The OKF bundle root: every concept, grouped by section. <a href="../../okf/log.md"><code>/okf/log.md</code></a> is its dated change log.</td></tr>
@@ -226,14 +226,21 @@ footer a:hover { color: var(--color-accent-600); }
 
   <section class="block" id="sub-sites">
     <span class="kicker">Sub-sites</span>
-    <h2 class="block-title">Two more bundles, same rules.</h2>
-    <p class="note">Two documentation sites share this origin. Each is its own OKF v0.2 bundle built with Zensical, and each serves every page’s Markdown source at the page URL plus <code>index.md</code>.</p>
+    <h2 class="block-title">More bundles, same rules.</h2>
+    <p class="note">These documentation sites share this origin. Each is its own OKF v0.2 bundle built with Zensical, and each serves every page’s Markdown source at the page URL plus <code>index.md</code>.</p>
     <div class="table-wrap">
       <table class="table">
         <thead><tr><th>Site</th><th>Outline</th><th>Full corpus</th><th>Agent guide</th></tr></thead>
         <tbody>
+          <!-- subsites:begin — generated from subsites.yml by scripts/gen_agent_surface.py; do not edit -->
           <tr><td><a href="https://idss-mesa.github.io/docs/">MESA MCP stack docs</a> <code>/docs/</code></td><td><a href="https://idss-mesa.github.io/docs/llms.txt"><code>llms.txt</code></a></td><td><a href="https://idss-mesa.github.io/docs/llms-full.txt"><code>llms-full.txt</code></a></td><td><a href="https://idss-mesa.github.io/docs/about/ai-agents/">For AI agents</a></td></tr>
+          <tr><td><a href="https://idss-mesa.github.io/trainings/">MESA Trainings</a> <code>/trainings/</code></td><td><a href="https://idss-mesa.github.io/trainings/llms.txt"><code>llms.txt</code></a></td><td><a href="https://idss-mesa.github.io/trainings/llms-full.txt"><code>llms-full.txt</code></a></td><td><a href="https://idss-mesa.github.io/trainings/about/ai-agents/">For AI agents</a></td></tr>
           <tr><td><a href="https://idss-mesa.github.io/neon-mcp/">neon-mcp docs</a> <code>/neon-mcp/</code></td><td><a href="https://idss-mesa.github.io/neon-mcp/llms.txt"><code>llms.txt</code></a></td><td><a href="https://idss-mesa.github.io/neon-mcp/llms-full.txt"><code>llms-full.txt</code></a></td><td><a href="https://idss-mesa.github.io/neon-mcp/about/ai-agents/">For AI agents</a></td></tr>
+          <tr><td><a href="https://idss-mesa.github.io/ameriflux-mcp/">ameriflux-mcp docs</a> <code>/ameriflux-mcp/</code></td><td><a href="https://idss-mesa.github.io/ameriflux-mcp/llms.txt"><code>llms.txt</code></a></td><td><a href="https://idss-mesa.github.io/ameriflux-mcp/llms-full.txt"><code>llms-full.txt</code></a></td><td><a href="https://idss-mesa.github.io/ameriflux-mcp/about/ai-agents/">For AI agents</a></td></tr>
+          <tr><td><a href="https://idss-mesa.github.io/edi-mcp/">edi-mcp docs</a> <code>/edi-mcp/</code></td><td><a href="https://idss-mesa.github.io/edi-mcp/llms.txt"><code>llms.txt</code></a></td><td><a href="https://idss-mesa.github.io/edi-mcp/llms-full.txt"><code>llms-full.txt</code></a></td><td><a href="https://idss-mesa.github.io/edi-mcp/about/ai-agents/">For AI agents</a></td></tr>
+          <tr><td><a href="https://idss-mesa.github.io/mesa-anyjev/">mesa-anyjev docs</a> <code>/mesa-anyjev/</code></td><td><a href="https://idss-mesa.github.io/mesa-anyjev/llms.txt"><code>llms.txt</code></a></td><td><a href="https://idss-mesa.github.io/mesa-anyjev/llms-full.txt"><code>llms-full.txt</code></a></td><td><a href="https://idss-mesa.github.io/mesa-anyjev/about/ai-agents/">For AI agents</a></td></tr>
+          <tr><td><a href="https://idss-mesa.github.io/mesa-clm/">mesa-clm docs</a> <code>/mesa-clm/</code></td><td><a href="https://idss-mesa.github.io/mesa-clm/llms.txt"><code>llms.txt</code></a></td><td><a href="https://idss-mesa.github.io/mesa-clm/llms-full.txt"><code>llms-full.txt</code></a></td><td><a href="https://idss-mesa.github.io/mesa-clm/about/ai-agents/">For AI agents</a></td></tr>
+          <!-- subsites:end -->
         </tbody>
       </table>
     </div>

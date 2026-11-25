@@ -12,9 +12,9 @@ every concept under `okf/concepts/` carries YAML frontmatter with `type`,
 the OKF §8 bundle-root listing and `okf/log.md` the OKF §9 dated change log.
 
 `robots.txt` here is the only one crawlers honor on this origin, so it also
-governs the project sub-sites `/docs/` (repo `idss-mesa/docs`),
-`/neon-mcp/` (repo `idss-mesa/neon-mcp`), and `/trainings/` (repo
-`idss-mesa/trainings`), which are separate OKF bundles.
+governs the project sub-sites listed in `subsites.yml` (for example `/docs/`
+from `idss-mesa/docs` and `/trainings/` from `idss-mesa/trainings`), which
+are separate OKF bundles.
 
 ## Reading the corpus
 
@@ -32,7 +32,10 @@ governs the project sub-sites `/docs/` (repo `idss-mesa/docs`),
 pip install pyyaml
 python3 scripts/okf_validate.py okf      # OKF conformance (CI-enforced; 0 errors required)
 python3 scripts/gen_agent_surface.py     # regenerate llms.txt, llms-full.txt, sitemap.xml,
-                                         # about/ai-agents/index.md, and each page's okf:* head block
+                                         # about/ai-agents/index.md, each page's okf:* head block,
+                                         # and the subsites.yml blocks in robots.txt and the agent guide
+python3 scripts/discover_subsites.py     # add/drop sub-sites in subsites.yml (network; GITHUB_TOKEN optional)
+python3 scripts/answerability.py         # can each repo's docs/agent-questions.yml be answered from llms.txt? (network)
 python3 -m http.server                   # preview at http://localhost:8000
 ```
 
@@ -82,9 +85,12 @@ python3 -m http.server                   # preview at http://localhost:8000
     so a new page adds its link to the nav of every page. Check new layouts at phone width (~400px): below
     760px the page links drop to a second row and wrap.
 11. **A new sub-site** (a repository served under this origin, such as
-    `/docs/` or `/trainings/`) gets a `Website` concept, a bullet in
-    `okf/index.md`, an entry in `SUBSITES` in `scripts/gen_agent_surface.py`,
-    and a `Sitemap:` line and bundle pointer in `robots.txt`.
+    `/docs/` or `/trainings/`) gets an entry in `subsites.yml` (the weekly
+    "Discover sub-sites" workflow proposes one when the repository starts
+    publishing `llms.txt`), a concept with a bullet in `okf/index.md`, and a
+    run of `scripts/gen_agent_surface.py`, which writes its `llms.txt` links,
+    its `Sitemap:` line and bundle pointer in `robots.txt`, and its rows in the
+    agent guide's sub-site tables. Don't edit those generated blocks by hand.
 12. **robots.txt** stays fully permissive. Keep its AI-fetcher list aligned
     with the UNM-CARC/docs and neon-mcp lists, and keep the `Sitemap:` lines
     for the sub-sites.

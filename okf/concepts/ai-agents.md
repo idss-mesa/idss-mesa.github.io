@@ -61,7 +61,7 @@ Use this site to learn what MESA is; use the servers to get the data.
 
 | Endpoint | What you get |
 | -------- | ------------ |
-| <https://idss-mesa.github.io/robots.txt> | Crawl policy for the whole origin: fully permissive, with AI fetchers named explicitly. Crawlers read robots.txt only at the origin root,[^rfc9309] so this file also governs `/docs/`, `/neon-mcp/`, and `/trainings/` |
+| <https://idss-mesa.github.io/robots.txt> | Crawl policy for the whole origin: fully permissive, with AI fetchers named explicitly. Crawlers read robots.txt only at the origin root,[^rfc9309] so this file also governs every sub-site in the Sub-sites table below |
 | <https://idss-mesa.github.io/llms.txt> | Linked outline of every document with one-line descriptions ([llms.txt convention](https://llmstxt.org)[^llmstxt]) |
 | <https://idss-mesa.github.io/llms-full.txt> | The whole bundle in one file: every document's Markdown with frontmatter, each prefixed by its canonical URL |
 | <https://idss-mesa.github.io/okf/index.md> | The OKF bundle root: every concept, grouped by section. <https://idss-mesa.github.io/okf/log.md> is its dated change log |
@@ -102,14 +102,21 @@ without parsing frontmatter:
 
 ## Sub-sites
 
-Two documentation sites share this origin. Each is its own OKF v0.2 bundle
+These documentation sites share this origin. Each is its own OKF v0.2 bundle
 built with Zensical, and each serves every page's Markdown source at the page
 URL plus `index.md`.
 
+<!-- subsites:begin — generated from subsites.yml by scripts/gen_agent_surface.py; do not edit -->
 | Site | Outline | Full corpus | Agent guide |
 | ---- | ------- | ----------- | ----------- |
 | MESA MCP stack docs, <https://idss-mesa.github.io/docs/> | <https://idss-mesa.github.io/docs/llms.txt> | <https://idss-mesa.github.io/docs/llms-full.txt> | <https://idss-mesa.github.io/docs/about/ai-agents/> |
+| MESA Trainings, <https://idss-mesa.github.io/trainings/> | <https://idss-mesa.github.io/trainings/llms.txt> | <https://idss-mesa.github.io/trainings/llms-full.txt> | <https://idss-mesa.github.io/trainings/about/ai-agents/> |
 | neon-mcp docs, <https://idss-mesa.github.io/neon-mcp/> | <https://idss-mesa.github.io/neon-mcp/llms.txt> | <https://idss-mesa.github.io/neon-mcp/llms-full.txt> | <https://idss-mesa.github.io/neon-mcp/about/ai-agents/> |
+| ameriflux-mcp docs, <https://idss-mesa.github.io/ameriflux-mcp/> | <https://idss-mesa.github.io/ameriflux-mcp/llms.txt> | <https://idss-mesa.github.io/ameriflux-mcp/llms-full.txt> | <https://idss-mesa.github.io/ameriflux-mcp/about/ai-agents/> |
+| edi-mcp docs, <https://idss-mesa.github.io/edi-mcp/> | <https://idss-mesa.github.io/edi-mcp/llms.txt> | <https://idss-mesa.github.io/edi-mcp/llms-full.txt> | <https://idss-mesa.github.io/edi-mcp/about/ai-agents/> |
+| mesa-anyjev docs, <https://idss-mesa.github.io/mesa-anyjev/> | <https://idss-mesa.github.io/mesa-anyjev/llms.txt> | <https://idss-mesa.github.io/mesa-anyjev/llms-full.txt> | <https://idss-mesa.github.io/mesa-anyjev/about/ai-agents/> |
+| mesa-clm docs, <https://idss-mesa.github.io/mesa-clm/> | <https://idss-mesa.github.io/mesa-clm/llms.txt> | <https://idss-mesa.github.io/mesa-clm/llms-full.txt> | <https://idss-mesa.github.io/mesa-clm/about/ai-agents/> |
+<!-- subsites:end -->
 
 ## Reading the OKF frontmatter
 
