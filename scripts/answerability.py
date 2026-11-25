@@ -132,7 +132,7 @@ def crawl(start: str, max_depth: int, extra: dict[str, str]) -> dict[str, tuple[
                     seen.add(link)
                     nxt.append(link)
         if depth == 1 and extra:  # local docs link onward like published ones
-            for url, (_, text) in extra.items():
+            for url, text in extra.items():
                 for link in links(url, text):
                     if link not in seen:
                         seen.add(link)
