@@ -45,8 +45,8 @@ subsites:
     repo: mesa-mcp
     name: mesa-mcp docs
     outline: >-
-      the MCP server bridging the CyVerse Data Store with OBO/OLS ontology
-      AVU tools, DataCite metadata, and the mesa-ducklake AVU history
+      the MCP server bridging the CyVerse Data Store with OBO/OLS ontology AVU
+      tools, DataCite metadata, and the mesa-ducklake AVU history
     guide: true
     sitemap: true
   - path: neon-ducklake/
