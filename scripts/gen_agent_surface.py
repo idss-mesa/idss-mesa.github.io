@@ -50,17 +50,9 @@ PAGES = {
 # Twins also copied next to their page, where page URL + index.md serves them.
 MIRRORS = {"concepts/ai-agents.md": "about/ai-agents/index.md"}
 
-# The Zensical sub-sites on this origin, each its own OKF bundle.
-SUBSITES = [
-    ("MESA MCP stack docs", "docs/",
-     "one-line install of the CyVerse MESA MCP stack for Claude Code, Codex CLI, "
-     "Antigravity, and OpenCode"),
-    ("neon-mcp docs", "neon-mcp/",
-     "the MCP server for the NEON Data API: install, API token, tool catalogue, "
-     "and deployment"),
-    ("MESA Trainings", "trainings/",
-     "short, single-task tutorials for the MESA Portal and its apps"),
-]
+# The documentation sub-sites on this origin, each its own OKF bundle; see
+# subsites.yml (kept current by scripts/discover_subsites.py).
+SUBSITES_FILE = ROOT / "subsites.yml"
 RELATED = [
     ("CARC documentation", "https://carc.unm.edu/docs/llms.txt",
      "UNM Center for Advanced Research Computing user documentation, an OKF v0.2 "
@@ -188,7 +180,61 @@ def write(path: Path, text: str, changed: list[str]) -> None:
         changed.append(str(path.relative_to(ROOT)))
 
 
-def llms_txt(sections, concepts: dict) -> str:
+def load_subsites() -> list[dict]:
+    data = yaml.safe_load(SUBSITES_FILE.read_text(encoding="utf-8")) or {}
+    subs = data.get("subsites") or []
+    for s in subs:
+        missing = [k for k in ("path", "repo", "name", "outline") if not s.get(k)]
+        if missing:
+            raise SystemExit(f"subsites.yml: {s.get('path', '?')} lacks {', '.join(missing)}")
+        if not s["path"].endswith("/"):
+            raise SystemExit(f"subsites.yml: path {s['path']} needs a trailing slash")
+    return subs
+
+
+def replace_block(text: str, begin: str, end: str, body: str, where: str) -> str:
+    """Swap the lines between two marker lines; the markers stay."""
+    i, j = text.find(begin), text.find(end)
+    if i < 0 or j < i:
+        raise SystemExit(f"{where}: markers {begin!r} ... {end!r} not found")
+    i = text.index("\n", i) + 1
+    j = text.rfind("\n", 0, j) + 1  # keep the end marker's indentation
+    return text[:i] + body + text[j:]
+
+
+def robots_block(subsites: list[dict]) -> str:
+    return "".join(f"Sitemap: {BASE}{s['path']}sitemap.xml\n"
+                   for s in subsites if s.get("sitemap"))
+
+
+def robots_bundles(subsites: list[dict]) -> str:
+    return "".join(f"#     {BASE}{s['path']}llms.txt\n" for s in subsites)
+
+
+def agent_guide_table(subsites: list[dict]) -> str:
+    rows = ["| Site | Outline | Full corpus | Agent guide |",
+            "| ---- | ------- | ----------- | ----------- |"]
+    for s in subsites:
+        b = BASE + s["path"]
+        guide = f"<{b}about/ai-agents/>" if s.get("guide") else "—"
+        rows.append(f"| {s['name']}, <{b}> | <{b}llms.txt> | <{b}llms-full.txt> | {guide} |")
+    return "\n".join(rows) + "\n"
+
+
+def agent_guide_rows(subsites: list[dict]) -> str:
+    out = []
+    for s in subsites:
+        b = html.escape(BASE + s["path"], quote=True)
+        name, path = html.escape(s["name"]), html.escape("/" + s["path"])
+        guide = (f'<a href="{b}about/ai-agents/">For AI agents</a>' if s.get("guide") else "—")
+        out.append(f'          <tr><td><a href="{b}">{name}</a> <code>{path}</code></td>'
+                   f'<td><a href="{b}llms.txt"><code>llms.txt</code></a></td>'
+                   f'<td><a href="{b}llms-full.txt"><code>llms-full.txt</code></a></td>'
+                   f"<td>{guide}</td></tr>\n")
+    return "".join(out)
+
+
+def llms_txt(sections, concepts: dict, subsites: list[dict]) -> str:
     home = concepts[PAGES["index.html"]]
     lines = [
         "# MESA — Multidisciplinary Environment for Scientific Advancement",
@@ -225,14 +271,17 @@ def llms_txt(sections, concepts: dict) -> str:
             lines.append(entry)
         lines.append("")
     lines += ["## Sub-site bundles", ""]
-    for name, path, desc in SUBSITES:
+    for s in subsites:
+        name, path = s["name"], s["path"]
         lines += [
-            f"- [{name}: llms.txt]({BASE}{path}llms.txt): outline of {desc}",
+            f"- [{name}: llms.txt]({BASE}{path}llms.txt): outline of {sentence(s['outline'])[:-1]}",
             f"- [{name}: llms-full.txt]({BASE}{path}llms-full.txt): every page's Markdown "
             "with OKF frontmatter in one file",
-            f"- [{name}: agent guide]({BASE}{path}about/ai-agents/): endpoints and trust "
-            "signals; any page URL + index.md returns that page's Markdown",
         ]
+        if s.get("guide"):
+            lines.append(
+                f"- [{name}: agent guide]({BASE}{path}about/ai-agents/): endpoints and trust "
+                "signals; any page URL + index.md returns that page's Markdown")
     lines += ["", "## Related bundles", ""]
     lines += [f"- [{name}]({url}): {desc}" for name, url, desc in RELATED]
     lines += [
@@ -242,7 +291,7 @@ def llms_txt(sections, concepts: dict) -> str:
         f"- [OKF bundle index]({BASE}okf/index.md): the bundle root, every concept grouped by section",
         f"- [Bundle update log]({BASE}okf/log.md): dated history of changes to this bundle",
         f"- [robots.txt]({BASE}robots.txt): crawl policy for the whole origin, including "
-        "/docs/, /neon-mcp/, and /trainings/",
+        "every sub-site above",
     ]
     return "\n".join(lines).rstrip() + "\n"
 
@@ -295,8 +344,28 @@ def main() -> int:
         return 1
     order = [rel for _, items in sections for _, rel, _ in items]
 
+    subsites = load_subsites()
     changed: list[str] = []
-    write(ROOT / "llms.txt", llms_txt(sections, concepts), changed)
+    # Generated blocks inside hand-written files come first, so the corpus
+    # files below see the updated agent guide.
+    robots = ROOT / "robots.txt"
+    text = robots.read_text(encoding="utf-8")
+    text = replace_block(text, "# subsites:sitemaps:begin", "# subsites:sitemaps:end",
+                         robots_block(subsites), "robots.txt")
+    text = replace_block(text, "# subsites:bundles:begin", "# subsites:bundles:end",
+                         robots_bundles(subsites), "robots.txt")
+    write(robots, text, changed)
+    guide = BUNDLE / "concepts" / "ai-agents.md"
+    write(guide, replace_block(guide.read_text(encoding="utf-8"),
+                               "<!-- subsites:begin", "<!-- subsites:end",
+                               agent_guide_table(subsites), "okf/concepts/ai-agents.md"),
+          changed)
+    page = ROOT / "about" / "ai-agents" / "index.html"
+    write(page, replace_block(page.read_text(encoding="utf-8"),
+                              "<!-- subsites:begin", "<!-- subsites:end",
+                              agent_guide_rows(subsites), "about/ai-agents/index.html"),
+          changed)
+    write(ROOT / "llms.txt", llms_txt(sections, concepts, subsites), changed)
     write(ROOT / "llms-full.txt", llms_full_txt(order), changed)
     write(ROOT / "sitemap.xml", sitemap_xml(order, concepts), changed)
     for rel, mirror in MIRRORS.items():

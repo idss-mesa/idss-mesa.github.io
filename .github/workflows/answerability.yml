@@ -1,0 +1,43 @@
+name: Answerability
+
+# Weekly report: can each repository's docs/agent-questions.yml be answered
+# from documents an agent reaches by starting at https://idss-mesa.github.io/llms.txt?
+# It reads the live site, so it reports rather than gating pull requests.
+on:
+  schedule:
+    - cron: "41 14 * * 1"   # Mondays 14:41 UTC, after Discover sub-sites
+  workflow_dispatch:
+    inputs:
+      repos:
+        description: "Space-separated repositories (default: every sub-site plus the extra list below)"
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  answerability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: 3.x
+      - run: pip install pyyaml
+      - name: Check question banks
+        env:
+          # Repositories with a question bank but no sub-site of their own.
+          EXTRA_REPOS: mesa-ducklake
+          REPOS: ${{ github.event.inputs.repos }}
+        run: |
+          if [ -z "$REPOS" ]; then
+            REPOS="$(python -c 'import yaml;print(" ".join(s["repo"] for s in yaml.safe_load(open("subsites.yml"))["subsites"]))') $EXTRA_REPOS"
+          fi
+          args=""
+          for r in $REPOS; do args="$args --repo $r"; done
+          python scripts/answerability.py $args --json answerability.json
+      - uses: actions/upload-artifact@v7
+        with:
+          name: answerability
+          path: answerability.json

@@ -4,8 +4,8 @@
 # snippeting, and AI grounding of this content are all welcome.
 #
 # Crawlers read robots.txt only at the origin root, so this file governs
-# every path on idss-mesa.github.io, including the project sub-sites /docs/,
-# /neon-mcp/, and /trainings/ (their own robots.txt files are informational
+# every path on idss-mesa.github.io, including the project sub-sites listed
+# below and in subsites.yml (their own robots.txt files are informational
 # copies).
 
 User-agent: *
@@ -72,9 +72,17 @@ User-agent: MistralAI-User
 Allow: /
 
 Sitemap: https://idss-mesa.github.io/sitemap.xml
+# subsites:sitemaps:begin (generated from subsites.yml by scripts/gen_agent_surface.py)
 Sitemap: https://idss-mesa.github.io/docs/sitemap.xml
-Sitemap: https://idss-mesa.github.io/neon-mcp/sitemap.xml
 Sitemap: https://idss-mesa.github.io/trainings/sitemap.xml
+Sitemap: https://idss-mesa.github.io/neon-mcp/sitemap.xml
+Sitemap: https://idss-mesa.github.io/mesa-mcp/sitemap.xml
+Sitemap: https://idss-mesa.github.io/neon-ducklake/sitemap.xml
+Sitemap: https://idss-mesa.github.io/ameriflux-mcp/sitemap.xml
+Sitemap: https://idss-mesa.github.io/edi-mcp/sitemap.xml
+Sitemap: https://idss-mesa.github.io/mesa-anyjev/sitemap.xml
+Sitemap: https://idss-mesa.github.io/mesa-clm/sitemap.xml
+# subsites:sitemaps:end
 
 # AI agents and harnesses:
 #   Machine-readable outline:  https://idss-mesa.github.io/llms.txt
@@ -85,6 +93,14 @@ Sitemap: https://idss-mesa.github.io/trainings/sitemap.xml
 #   the page's <head>.
 #   Agent guide:               https://idss-mesa.github.io/about/ai-agents/
 #   Sub-site bundles (there, page URL + index.md returns its Markdown):
+# subsites:bundles:begin
 #     https://idss-mesa.github.io/docs/llms.txt
-#     https://idss-mesa.github.io/neon-mcp/llms.txt
 #     https://idss-mesa.github.io/trainings/llms.txt
+#     https://idss-mesa.github.io/neon-mcp/llms.txt
+#     https://idss-mesa.github.io/mesa-mcp/llms.txt
+#     https://idss-mesa.github.io/neon-ducklake/llms.txt
+#     https://idss-mesa.github.io/ameriflux-mcp/llms.txt
+#     https://idss-mesa.github.io/edi-mcp/llms.txt
+#     https://idss-mesa.github.io/mesa-anyjev/llms.txt
+#     https://idss-mesa.github.io/mesa-clm/llms.txt
+# subsites:bundles:end

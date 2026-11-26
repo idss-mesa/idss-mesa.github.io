@@ -1,0 +1,91 @@
+# Documentation sub-sites served under https://idss-mesa.github.io/<path>.
+#
+# Each is a repository in the idss-mesa organization that publishes its own
+# OKF v0.2 bundle with GitHub Pages, including llms.txt and llms-full.txt.
+# scripts/gen_agent_surface.py reads this file to write the "Sub-site
+# bundles" section of llms.txt, the Sitemap: lines and bundle pointers in
+# robots.txt, and the sub-site table in okf/concepts/ai-agents.md.
+#
+# scripts/discover_subsites.py adds repositories that start publishing an
+# llms.txt and flags entries whose llms.txt has gone (weekly, by the
+# "Discover sub-sites" workflow). It never rewrites `name` or `outline`, so
+# edit those by hand.
+#
+#   path      URL path under the origin, with a trailing slash
+#   repo      repository in idss-mesa
+#   name      link text in llms.txt
+#   outline   completes "outline of ..." in llms.txt
+#   guide     true when <path>about/ai-agents/ exists
+#   sitemap   true when <path>sitemap.xml exists
+
+subsites:
+  - path: docs/
+    repo: docs
+    name: MESA MCP stack docs
+    outline: >-
+      the MESA Portal and its featured apps, and the one-line install of the
+      MESA MCP stack for Claude Code, Codex CLI, Antigravity, and OpenCode
+    guide: true
+    sitemap: true
+  - path: trainings/
+    repo: trainings
+    name: MESA Trainings
+    outline: short, single-task tutorials for the MESA Portal and its apps
+    guide: true
+    sitemap: true
+  - path: neon-mcp/
+    repo: neon-mcp
+    name: neon-mcp docs
+    outline: >-
+      the MCP server for the NEON Data API: install, API token, tool
+      catalogue, and deployment
+    guide: true
+    sitemap: true
+  - path: mesa-mcp/
+    repo: mesa-mcp
+    name: mesa-mcp docs
+    outline: >-
+      the MCP server bridging the CyVerse Data Store with OBO/OLS ontology AVU
+      tools, DataCite metadata, and the mesa-ducklake AVU history
+    guide: true
+    sitemap: true
+  - path: neon-ducklake/
+    repo: neon-ducklake
+    name: neon-ducklake docs
+    outline: >-
+      the published NEON lakes (tables, columns, coverage, freshness, and
+      tested queries) and the pipeline that builds them
+    guide: true
+    sitemap: true
+  - path: ameriflux-mcp/
+    repo: ameriflux-mcp
+    name: ameriflux-mcp docs
+    outline: >-
+      the MCP server for AmeriFlux and FLUXNET eddy-covariance data: sites,
+      availability, variables and QC flags, data policies, and downloads
+    guide: true
+    sitemap: true
+  - path: edi-mcp/
+    repo: edi-mcp
+    name: edi-mcp docs
+    outline: >-
+      the MCP server for the Environmental Data Initiative (EDI) PASTA+
+      repository: search, inspect, and cite LTER and EDI data packages
+    guide: true
+    sitemap: true
+  - path: mesa-anyjev/
+    repo: mesa-anyjev
+    name: mesa-anyjev docs
+    outline: >-
+      declarative, calibrated ontology and schema decisions over mesa-mcp's
+      OBO/OLS tools, with a provenance sidecar beside the AVU history
+    guide: true
+    sitemap: true
+  - path: mesa-clm/
+    repo: mesa-clm
+    name: mesa-clm docs
+    outline: >-
+      calibrated, ontology-grounded AVU proposals with Contrastive LM (CLM),
+      with a provenance sidecar beside the AVU history
+    guide: true
+    sitemap: true

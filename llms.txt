@@ -30,10 +30,14 @@ MESA's software is a set of MCP servers: for scientific data, connect to them (t
 
 - [mesa-mcp](https://idss-mesa.github.io/okf/concepts/mesa-mcp.md): MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history. Canonical: https://github.com/idss-mesa/mesa-mcp
 - [mesa-ducklake](https://idss-mesa.github.io/okf/concepts/mesa-ducklake.md): AVU metadata-history library for MESA projects: a Postgres or DuckDB catalog plus one plain Parquet file per snapshot in each project's .mesa/ducklake/ collection (the DuckLake pattern, not the DuckDB ducklake extension). Canonical: https://github.com/idss-mesa/mesa-ducklake
+- [mesa-anyjev](https://idss-mesa.github.io/okf/concepts/mesa-anyjev.md): Declarative, calibrated ontology and schema decisions for the MESA stack: AnyJev typed decisions over mesa-mcp's OBO/OLS tools, each recorded in a provenance sidecar next to the mesa-ducklake AVU history. Canonical: https://github.com/idss-mesa/mesa-anyjev
+- [mesa-clm](https://idss-mesa.github.io/okf/concepts/mesa-clm.md): Calibrated, ontology-grounded AVU proposals for the MESA stack with Contrastive LM (CLM): rank-first decisions with an abstain anchor over mesa-mcp's OBO/OLS tools, each recorded in a provenance sidecar next to the mesa-ducklake AVU history. Canonical: https://github.com/idss-mesa/mesa-clm
 - [irods-mcp-server](https://idss-mesa.github.io/okf/concepts/irods-mcp-server.md): Reference MCP server for the CyVerse Data Store (iRODS), written in Go. Canonical: https://github.com/idss-mesa/irods-mcp-server
 - [Formation (hosted MCP server)](https://idss-mesa.github.io/okf/concepts/formation-mcp.md): CyVerse's hosted MCP server for the Discovery Environment at https://de.cyverse.org/formation/mcp: launch apps, manage analyses, and read and write Data Store files after signing in with a CyVerse account, from claude.ai, Claude Desktop, or Claude Code (Codex, OpenCode, and Antigravity can also be configured; their sign-in is not yet confirmed). Canonical: https://de.cyverse.org/formation/mcp
 - [neon-mcp](https://idss-mesa.github.io/okf/concepts/neon-mcp.md): MCP (2026-07-28) server for the NEON Data API: discover, check availability, list, download and cite NEON ecological data. Canonical: https://github.com/idss-mesa/neon-mcp
 - [neon-ducklake](https://idss-mesa.github.io/okf/concepts/neon-ducklake.md): NEON Data API metadata lakehouse and fully annotated NEON site data as one MESA project on the CyVerse Data Store, published read-only: DuckDB ducklake-extension lakes plus the project's mesa-ducklake AVU history. Canonical: https://github.com/idss-mesa/neon-ducklake
+- [ameriflux-mcp](https://idss-mesa.github.io/okf/concepts/ameriflux-mcp.md): MCP (2026-07-28) server for AmeriFlux and FLUXNET eddy-covariance data: find flux tower sites, check product and year availability, describe variables and QC flags, cite under the right data policy, download with consent, and preview files. Canonical: https://github.com/idss-mesa/ameriflux-mcp
+- [edi-mcp](https://idss-mesa.github.io/okf/concepts/edi-mcp.md): MCP (2026-07-28) server for the Environmental Data Initiative (EDI) PASTA+ repository: search, inspect, preview, download and cite LTER and EDI ecological data packages. Canonical: https://github.com/idss-mesa/edi-mcp
 - [mesa-sandbox](https://idss-mesa.github.io/okf/concepts/mesa-sandbox.md): AI sandboxes for CyVerse VICE: a sudo-free multi-arch image family, sandbox profiles P0–P4, an OpenBao credential broker and egress proxy, and agent-sandbox pods for autonomous agents. Canonical: https://github.com/idss-mesa/mesa-sandbox
 - [mesa-portal](https://idss-mesa.github.io/okf/concepts/mesa-portal.md): The MESA Portal at mesa.cyverse.org: a web portal for the CyVerse Data Store, Discovery Environment apps, and analyses, built on the CyVerse Terrain API. Canonical: https://github.com/idss-mesa/mesa-portal (private repository; not publicly readable)
 - [MESA CLI](https://idss-mesa.github.io/okf/concepts/cli.md): CyVerse Cloud Shell CLI with MESA tools. Canonical: https://github.com/idss-mesa/cli
@@ -45,15 +49,33 @@ MESA's software is a set of MCP servers: for scientific data, connect to them (t
 
 ## Sub-site bundles
 
-- [MESA MCP stack docs: llms.txt](https://idss-mesa.github.io/docs/llms.txt): outline of one-line install of the CyVerse MESA MCP stack for Claude Code, Codex CLI, Antigravity, and OpenCode
+- [MESA MCP stack docs: llms.txt](https://idss-mesa.github.io/docs/llms.txt): outline of the MESA Portal and its featured apps, and the one-line install of the MESA MCP stack for Claude Code, Codex CLI, Antigravity, and OpenCode
 - [MESA MCP stack docs: llms-full.txt](https://idss-mesa.github.io/docs/llms-full.txt): every page's Markdown with OKF frontmatter in one file
 - [MESA MCP stack docs: agent guide](https://idss-mesa.github.io/docs/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
-- [neon-mcp docs: llms.txt](https://idss-mesa.github.io/neon-mcp/llms.txt): outline of the MCP server for the NEON Data API: install, API token, tool catalogue, and deployment
-- [neon-mcp docs: llms-full.txt](https://idss-mesa.github.io/neon-mcp/llms-full.txt): every page's Markdown with OKF frontmatter in one file
-- [neon-mcp docs: agent guide](https://idss-mesa.github.io/neon-mcp/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
 - [MESA Trainings: llms.txt](https://idss-mesa.github.io/trainings/llms.txt): outline of short, single-task tutorials for the MESA Portal and its apps
 - [MESA Trainings: llms-full.txt](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with OKF frontmatter in one file
 - [MESA Trainings: agent guide](https://idss-mesa.github.io/trainings/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
+- [neon-mcp docs: llms.txt](https://idss-mesa.github.io/neon-mcp/llms.txt): outline of the MCP server for the NEON Data API: install, API token, tool catalogue, and deployment
+- [neon-mcp docs: llms-full.txt](https://idss-mesa.github.io/neon-mcp/llms-full.txt): every page's Markdown with OKF frontmatter in one file
+- [neon-mcp docs: agent guide](https://idss-mesa.github.io/neon-mcp/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
+- [mesa-mcp docs: llms.txt](https://idss-mesa.github.io/mesa-mcp/llms.txt): outline of the MCP server bridging the CyVerse Data Store with OBO/OLS ontology AVU tools, DataCite metadata, and the mesa-ducklake AVU history
+- [mesa-mcp docs: llms-full.txt](https://idss-mesa.github.io/mesa-mcp/llms-full.txt): every page's Markdown with OKF frontmatter in one file
+- [mesa-mcp docs: agent guide](https://idss-mesa.github.io/mesa-mcp/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
+- [neon-ducklake docs: llms.txt](https://idss-mesa.github.io/neon-ducklake/llms.txt): outline of the published NEON lakes (tables, columns, coverage, freshness, and tested queries) and the pipeline that builds them
+- [neon-ducklake docs: llms-full.txt](https://idss-mesa.github.io/neon-ducklake/llms-full.txt): every page's Markdown with OKF frontmatter in one file
+- [neon-ducklake docs: agent guide](https://idss-mesa.github.io/neon-ducklake/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
+- [ameriflux-mcp docs: llms.txt](https://idss-mesa.github.io/ameriflux-mcp/llms.txt): outline of the MCP server for AmeriFlux and FLUXNET eddy-covariance data: sites, availability, variables and QC flags, data policies, and downloads
+- [ameriflux-mcp docs: llms-full.txt](https://idss-mesa.github.io/ameriflux-mcp/llms-full.txt): every page's Markdown with OKF frontmatter in one file
+- [ameriflux-mcp docs: agent guide](https://idss-mesa.github.io/ameriflux-mcp/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
+- [edi-mcp docs: llms.txt](https://idss-mesa.github.io/edi-mcp/llms.txt): outline of the MCP server for the Environmental Data Initiative (EDI) PASTA+ repository: search, inspect, and cite LTER and EDI data packages
+- [edi-mcp docs: llms-full.txt](https://idss-mesa.github.io/edi-mcp/llms-full.txt): every page's Markdown with OKF frontmatter in one file
+- [edi-mcp docs: agent guide](https://idss-mesa.github.io/edi-mcp/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
+- [mesa-anyjev docs: llms.txt](https://idss-mesa.github.io/mesa-anyjev/llms.txt): outline of declarative, calibrated ontology and schema decisions over mesa-mcp's OBO/OLS tools, with a provenance sidecar beside the AVU history
+- [mesa-anyjev docs: llms-full.txt](https://idss-mesa.github.io/mesa-anyjev/llms-full.txt): every page's Markdown with OKF frontmatter in one file
+- [mesa-anyjev docs: agent guide](https://idss-mesa.github.io/mesa-anyjev/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
+- [mesa-clm docs: llms.txt](https://idss-mesa.github.io/mesa-clm/llms.txt): outline of calibrated, ontology-grounded AVU proposals with Contrastive LM (CLM), with a provenance sidecar beside the AVU history
+- [mesa-clm docs: llms-full.txt](https://idss-mesa.github.io/mesa-clm/llms-full.txt): every page's Markdown with OKF frontmatter in one file
+- [mesa-clm docs: agent guide](https://idss-mesa.github.io/mesa-clm/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
 
 ## Related bundles
 
@@ -65,4 +87,4 @@ MESA's software is a set of MCP servers: for scientific data, connect to them (t
 
 - [OKF bundle index](https://idss-mesa.github.io/okf/index.md): the bundle root, every concept grouped by section
 - [Bundle update log](https://idss-mesa.github.io/okf/log.md): dated history of changes to this bundle
-- [robots.txt](https://idss-mesa.github.io/robots.txt): crawl policy for the whole origin, including /docs/, /neon-mcp/, and /trainings/
+- [robots.txt](https://idss-mesa.github.io/robots.txt): crawl policy for the whole origin, including every sub-site above

@@ -12,10 +12,10 @@ Advancement, an open-source, agentic AI platform for scientific data (NSF
 IDSS Category II, University of New Mexico). Each page of
 <https://idss-mesa.github.io/> has a concept here that is its Markdown twin.
 
-All content on this origin, including the
-[/docs/](https://idss-mesa.github.io/docs/),
-[/neon-mcp/](https://idss-mesa.github.io/neon-mcp/), and
-[/trainings/](https://idss-mesa.github.io/trainings/) sub-sites, is open to AI
+All content on this origin, including the documentation sub-sites listed
+in <https://idss-mesa.github.io/llms.txt> (such as
+[/docs/](https://idss-mesa.github.io/docs/) and
+[/trainings/](https://idss-mesa.github.io/trainings/)), is open to AI
 crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 [For AI agents](concepts/ai-agents.md); the whole bundle in one file is
 <https://idss-mesa.github.io/llms-full.txt>. Related bundles:
@@ -40,10 +40,14 @@ crawlers under <https://idss-mesa.github.io/robots.txt>. The agent guide is
 # Software
 * [mesa-mcp](concepts/mesa-mcp.md) - MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history
 * [mesa-ducklake](concepts/mesa-ducklake.md) - AVU metadata-history library for MESA projects: a Postgres or DuckDB catalog plus one plain Parquet file per snapshot in each project's .mesa/ducklake/ collection (the DuckLake pattern, not the DuckDB ducklake extension)
+* [mesa-anyjev](concepts/mesa-anyjev.md) - Declarative, calibrated ontology and schema decisions for the MESA stack: AnyJev typed decisions over mesa-mcp's OBO/OLS tools, each recorded in a provenance sidecar next to the mesa-ducklake AVU history
+* [mesa-clm](concepts/mesa-clm.md) - Calibrated, ontology-grounded AVU proposals for the MESA stack with Contrastive LM (CLM): rank-first decisions with an abstain anchor over mesa-mcp's OBO/OLS tools, each recorded in a provenance sidecar next to the mesa-ducklake AVU history
 * [irods-mcp-server](concepts/irods-mcp-server.md) - Reference MCP server for the CyVerse Data Store (iRODS), written in Go
 * [Formation (hosted MCP server)](concepts/formation-mcp.md) - CyVerse's hosted MCP server for the Discovery Environment at https://de.cyverse.org/formation/mcp: launch apps, manage analyses, and read and write Data Store files after signing in with a CyVerse account, from claude.ai, Claude Desktop, or Claude Code (Codex, OpenCode, and Antigravity can also be configured; their sign-in is not yet confirmed)
 * [neon-mcp](concepts/neon-mcp.md) - MCP (2026-07-28) server for the NEON Data API: discover, check availability, list, download and cite NEON ecological data
 * [neon-ducklake](concepts/neon-ducklake.md) - NEON Data API metadata lakehouse and fully annotated NEON site data as one MESA project on the CyVerse Data Store, published read-only: DuckDB ducklake-extension lakes plus the project's mesa-ducklake AVU history
+* [ameriflux-mcp](concepts/ameriflux-mcp.md) - MCP (2026-07-28) server for AmeriFlux and FLUXNET eddy-covariance data: find flux tower sites, check product and year availability, describe variables and QC flags, cite under the right data policy, download with consent, and preview files
+* [edi-mcp](concepts/edi-mcp.md) - MCP (2026-07-28) server for the Environmental Data Initiative (EDI) PASTA+ repository: search, inspect, preview, download and cite LTER and EDI ecological data packages
 * [mesa-sandbox](concepts/mesa-sandbox.md) - AI sandboxes for CyVerse VICE: a sudo-free multi-arch image family, sandbox profiles P0–P4, an OpenBao credential broker and egress proxy, and agent-sandbox pods for autonomous agents
 * [mesa-portal](concepts/mesa-portal.md) - The MESA Portal at mesa.cyverse.org: a web portal for the CyVerse Data Store, Discovery Environment apps, and analyses, built on the CyVerse Terrain API
 * [MESA CLI](concepts/cli.md) - CyVerse Cloud Shell CLI with MESA tools
