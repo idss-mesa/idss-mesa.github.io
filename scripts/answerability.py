@@ -30,6 +30,9 @@ Question bank (docs/agent-questions.yml):
         - ['checksum']                   # (Python regex, case-insensitive)
       where: docs/dev/architecture.md    # page meant to answer it
 
+An llms-full.txt corpus is split at its "---8<--- <url>" markers and each
+page is matched on its own. The report says whether the matching page is the
+question's `where` page; "no" usually means the must_find groups are loose.
 A pass means the facts are reachable, not that an agent will find them; the
 reference answers exist so an LLM-graded run can be added on top.
 
@@ -115,9 +118,35 @@ def links(url: str, text: str) -> set[str]:
     return {n for u in out if (n := normalize(u))}
 
 
+CUT_RE = re.compile(r"^---8<--- (\S+)[ \t]*$", re.MULTILINE)
+
+
+def pages(url: str, text: str) -> list[tuple[str, str]]:
+    """Split an llms-full.txt corpus into its pages, so that a question's facts
+    must come from one page and not from unrelated pages joined in one file.
+    Each page is keyed by the Markdown URL an agent would fetch for it."""
+    if not url.endswith("llms-full.txt") or not CUT_RE.search(text):
+        return [(url, text)]
+    cuts = list(CUT_RE.finditer(text))
+    out = []
+    for i, m in enumerate(cuts):
+        end = cuts[i + 1].start() if i + 1 < len(cuts) else len(text)
+        page = m[1] + "index.md" if m[1].endswith("/") else m[1]
+        out.append((page, text[m.end():end]))
+    return out
+
+
 def crawl(start: str, max_depth: int, extra: dict[str, str]) -> dict[str, tuple[int, str]]:
     """BFS from start; returns url -> (depth, text). `extra` docs sit at depth 2."""
-    docs: dict[str, tuple[int, str]] = {u: (2, t) for u, t in extra.items()}
+    docs: dict[str, tuple[int, str]] = {}
+
+    def add(url: str, depth: int, text: str) -> None:
+        for page, body in pages(url, text):
+            if page not in docs or depth < docs[page][0]:
+                docs[page] = (depth, body)
+
+    for u, t in extra.items():
+        add(u, 2, t)
     frontier, seen = [start], {start, *extra}
     for depth in range(max_depth + 1):
         with ThreadPoolExecutor(max_workers=8) as pool:
@@ -126,7 +155,7 @@ def crawl(start: str, max_depth: int, extra: dict[str, str]) -> dict[str, tuple[
         for url, text in zip(frontier, texts):
             if text is None:
                 continue
-            docs[url] = (depth, text)
+            add(url, depth, text)
             for link in links(url, text):
                 if link not in seen:
                     seen.add(link)
@@ -171,15 +200,30 @@ def load_bank(ref: str) -> tuple[str, dict]:
     return ref, bank
 
 
-def answer(q: dict, docs: dict[str, tuple[int, str]]) -> tuple[str | None, int | None]:
+def is_where(url: str, where: str | None) -> bool:
+    """Is url the published (or raw) form of the bank's `where` page?"""
+    if not where:
+        return False
+    rel = where[len("docs/"):] if where.startswith("docs/") else where
+    forms = ["/" + rel]
+    if rel.endswith(".md") and not rel.endswith("index.md"):
+        forms.append("/" + rel[: -len(".md")] + "/index.md")
+    return any(url.endswith(f) for f in forms)
+
+
+def answer(q: dict, docs: dict[str, tuple[int, str]]) -> tuple[str | None, int | None, bool]:
+    """Best matching page: the `where` page if it matches, else the shallowest."""
     groups = [[re.compile(p, re.I) for p in (g if isinstance(g, list) else [g])]
               for g in q["must_find"]]
     best = None
     for url, (depth, text) in docs.items():
         if all(any(p.search(text) for p in g) for g in groups):
-            if best is None or depth < best[1]:
-                best = (url, depth)
-    return best if best else (None, None)
+            key = (not is_where(url, q.get("where")), depth)
+            if best is None or key < best[0]:
+                best = (key, url, depth)
+    if best is None:
+        return None, None, False
+    return best[1], best[2], not best[0][0]
 
 
 def local_docs(spec: str) -> dict[str, str]:
@@ -227,24 +271,27 @@ def main() -> int:
     extra: dict[str, str] = {}
     for spec in args.assume_published:
         extra.update(local_docs(spec))
+    local_prefixes = tuple(f"{BASE}{s.partition('=')[0]}/" for s in args.assume_published)
     docs = crawl(HUB, args.max_depth, extra)
     print(f"crawled {len(docs)} documents from {HUB} (max depth {args.max_depth}"
           + (f", {len(extra)} local docs assumed published" if extra else "") + ")")
 
     results, misses = [], 0
-    lines = ["| repo | id | kind | result | depth | document |", "|---|---|---|---|---|---|"]
+    lines = ["| repo | id | kind | result | depth | where page | document |",
+             "|---|---|---|---|---|---|---|"]
     for ref, bank in banks:
         repo = bank.get("repo", ref)
         for q in bank["questions"]:
-            url, depth = answer(q, docs)
+            url, depth, on_where = answer(q, docs)
             ok = url is not None
             misses += not ok
-            local = " (local)" if url in extra else ""
+            local = " (local)" if url and url.startswith(local_prefixes) else ""
             results.append({"repo": repo, "id": q["id"], "kind": q["kind"], "q": q["q"],
                             "pass": ok, "depth": depth, "document": url,
-                            "where": q.get("where")})
+                            "where": q.get("where"), "on_where_page": on_where})
             lines.append(f"| {repo} | {q['id']} | {q['kind']} | {'pass' if ok else 'MISS'} | "
-                         f"{'' if depth is None else depth} | {(url or '') + local} |")
+                         f"{'' if depth is None else depth} | {'yes' if on_where else ('no' if ok else '')} | "
+                         f"{(url or '') + local} |")
     total = len(results)
     by = {}
     for r in results:

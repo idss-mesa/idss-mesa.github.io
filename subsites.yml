@@ -41,6 +41,22 @@ subsites:
       catalogue, and deployment
     guide: true
     sitemap: true
+  - path: mesa-mcp/
+    repo: mesa-mcp
+    name: mesa-mcp docs
+    outline: >-
+      the MCP server bridging the CyVerse Data Store with OBO/OLS ontology
+      AVU tools, DataCite metadata, and the mesa-ducklake AVU history
+    guide: true
+    sitemap: true
+  - path: neon-ducklake/
+    repo: neon-ducklake
+    name: neon-ducklake docs
+    outline: >-
+      the published NEON lakes (tables, columns, coverage, freshness, and
+      tested queries) and the pipeline that builds them
+    guide: true
+    sitemap: true
   - path: ameriflux-mcp/
     repo: ameriflux-mcp
     name: ameriflux-mcp docs

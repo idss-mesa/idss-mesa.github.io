@@ -1,6 +1,7 @@
 # Bundle Update Log
 
 ## 2026-11-24
+* **Update**: [mesa-mcp](concepts/mesa-mcp.md) and [neon-ducklake](concepts/neon-ducklake.md) link their new documentation sub-sites (`/mesa-mcp/` and `/neon-ducklake/`), which are listed in `subsites.yml`; the mesa-mcp concept was rewritten with `sources` and a summary of its tools.
 * **Creation**: Added [ameriflux-mcp](concepts/ameriflux-mcp.md), [edi-mcp](concepts/edi-mcp.md), [mesa-anyjev](concepts/mesa-anyjev.md), and [mesa-clm](concepts/mesa-clm.md). Each already published its own OKF bundle under this origin, but nothing here linked to it, so an agent starting at `llms.txt` could not reach it.
 * **Update**: The sub-sites are now listed in `subsites.yml`, not in `scripts/gen_agent_surface.py`. The generator writes the "Sub-site bundles" section of `llms.txt`, the `Sitemap:` lines and bundle pointers in `robots.txt`, and the sub-site tables in [For AI agents](concepts/ai-agents.md) and its page from that file. `scripts/discover_subsites.py`, run weekly by the "Discover sub-sites" workflow, adds repositories that start publishing an `llms.txt` and drops ones that stop.
 * **Creation**: `scripts/answerability.py` crawls outward from `llms.txt` and checks that each repository's question bank (`docs/agent-questions.yml`) can be answered from documents an agent can reach. The "Answerability" workflow runs it weekly.

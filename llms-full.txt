@@ -641,6 +641,8 @@ URL plus `index.md`.
 | MESA MCP stack docs, <https://idss-mesa.github.io/docs/> | <https://idss-mesa.github.io/docs/llms.txt> | <https://idss-mesa.github.io/docs/llms-full.txt> | <https://idss-mesa.github.io/docs/about/ai-agents/> |
 | MESA Trainings, <https://idss-mesa.github.io/trainings/> | <https://idss-mesa.github.io/trainings/llms.txt> | <https://idss-mesa.github.io/trainings/llms-full.txt> | <https://idss-mesa.github.io/trainings/about/ai-agents/> |
 | neon-mcp docs, <https://idss-mesa.github.io/neon-mcp/> | <https://idss-mesa.github.io/neon-mcp/llms.txt> | <https://idss-mesa.github.io/neon-mcp/llms-full.txt> | <https://idss-mesa.github.io/neon-mcp/about/ai-agents/> |
+| mesa-mcp docs, <https://idss-mesa.github.io/mesa-mcp/> | <https://idss-mesa.github.io/mesa-mcp/llms.txt> | <https://idss-mesa.github.io/mesa-mcp/llms-full.txt> | <https://idss-mesa.github.io/mesa-mcp/about/ai-agents/> |
+| neon-ducklake docs, <https://idss-mesa.github.io/neon-ducklake/> | <https://idss-mesa.github.io/neon-ducklake/llms.txt> | <https://idss-mesa.github.io/neon-ducklake/llms-full.txt> | <https://idss-mesa.github.io/neon-ducklake/about/ai-agents/> |
 | ameriflux-mcp docs, <https://idss-mesa.github.io/ameriflux-mcp/> | <https://idss-mesa.github.io/ameriflux-mcp/llms.txt> | <https://idss-mesa.github.io/ameriflux-mcp/llms-full.txt> | <https://idss-mesa.github.io/ameriflux-mcp/about/ai-agents/> |
 | edi-mcp docs, <https://idss-mesa.github.io/edi-mcp/> | <https://idss-mesa.github.io/edi-mcp/llms.txt> | <https://idss-mesa.github.io/edi-mcp/llms-full.txt> | <https://idss-mesa.github.io/edi-mcp/about/ai-agents/> |
 | mesa-anyjev docs, <https://idss-mesa.github.io/mesa-anyjev/> | <https://idss-mesa.github.io/mesa-anyjev/llms.txt> | <https://idss-mesa.github.io/mesa-anyjev/llms-full.txt> | <https://idss-mesa.github.io/mesa-anyjev/about/ai-agents/> |
@@ -830,22 +832,48 @@ type: Software Repository
 title: "mesa-mcp"
 description: "MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history"
 resource: https://github.com/idss-mesa/mesa-mcp
-tags: [software]
+tags: [software, mcp, irods, ontology, metadata, python]
 status: stable
-generated: { by: "claude-code/claude-fable-5", at: "2026-08-30T00:00:00Z" }
+generated: { by: "claude/opus-5.5", at: "2026-11-26T00:00:00Z" }
+sources:
+  - id: mesa-mcp-repo
+    resource: https://github.com/idss-mesa/mesa-mcp
+    title: "idss-mesa/mesa-mcp repository"
+    author: "team:idss-mesa"
+  - id: mesa-mcp-docs
+    resource: https://idss-mesa.github.io/mesa-mcp/
+    title: "mesa-mcp documentation"
+    author: "team:idss-mesa"
 ---
 
 # mesa-mcp
 
-MCP server bridging the CyVerse Data Store (iRODS) with OBO/OLS ontology AVU tools, DataCite metadata, and DuckLake metadata history.
+A Model Context Protocol server that bridges the CyVerse Data Store (iRODS)
+with OBO/OLS ontology tools.[^mesa-mcp-repo] It reads and writes Data Store
+files, AVU metadata and tickets; turns ontology terms into AVUs (the
+attribute is `<ontology>.<label>`, the unit is the term's CURIE); exports
+and validates DataCite records stored as `datacite.*` AVUs; and mirrors every
+AVU change it makes into the project's history through
+[mesa-ducklake](mesa-ducklake.md), which it imports in-process. The history
+tools are `mesa_ducklake_init_project`, `mesa_ducklake_history` and
+`mesa_ducklake_time_travel`. It runs over stdio or HTTP.
+
+Documentation, published as its own OKF v0.2 bundle, is at
+<https://idss-mesa.github.io/mesa-mcp/>:[^mesa-mcp-docs]
+
+- Outline: <https://idss-mesa.github.io/mesa-mcp/llms.txt>
+- Full corpus: <https://idss-mesa.github.io/mesa-mcp/llms-full.txt>
+- Agent guide: <https://idss-mesa.github.io/mesa-mcp/about/ai-agents/>
+
+For Data Store files and metadata, connect to the server and call its tools
+rather than reading the documentation.
 
 Part of MESA (Multidisciplinary Environment for Scientific Advancement),
-an NSF IDSS Category II project at the University of New Mexico. Canonical
-resource: <https://github.com/idss-mesa/mesa-mcp>. Organization: <https://github.com/idss-mesa>.
+an NSF IDSS Category II project at the University of New Mexico; see
+[MESA](home.md). Organization: <https://github.com/idss-mesa>.
 
-Agentic AI crawlers are welcome to read all content on this origin; see
-the site-wide permissive policy in <https://idss-mesa.github.io/robots.txt>
-and the agent guide at <https://idss-mesa.github.io/about/ai-agents/>.
+[^mesa-mcp-repo]: idss-mesa/mesa-mcp repository
+[^mesa-mcp-docs]: mesa-mcp documentation
 
 ---8<--- https://idss-mesa.github.io/okf/concepts/mesa-ducklake.md
 
@@ -1131,7 +1159,7 @@ resource: https://github.com/idss-mesa/neon-ducklake
 tags: [software, dataset, neon, ecology, ducklake, irods, python]
 status: stable
 stale_after: "2027-05-24T00:00:00Z"
-generated: { by: "claude/opus-5.5", at: "2026-11-24T00:00:00Z" }
+generated: { by: "claude/opus-5.5", at: "2026-11-26T00:00:00Z" }
 sources:
   - id: neon-ducklake-repo
     resource: https://github.com/idss-mesa/neon-ducklake
@@ -1140,6 +1168,10 @@ sources:
   - id: neon-ducklake-collection
     resource: https://data.cyverse.org/dav-anon/iplant/home/tswetnam/neon-ducklake/
     title: "neon-ducklake project collection on the CyVerse Data Store (anonymous read)"
+    author: "team:idss-mesa"
+  - id: neon-ducklake-docs
+    resource: https://idss-mesa.github.io/neon-ducklake/
+    title: "neon-ducklake documentation"
     author: "team:idss-mesa"
 ---
 
@@ -1176,12 +1208,20 @@ examples.
 For live NEON data rather than this snapshot of it, use
 [neon-mcp](neon-mcp.md).
 
+Documentation, published as its own OKF v0.2 bundle, is at
+<https://idss-mesa.github.io/neon-ducklake/>:[^neon-ducklake-docs]
+
+- Outline: <https://idss-mesa.github.io/neon-ducklake/llms.txt>
+- Full corpus: <https://idss-mesa.github.io/neon-ducklake/llms-full.txt>
+- Agent guide: <https://idss-mesa.github.io/neon-ducklake/about/ai-agents/>
+
 Part of MESA (Multidisciplinary Environment for Scientific Advancement),
 an NSF IDSS Category II project at the University of New Mexico; see
 [MESA](home.md). Organization: <https://github.com/idss-mesa>.
 
 [^neon-ducklake-repo]: idss-mesa/neon-ducklake repository
 [^neon-ducklake-collection]: neon-ducklake project collection on the CyVerse Data Store (anonymous read)
+[^neon-ducklake-docs]: neon-ducklake documentation
 
 ---8<--- https://idss-mesa.github.io/okf/concepts/ameriflux-mcp.md
 
@@ -1661,6 +1701,7 @@ an NSF IDSS Category II project at the University of New Mexico; see
 # Bundle Update Log
 
 ## 2026-11-24
+* **Update**: [mesa-mcp](concepts/mesa-mcp.md) and [neon-ducklake](concepts/neon-ducklake.md) link their new documentation sub-sites (`/mesa-mcp/` and `/neon-ducklake/`), which are listed in `subsites.yml`; the mesa-mcp concept was rewritten with `sources` and a summary of its tools.
 * **Creation**: Added [ameriflux-mcp](concepts/ameriflux-mcp.md), [edi-mcp](concepts/edi-mcp.md), [mesa-anyjev](concepts/mesa-anyjev.md), and [mesa-clm](concepts/mesa-clm.md). Each already published its own OKF bundle under this origin, but nothing here linked to it, so an agent starting at `llms.txt` could not reach it.
 * **Update**: The sub-sites are now listed in `subsites.yml`, not in `scripts/gen_agent_surface.py`. The generator writes the "Sub-site bundles" section of `llms.txt`, the `Sitemap:` lines and bundle pointers in `robots.txt`, and the sub-site tables in [For AI agents](concepts/ai-agents.md) and its page from that file. `scripts/discover_subsites.py`, run weekly by the "Discover sub-sites" workflow, adds repositories that start publishing an `llms.txt` and drops ones that stop.
 * **Creation**: `scripts/answerability.py` crawls outward from `llms.txt` and checks that each repository's question bank (`docs/agent-questions.yml`) can be answered from documents an agent can reach. The "Answerability" workflow runs it weekly.

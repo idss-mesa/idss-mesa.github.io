@@ -76,6 +76,8 @@ Sitemap: https://idss-mesa.github.io/sitemap.xml
 Sitemap: https://idss-mesa.github.io/docs/sitemap.xml
 Sitemap: https://idss-mesa.github.io/trainings/sitemap.xml
 Sitemap: https://idss-mesa.github.io/neon-mcp/sitemap.xml
+Sitemap: https://idss-mesa.github.io/mesa-mcp/sitemap.xml
+Sitemap: https://idss-mesa.github.io/neon-ducklake/sitemap.xml
 Sitemap: https://idss-mesa.github.io/ameriflux-mcp/sitemap.xml
 Sitemap: https://idss-mesa.github.io/edi-mcp/sitemap.xml
 Sitemap: https://idss-mesa.github.io/mesa-anyjev/sitemap.xml
@@ -95,6 +97,8 @@ Sitemap: https://idss-mesa.github.io/mesa-clm/sitemap.xml
 #     https://idss-mesa.github.io/docs/llms.txt
 #     https://idss-mesa.github.io/trainings/llms.txt
 #     https://idss-mesa.github.io/neon-mcp/llms.txt
+#     https://idss-mesa.github.io/mesa-mcp/llms.txt
+#     https://idss-mesa.github.io/neon-ducklake/llms.txt
 #     https://idss-mesa.github.io/ameriflux-mcp/llms.txt
 #     https://idss-mesa.github.io/edi-mcp/llms.txt
 #     https://idss-mesa.github.io/mesa-anyjev/llms.txt

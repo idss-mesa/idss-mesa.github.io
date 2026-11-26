@@ -6,7 +6,7 @@ resource: https://github.com/idss-mesa/neon-ducklake
 tags: [software, dataset, neon, ecology, ducklake, irods, python]
 status: stable
 stale_after: "2027-05-24T00:00:00Z"
-generated: { by: "claude/opus-5.5", at: "2026-11-24T00:00:00Z" }
+generated: { by: "claude/opus-5.5", at: "2026-11-26T00:00:00Z" }
 sources:
   - id: neon-ducklake-repo
     resource: https://github.com/idss-mesa/neon-ducklake
@@ -15,6 +15,10 @@ sources:
   - id: neon-ducklake-collection
     resource: https://data.cyverse.org/dav-anon/iplant/home/tswetnam/neon-ducklake/
     title: "neon-ducklake project collection on the CyVerse Data Store (anonymous read)"
+    author: "team:idss-mesa"
+  - id: neon-ducklake-docs
+    resource: https://idss-mesa.github.io/neon-ducklake/
+    title: "neon-ducklake documentation"
     author: "team:idss-mesa"
 ---
 
@@ -51,9 +55,17 @@ examples.
 For live NEON data rather than this snapshot of it, use
 [neon-mcp](neon-mcp.md).
 
+Documentation, published as its own OKF v0.2 bundle, is at
+<https://idss-mesa.github.io/neon-ducklake/>:[^neon-ducklake-docs]
+
+- Outline: <https://idss-mesa.github.io/neon-ducklake/llms.txt>
+- Full corpus: <https://idss-mesa.github.io/neon-ducklake/llms-full.txt>
+- Agent guide: <https://idss-mesa.github.io/neon-ducklake/about/ai-agents/>
+
 Part of MESA (Multidisciplinary Environment for Scientific Advancement),
 an NSF IDSS Category II project at the University of New Mexico; see
 [MESA](home.md). Organization: <https://github.com/idss-mesa>.
 
 [^neon-ducklake-repo]: idss-mesa/neon-ducklake repository
 [^neon-ducklake-collection]: neon-ducklake project collection on the CyVerse Data Store (anonymous read)
+[^neon-ducklake-docs]: neon-ducklake documentation

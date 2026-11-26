@@ -58,6 +58,12 @@ MESA's software is a set of MCP servers: for scientific data, connect to them (t
 - [neon-mcp docs: llms.txt](https://idss-mesa.github.io/neon-mcp/llms.txt): outline of the MCP server for the NEON Data API: install, API token, tool catalogue, and deployment
 - [neon-mcp docs: llms-full.txt](https://idss-mesa.github.io/neon-mcp/llms-full.txt): every page's Markdown with OKF frontmatter in one file
 - [neon-mcp docs: agent guide](https://idss-mesa.github.io/neon-mcp/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
+- [mesa-mcp docs: llms.txt](https://idss-mesa.github.io/mesa-mcp/llms.txt): outline of the MCP server bridging the CyVerse Data Store with OBO/OLS ontology AVU tools, DataCite metadata, and the mesa-ducklake AVU history
+- [mesa-mcp docs: llms-full.txt](https://idss-mesa.github.io/mesa-mcp/llms-full.txt): every page's Markdown with OKF frontmatter in one file
+- [mesa-mcp docs: agent guide](https://idss-mesa.github.io/mesa-mcp/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
+- [neon-ducklake docs: llms.txt](https://idss-mesa.github.io/neon-ducklake/llms.txt): outline of the published NEON lakes (tables, columns, coverage, freshness, and tested queries) and the pipeline that builds them
+- [neon-ducklake docs: llms-full.txt](https://idss-mesa.github.io/neon-ducklake/llms-full.txt): every page's Markdown with OKF frontmatter in one file
+- [neon-ducklake docs: agent guide](https://idss-mesa.github.io/neon-ducklake/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
 - [ameriflux-mcp docs: llms.txt](https://idss-mesa.github.io/ameriflux-mcp/llms.txt): outline of the MCP server for AmeriFlux and FLUXNET eddy-covariance data: sites, availability, variables and QC flags, data policies, and downloads
 - [ameriflux-mcp docs: llms-full.txt](https://idss-mesa.github.io/ameriflux-mcp/llms-full.txt): every page's Markdown with OKF frontmatter in one file
 - [ameriflux-mcp docs: agent guide](https://idss-mesa.github.io/ameriflux-mcp/about/ai-agents/): endpoints and trust signals; any page URL + index.md returns that page's Markdown
